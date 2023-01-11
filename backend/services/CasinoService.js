@@ -69,7 +69,6 @@ class CasinoService {
     try {
       const collection = await this.getCasinoCollection()
       const casinos = await collection.find().sort({ ranking: 1 }).toArray()
-      console.log(casinos)
 
       return this.createResponse(responseStatusType.OK, 'Casinos retrieved', [], casinos.slice(3))
     } catch (e) {
