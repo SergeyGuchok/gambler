@@ -44,7 +44,7 @@ const optionsStyles = {
   marginBottom: 1,
 };
 
-export default forwardRef((props, ref) => {
+const CasinoModal = forwardRef((props, ref) => {
   if (!props.data) return;
   const {
     pros, cons, about, imageSrc,
@@ -100,3 +100,7 @@ export default forwardRef((props, ref) => {
     </Box>
   );
 });
+
+CasinoModal.displayName = 'CasinoModal'
+
+export default CasinoModal
