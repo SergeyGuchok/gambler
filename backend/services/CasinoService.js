@@ -46,9 +46,9 @@ class CasinoService {
   async getCasinosByCategory (category) {
     try {
       const collection = await this.getCasinoCollection()
-      const casinos = await collection.find().toArray()
+      const casinos = await collection.find({ page_category: category }).sort({ ranking: 1 }).toArray()
 
-      return this.createResponse(responseStatusType.OK, 'Casinos retrieved', [], casinos.filter((c) => c.mainCategory.toLowerCase() === category.toLowerCase()))
+      return this.createResponse(responseStatusType.OK, 'Casinos retrieved', [], casinos)
     } catch (e) {
       return this.createResponse(responseStatusType.FAIL, 'Something went wrong',  [e])
     }

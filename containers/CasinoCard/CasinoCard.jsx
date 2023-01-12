@@ -52,11 +52,11 @@ export default function CasinoCard({
   mainCategory = 'Crypto',
   payoutTime = [],
   refLink,
-  ranking,
   winRate,
   paymentOptions = [],
   openModal,
   setModalData,
+  index,
 }) {
   const [flipped, setFlipped] = useState(false);
   const handleModalOpen = () => {
@@ -69,7 +69,7 @@ export default function CasinoCard({
   if (type === 'vertical') {
     return (
       <Column sx={sxColumn}>
-        <CardNumber number={ranking} />
+        <CardNumber number={index} />
         <CasinoImage imageSrc={imageSrc} />
         <HorizontalContent
           flipped={flipped}
@@ -92,7 +92,7 @@ export default function CasinoCard({
 
   return (
     <Row sx={sxRow}>
-      <CardNumber number={ranking} />
+      <CardNumber number={index} />
       <CasinoImage isRow imageSrc={imageSrc} />
       <VerticalContent
         flipped={flipped}

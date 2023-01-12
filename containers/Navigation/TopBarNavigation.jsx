@@ -40,16 +40,16 @@ export default function TopBarNavigation() {
           <Link href="/">
             <Typography sx={linkStyles}>Home</Typography>
           </Link>
-          <Link href="/">
+          <Link href="/crypto">
             <Typography sx={linkStyles}>Crypto gambling</Typography>
           </Link>
-          <Link href="/">
+          <Link href="/money">
             <Typography sx={linkStyles}>Real money gambling</Typography>
           </Link>
-          <Link href="/">
+          <Link href="/skins">
             <Typography sx={linkStyles}>Skins gambling</Typography>
           </Link>
-          <Link href="/">
+          <Link href="/cases">
             <Typography sx={linkStyles}>Case openings gambling</Typography>
           </Link>
           <Link href="/">

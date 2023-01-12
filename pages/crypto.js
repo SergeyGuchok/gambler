@@ -36,9 +36,7 @@ export default function Home() {
       <Column sx={{ justifyContent: 'center', marginTop: '150px' }}>
         <Title />
         <Subtitle />
-        <TopCasinos openModal={openModal} setModalData={setModalData} />
-        <Disclaimer />
-        <CasinoList openModal={openModal} setModalData={setModalData} isHomePage />
+        <CasinoList openModal={openModal} setModalData={setModalData} category="crypto" />
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"

@@ -24,7 +24,7 @@ export default function Title() {
       {' '}
       <Typography sx={gradientTextStyles}>online gambling</Typography>
       {' '}
-      sites for 2022
+      sites for 2023
     </Typography>
   );
 }

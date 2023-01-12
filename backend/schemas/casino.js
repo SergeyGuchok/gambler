@@ -17,6 +17,20 @@ const CasinoSchema = new Schema({
   refLink: String,
 })
 
-const CasinoModel = mongoose.model('Casino', CasinoSchema)
+CasinoSchema.pre("save", async function () {
+  try {
+    const Casino = this.constructor;
+    const casinoExists = await Casino.find({
+      name: this.get("name"),
+    })
+      .lean()
+      .exec();
+    if (casinoExists.length > 0) {
+      console.log('fail')
+    }
+  } catch (err) {
+    console.log('fail')
+  }
+});
 
-export default mongoose.models.Casino || CasinoModel
+export default mongoose.models.Casino || mongoose.model('Casino', CasinoSchema)
