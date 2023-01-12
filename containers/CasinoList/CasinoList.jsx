@@ -13,8 +13,8 @@ const CasinoList = memo(function CasinoListFunction({ category, openModal, setMo
 
   useEffect(() => {
     if (!category) {
-      // axios.get(`${API_URL}/casinos/list`)
-      axios.get('http://localhost:3000/api/casinos/list')
+      axios.get(`${API_URL}/casinos/list`)
+      // axios.get('http://localhost:3000/api/casinos/list')
         .then((c) => {
 
           console.log(c)
@@ -25,8 +25,8 @@ const CasinoList = memo(function CasinoListFunction({ category, openModal, setMo
           console.log(e);
         });
     } else {
-      // axios.get(`${API_URL}/casinos/list/${category}`)
-      axios.get(`http://localhost:3000/api/casinos/list/${category}`)
+      axios.get(`${API_URL}/casinos/list/${category}`)
+      // axios.get(`http://localhost:3000/api/casinos/list/${category}`)
         .then((c) => {
 
           console.log(c)
