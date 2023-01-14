@@ -14,21 +14,7 @@ const titleStyles = {
   fontSize: '40px', fontWeight: 700, color: navMenuItemActive, textAlign: 'center', marginBottom: '70px',
 };
 
-const TopCasinos = memo(function TopCasinosFunction({ openModal, setModalData }) {
-  const [casinos, setCasinos] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${API_URL}/casinos`)
-    // axios.get('http://localhost:3000/api/casinos')
-      .then((c) => {
-        const { data } = c.data;
-        setCasinos(data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
-
+const TopCasinos = memo(function TopCasinosFunction({ openModal, setModalData, casinos }) {
   return (
     <Box sx={topCasinosBlockStyles}>
       <Typography sx={titleStyles}>

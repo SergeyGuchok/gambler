@@ -6,6 +6,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        {process.env.ENVIRONMENT !== 'production' && <script dangerouslySetInnerHTML={{ __html: noOverlayWorkaroundScript }} />}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta name="keywords" content="casinos, online casinos, betting websites, gambling games, blackjack" />
@@ -22,3 +23,15 @@ export default function App({ Component, pageProps }) {
     </>
   )
 }
+
+const noOverlayWorkaroundScript = `
+  window.addEventListener('error', event => {
+    event.stopImmediatePropagation()
+  })
+
+  window.addEventListener('unhandledrejection', event => {
+    event.stopImmediatePropagation()
+  })
+`
+
+

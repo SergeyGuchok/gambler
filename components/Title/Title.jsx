@@ -14,7 +14,7 @@ const gradientTextStyles = {
   WebkitTextFillColor: 'transparent',
 };
 
-export default function Title() {
+export default function Title({ content }) {
   return (
     <Typography
       variant="h1"
@@ -22,7 +22,7 @@ export default function Title() {
     >
       The best
       {' '}
-      <Typography sx={gradientTextStyles}>online gambling</Typography>
+      <Typography sx={gradientTextStyles}>{content}</Typography>
       {' '}
       sites for 2023
     </Typography>
