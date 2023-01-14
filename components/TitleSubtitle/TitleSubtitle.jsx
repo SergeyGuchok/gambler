@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from 'components/Typography';
 import Column from 'components/Column';
-import { primaryGrey, primaryBlack } from 'constants';
+import { primaryGrey, primaryBlack } from 'constants/index';
 
 export default function TitleSubtitle({ title, subtitle }) {
   return (

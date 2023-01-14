@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { primaryBlack, primaryWhite } from 'constants';
+import { primaryBlack, primaryWhite } from 'constants/index';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 
 const StyledButton = styled.button`

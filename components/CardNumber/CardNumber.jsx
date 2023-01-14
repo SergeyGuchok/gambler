@@ -6,7 +6,7 @@ import {
   numberThreeColor,
   defaultNumberColor,
   primaryWhite,
-} from 'constants';
+} from 'constants/index';
 
 const NUMBER_TO_COLOR_MAPPER = {
   1: numberOneColor,

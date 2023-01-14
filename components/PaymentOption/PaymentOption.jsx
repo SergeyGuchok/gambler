@@ -1,20 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Icon from 'components/Icon';
-import styled from 'styled-components';
 import { secondaryGrey } from 'constants/index';
 import { Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';
 
-const StyledBox = styled(Box)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  width: 100%;
-  border: 1px solid ${secondaryGrey}
-`;
+const boxStyles = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '6px',
+  padding: '8px 0',
+  width: '100%',
+  border: `1px solid ${secondaryGrey}`
+}
 
 const optionToTooltipMap = {
   visa: 'Visa',
@@ -37,18 +35,14 @@ const optionToTooltipMap = {
 
 function PaymentOption({ option }) {
   return (
-    <StyledBox>
+    <Box sx={boxStyles}>
       <Tooltip title={optionToTooltipMap[option]}>
         <Box sx={{ display: 'flex', flex: '1' }}>
           <Icon name={option} sx={{ width: '100%' }} />
         </Box>
       </Tooltip>
-    </StyledBox>
+    </Box>
   );
 }
-
-PaymentOption.propTypes = {
-  option: PropTypes.string.isRequired,
-};
 
 export default PaymentOption;

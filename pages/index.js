@@ -15,7 +15,7 @@ import Subtitle from 'components/Subtitle'
 import TopCasinos from 'components/HomePage/TopCasinos';
 import Disclaimer from 'components/HomePage/Disclaimer';
 import axios from 'axios';
-import { API_URL } from '../constants';
+import { API_URL } from 'constants/index';
 
 const subtitle = `
 Thegamblr.com is a website that
