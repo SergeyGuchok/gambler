@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta name="keywords" content="casinos, online casinos, betting websites, gambling games, blackjack" />
+        <meta name="keywords" content="casinos, casino, online casinos, gambling, slots, roulette, casino bonuses, casino games, online casino, casino reviews, casino promotions, poker, crypto, betting websites, gambling games, blackjack" />
         <meta name="google-site-verification" content="HcLYprXVBK4pT9iZHIzK0g16-G_49A9UL0fzor8du88" />
         <meta name="description" content="Find the best online casinos and betting websites with our reviews and information. Play your favorite gambling games and win big!" />
         <meta name="author" content="TheGamblr" />
