@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
 const CasinoSchema = new Schema({
   name: String,
@@ -15,22 +15,22 @@ const CasinoSchema = new Schema({
   mainCategory: String,
   paymentOptions: [String],
   refLink: String,
-})
+});
 
-CasinoSchema.pre("save", async function () {
+CasinoSchema.pre('save', async function () {
   try {
     const Casino = this.constructor;
     const casinoExists = await Casino.find({
-      name: this.get("name"),
+      name: this.get('name'),
     })
       .lean()
       .exec();
     if (casinoExists.length > 0) {
-      console.log('fail')
+      console.log('fail');
     }
   } catch (err) {
-    console.log('fail')
+    console.log('fail');
   }
 });
 
-export default mongoose.models.Casino || mongoose.model('Casino', CasinoSchema)
+export default mongoose.models.Casino || mongoose.model('Casino', CasinoSchema);

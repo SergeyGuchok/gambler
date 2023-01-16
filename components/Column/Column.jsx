@@ -5,7 +5,10 @@ export default function Column({ children, sx = {}, ...props }) {
   return (
     <Box
       sx={{
-        display: 'flex', flexDirection: 'column', height: 'auto', ...sx,
+        display: 'flex',
+        flexDirection: 'column',
+        height: 'auto',
+        ...sx,
       }}
       {...props}
     >

@@ -9,10 +9,10 @@ const boxStyles = {
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '6px',
-  padding: '8px 0',
+  padding: '8px 4px',
   width: '100%',
-  border: `1px solid ${secondaryGrey}`
-}
+  border: `1px solid ${secondaryGrey}`,
+};
 
 const optionToTooltipMap = {
   visa: 'Visa',

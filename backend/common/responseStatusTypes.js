@@ -2,6 +2,6 @@ const RESPONSE_STATUS_TYPES = {
   OK: 200,
   FAIL: 400,
   UNAUTHORIZED: 401,
-}
+};
 
-export default RESPONSE_STATUS_TYPES
+export default RESPONSE_STATUS_TYPES;

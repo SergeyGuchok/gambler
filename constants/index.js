@@ -9,6 +9,7 @@ export const secondaryGrey = '#D9D9D9';
 // navigation menu colors
 export const navMenuItem = '#A8A8A8';
 export const navMenuItemActive = '#19191B';
+export const navBarBackgroundColor = '#F9F8F8';
 
 // number colors
 export const numberOneColor = '#DAA520';
@@ -26,6 +27,9 @@ export const warningText = '#FF8A00';
 
 export const TYPE_PRIMARY = 'primary';
 export const TYPE_SECONDARY = 'secondary';
+
+// footer
+export const FOOTER_BACKGROUND = '#F5F5F5';
 
 // API
 export const API_URL = 'https://thegamblr.com/api';

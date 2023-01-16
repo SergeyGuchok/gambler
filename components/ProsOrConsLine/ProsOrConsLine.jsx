@@ -17,12 +17,28 @@ const redCancelStyles = {
   fontSize: '30px',
 };
 
+const textStyles = (theme) => ({
+  fontSize: '20px',
+  fontWeight: 600,
+  marginTop: '10px',
+  display: 'flex',
+  alignItems: 'center',
+  color: primaryBlack,
+
+  [theme.breakpoints.down('md')]: {
+    marginTop: '5px',
+    fontSize: '16px',
+  },
+});
+
 export default function ProsOrConsLine({ type = 'pros', content }) {
   return (
-    <Typography color={primaryBlack} fontSize="20px" fontWeight={600} mt="10px" display="flex" alignItems="center">
-      {type === 'pros'
-        ? (<CheckCircleOutlineIcon sx={greenCheckStyles} />)
-        : (<DoNotDisturbAltIcon sx={redCancelStyles} />)}
+    <Typography sx={textStyles}>
+      {type === 'pros' ? (
+        <CheckCircleOutlineIcon sx={greenCheckStyles} />
+      ) : (
+        <DoNotDisturbAltIcon sx={redCancelStyles} />
+      )}
       {capitalizeFirstLetter(content)}
     </Typography>
   );

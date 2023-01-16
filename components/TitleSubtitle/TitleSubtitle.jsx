@@ -3,11 +3,31 @@ import Typography from 'components/Typography';
 import Column from 'components/Column';
 import { primaryGrey, primaryBlack } from 'constants/index';
 
+const titleSx = (theme) => ({
+  fontWeight: 600,
+  fontSize: '15px',
+  color: primaryGrey,
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '14px',
+  },
+});
+
+const subtitleSx = (theme) => ({
+  fontWeight: 600,
+  fontSize: '25px',
+  color: primaryBlack,
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '20px',
+  },
+});
+
 export default function TitleSubtitle({ title, subtitle }) {
   return (
     <Column>
-      <Typography color={primaryGrey} fontSize="15px" fontWeight={600}>{title}</Typography>
-      <Typography color={primaryBlack} fontSize="25px" fontWeight={600}>{subtitle}</Typography>
+      <Typography sx={titleSx}>{title}</Typography>
+      <Typography sx={subtitleSx}>{subtitle}</Typography>
     </Column>
   );
 }

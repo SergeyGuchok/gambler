@@ -27,14 +27,16 @@ const sx = {
   alignItems: 'center',
   justifyContent: 'center',
   color: primaryWhite,
+  zIndex: 2,
 };
 
 export default function CardNumber({ number }) {
   return (
-    <Box sx={{
-      ...sx,
-      backgroundColor: NUMBER_TO_COLOR_MAPPER[number] || defaultNumberColor,
-    }}
+    <Box
+      sx={{
+        ...sx,
+        backgroundColor: NUMBER_TO_COLOR_MAPPER[number] || defaultNumberColor,
+      }}
     >
       {number}
     </Box>

@@ -1,35 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
 import { primaryGrey } from 'constants/index';
-import PropTypes from 'prop-types';
+import Button from '@mui/material/Button';
 
-const StyledButton = styled.button`
-  width: 100%;
-  background: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${primaryGrey};
-  border: 1px solid ${primaryGrey};
-  border-radius: 10px;
-  padding: 15px 0;
-  font-size: 25px;
-  
-  &:hover {
-    cursor: pointer;
-  }
-`;
+const sx = {
+  width: '100%',
+  backgroundColor: 'transparent',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: primaryGrey,
+  border: `1px solid ${primaryGrey}`,
+  borderRadius: '10px',
+  padding: '15px 0',
+  textTransform: 'none',
+  fontSize: '25px',
+  lineHeight: '30px',
+  boxShadow: 'none',
+
+  '&:hover': {
+    cursor: 'pointer',
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
+  },
+
+  '& > *': {
+    fontSize: '25px',
+  },
+};
 
 function SecondaryButton({ children, ...props }) {
   return (
-    <StyledButton {...props} variant="contained">
+    <Button sx={sx} {...props} variant="contained">
       {children}
-    </StyledButton>
+    </Button>
   );
 }
-
-SecondaryButton.propTypes = {
-  children: PropTypes.string.isRequired,
-};
 
 export default SecondaryButton;
