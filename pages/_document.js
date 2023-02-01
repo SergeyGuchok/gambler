@@ -17,7 +17,7 @@ const backgroundGradient = {
 
 export default function Document() {
   return (
-    <Html lang="en" style={{ overflowX: 'hidden', overflowY: 'auto' }}>
+    <Html lang="en">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -30,7 +30,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body style={{ overflowX: 'hidden', overflowY: 'auto' }}>
+      <body>
         <Box sx={backgroundGradient} />
         <Container maxWidth="xl">
           <Main />

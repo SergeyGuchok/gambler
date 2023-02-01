@@ -3,15 +3,15 @@ import Head from 'next/head';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 
-import Modal from 'containers/Modal';
-
 import Column from 'components/Column';
 import CasinoModal from 'components/CasinoModal';
 import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 import { API_URL } from 'constants/index';
-import { enableScroll, disableScroll } from 'utils';
+import Dialog from '@mui/material/Dialog';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const subtitle = `
 Welcome to our site! We promote only the best real money casino sites that offer the 
@@ -20,25 +20,46 @@ Our selection of top-tier casino sites feature the best selection of games,
 generous bonuses and promotions, and secure, reliable payment methods. 
 Sign up today and start winning real money!`;
 
+const sx = (theme) => {
+  return {
+    '.MuiDialog-paper': {
+      borderRadius: '30px',
+      maxWidth: '80%',
+      boxShadow: '0px 50px 120px rgba(0, 0, 0, 0.1)',
+
+      [theme.breakpoints.down('md')]: {
+        boxShadow: 'none',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        borderRadius: 0,
+      },
+    },
+  };
+};
 export default function Money({ listCasinos }) {
   const [modalData, setModalData] = useState({});
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClose = useCallback(() => {
-    enableScroll();
     setIsOpen(false);
-    setModalData({});
+    setModalData(null);
   }, [setModalData, setIsOpen]);
 
   const openModal = useCallback(() => {
-    disableScroll();
     setIsOpen(true);
   }, [setIsOpen]);
+
+  const theme = useTheme();
+  const fullscreen = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>
       <Head>
         <title>TheGamblr - Best real money gambling casinos!</title>
+        <meta
+          name="description"
+          content="Find the best real money gambling casinos with our reviews and information. Play your favorite games and win big!"
+        />
       </Head>
       <Box sx={{ height: '270px' }} />
       <Column sx={{ justifyContent: 'center' }}>
@@ -50,9 +71,14 @@ export default function Money({ listCasinos }) {
           category="money"
           casinos={listCasinos}
         />
-        <Modal isOpen={isOpen} onClose={handleClose}>
+        <Dialog
+          open={isOpen}
+          onClose={handleClose}
+          sx={sx}
+          fullScreen={fullscreen}
+        >
           <CasinoModal data={modalData} onClose={handleClose} />
-        </Modal>
+        </Dialog>
       </Column>
     </>
   );

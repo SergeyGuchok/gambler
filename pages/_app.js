@@ -21,10 +21,6 @@ export default function App({ Component, pageProps }) {
           name="google-site-verification"
           content="HcLYprXVBK4pT9iZHIzK0g16-G_49A9UL0fzor8du88"
         />
-        <meta
-          name="description"
-          content="Find the best online casinos and betting websites with our reviews and information. Play your favorite gambling games and win big!"
-        />
         <meta name="author" content="TheGamblr" />
         <meta name="robots" content="all" />
         <meta charSet="utf-8" />

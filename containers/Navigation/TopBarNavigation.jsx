@@ -5,7 +5,7 @@ import Row from 'components/Row';
 import Icon from 'components/Icon';
 import Typography from 'components/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Modal from 'containers/Modal';
+import Dialog from '@mui/material/Dialog';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import MobileMenu from './MobileMenu';
@@ -33,6 +33,18 @@ const logoStyles = {
 
 const sxFixed = {
   boxShadow: '0 0 1px black',
+};
+
+const sxModalWrapper = {
+  '.MuiDialog-paper': {
+    margin: 0,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    borderRadius: '0px 0px 30px 30px',
+    maxWidth: '100%',
+  },
 };
 
 export default function TopBarNavigation() {
@@ -85,10 +97,9 @@ export default function TopBarNavigation() {
               <Icon
                 name="logo"
                 sx={{
-                  marginRight: '10px',
-                  height: 80,
+                  height: 50,
                   width: 'auto',
-                  marginTop: '-3px',
+                  marginTop: '-5px',
                 }}
               />
             </Typography>
@@ -122,11 +133,9 @@ export default function TopBarNavigation() {
           )}
         </Row>
       </Container>
-      <Modal onClose={onClose} isOpen={isOpen}>
-        <Box>
-          <MobileMenu onClose={onClose} />
-        </Box>
-      </Modal>
+      <Dialog onClose={onClose} open={isOpen} sx={sxModalWrapper}>
+        <MobileMenu onClose={onClose} />
+      </Dialog>
     </Row>
   );
 }

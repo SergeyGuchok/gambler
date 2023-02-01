@@ -9,19 +9,12 @@ import Column from 'components/Column';
 import ProsOrConsLine from 'components/ProsOrConsLine';
 import Image from 'next/image';
 
-const wrapperStyles = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  maxWidth: '80%',
+const wrapperStyles = (theme) => ({
   width: '100%',
   backgroundColor: primaryWhite,
-  overflow: 'hidden',
   padding: '40px',
-  boxShadow: '0px 50px 120px rgba(0, 0, 0, 0.1)',
   borderRadius: '30px',
-};
+});
 
 const titleStyles = {
   fontSize: '30px',
@@ -85,7 +78,7 @@ const CasinoModal = forwardRef((props, ref) => {
                 onClick={props.onClose}
               />
             </Row>
-            {about.map((line) => (
+            {about?.map((line) => (
               <Typography sx={aboutStyles} key={line}>
                 {line}
               </Typography>
@@ -99,7 +92,7 @@ const CasinoModal = forwardRef((props, ref) => {
           <Column sx={{ flex: 1 }}>
             <Typography sx={optionsStyles}>Pros</Typography>
             {pros
-              .filter((p) => !!p)
+              ?.filter((p) => !!p)
               .map((pro) => (
                 <ProsOrConsLine content={pro} key={pro} type="pros" />
               ))}
@@ -107,7 +100,7 @@ const CasinoModal = forwardRef((props, ref) => {
           <Column sx={{ flex: 1, marginLeft: '25px' }}>
             <Typography sx={optionsStyles}>Cons</Typography>
             {cons
-              .filter((c) => !!c)
+              ?.filter((c) => !!c)
               .map((con) => (
                 <ProsOrConsLine content={con} key={con} type="cons" />
               ))}

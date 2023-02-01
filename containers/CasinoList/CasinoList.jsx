@@ -7,6 +7,7 @@ const wrapperStyles = {
   marginTop: '100px',
 };
 
+// eslint-disable-next-line react/display-name
 const CasinoList = memo(
   ({ category, openModal, setModalData, isHomePage, casinos }) => {
     const isXs = useMediaQuery((theme) => theme.breakpoints.down('sm'));

@@ -4,7 +4,9 @@ import Container from '@mui/material/Container';
 import Typography from 'components/Typography';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import { navMenuItemActive, navMenuItem, primaryWhite } from 'constants/index';
-import Icon from '../../components/Icon';
+import Icon from 'components/Icon';
+import Link from 'next/link';
+import Box from '@mui/material/Box';
 import React from 'react';
 
 const titleStyles = {
@@ -14,15 +16,20 @@ const titleStyles = {
   fontWeight: '700',
 };
 
-const mainCategoryStyles = {
+const mainCategoryStyles = (theme) => ({
   fontWeight: 600,
   fontSize: '14px',
   color: navMenuItemActive,
   marginBottom: '20px',
   lineHeight: '20px',
-};
 
-const subCategoryStyles = {
+  [theme.breakpoints.down('sm')]: {
+    marginTop: '15px',
+    marginBottom: '10px',
+  },
+});
+
+const subCategoryStyles = (theme) => ({
   display: 'flex',
   alignItems: 'center',
   fontWeight: 600,
@@ -38,22 +45,22 @@ const subCategoryStyles = {
   '& .right-arrow': {
     marginLeft: '10px',
   },
-};
+});
 
-const categoriesWrapperStyles = {
+const categoriesWrapperStyles = (theme) => ({
+  display: 'flex',
+  height: '100%',
   width: '100%',
   alignItems: 'flex-start',
   justifyContent: 'space-between',
-};
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+  },
+});
 
 const wrapperStyles = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
   backgroundColor: primaryWhite,
   padding: '30px',
-  borderRadius: '0px 0px 30px 30px',
 };
 
 export default function MobileMenu({ onClose }) {
@@ -73,34 +80,74 @@ export default function MobileMenu({ onClose }) {
           onClick={onClose}
         />
       </Row>
-      <Row sx={categoriesWrapperStyles}>
+      <Box sx={categoriesWrapperStyles} onClick={onClose}>
         <Column>
           <Typography sx={mainCategoryStyles}>Crypto gambling</Typography>
-          <Typography sx={subCategoryStyles}>
-            Online casinos <TrendingFlatIcon className="right-arrow" />
-          </Typography>
+          <Link href="/crypto">
+            <Typography sx={subCategoryStyles}>
+              Online casinos <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href="/crypto">
+            <Typography sx={subCategoryStyles}>
+              Slots <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href="/crypto">
+            <Typography sx={subCategoryStyles}>
+              Blackjack <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href="/crypto">
+            <Typography sx={subCategoryStyles}>
+              All <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
         </Column>
         <Column>
           <Typography sx={mainCategoryStyles}>Real money gambling</Typography>
-          <Typography sx={subCategoryStyles}>
-            Online casinos <TrendingFlatIcon className="right-arrow" />
-          </Typography>
+          <Link href="/money">
+            <Typography sx={subCategoryStyles}>
+              Online casinos <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href="/money">
+            <Typography sx={subCategoryStyles}>
+              All <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
         </Column>
         <Column>
           <Typography sx={mainCategoryStyles}>Skins gambling</Typography>
-          <Typography sx={subCategoryStyles}>
-            Online casinos <TrendingFlatIcon className="right-arrow" />
-          </Typography>
+          <Link href="/skins">
+            <Typography sx={subCategoryStyles}>
+              Online casinos <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href="/skins">
+            <Typography sx={subCategoryStyles}>
+              All <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
         </Column>
         <Column>
-          <Typography sx={subCategoryStyles}>
-            Case openings <TrendingFlatIcon className="right-arrow" />
-          </Typography>
-          <Typography sx={subCategoryStyles}>
-            Online casinos <TrendingFlatIcon className="right-arrow" />
-          </Typography>
+          <Link href="/cases">
+            <Typography sx={subCategoryStyles}>
+              Case openings <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href="/">
+            <Typography sx={subCategoryStyles}>
+              Feedback <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href="/">
+            <Typography sx={subCategoryStyles}>
+              Home Page <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
         </Column>
-      </Row>
+      </Box>
     </Container>
   );
 }
