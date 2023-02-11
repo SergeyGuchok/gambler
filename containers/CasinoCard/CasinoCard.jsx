@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Link from 'next/Link';
+import Link from 'next/link';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Typography from 'components/Typography';
 import CardNumber from 'components/CardNumber';
