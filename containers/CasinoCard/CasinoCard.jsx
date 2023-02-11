@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/Link'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Typography from 'components/Typography';
 import CardNumber from 'components/CardNumber';
@@ -67,19 +68,14 @@ export default function CasinoCard({
   refLink,
   winRate,
   paymentOptions = [],
-  openModal,
-  setModalData,
   index,
+  name
 }) {
   const isLg = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const isMd = useMediaQuery((theme) => theme.breakpoints.down('lg'));
   const isSm = useMediaQuery((theme) => theme.breakpoints.down('md'));
 
   const [flipped, setFlipped] = useState(false);
-  const handleModalOpen = () => {
-    setModalData();
-    openModal();
-  };
 
   const link = refLink.includes('https://') ? refLink : `https://${refLink}`;
 
@@ -116,13 +112,14 @@ export default function CasinoCard({
         >
           <Button type={TYPE_PRIMARY}>Play now</Button>
         </a>
-        <Button
-          type={TYPE_SECONDARY}
-          style={{ marginTop: '10px' }}
-          onClick={handleModalOpen}
-        >
-          Read more
-        </Button>
+        <Link href={`/casino/${name}`} style={{ width: '100%' }}>
+          <Button
+            type={TYPE_SECONDARY}
+            style={{ marginTop: '10px' }}
+          >
+            Read more
+          </Button>
+        </Link>
       </Column>
     );
   }
@@ -157,13 +154,14 @@ export default function CasinoCard({
             <a href={link} target="_blank" rel="noreferrer">
               <Button type={TYPE_PRIMARY}>Play now</Button>
             </a>
-            <Button
-              type={TYPE_SECONDARY}
-              style={{ marginTop: '10px' }}
-              onClick={handleModalOpen}
-            >
-              Read more
-            </Button>
+            <Link href={`/casino/${name}`} style={{ width: '100%' }}>
+              <Button
+                type={TYPE_SECONDARY}
+                style={{ marginTop: '10px' }}
+              >
+                Read more
+              </Button>
+            </Link>
           </Column>
         ) : null}
       </Row>
@@ -184,13 +182,14 @@ export default function CasinoCard({
           <a href={link} target="_blank" rel="noreferrer">
             <Button type={TYPE_PRIMARY}>Play now</Button>
           </a>
-          <Button
-            type={TYPE_SECONDARY}
-            style={{ marginTop: '10px' }}
-            onClick={handleModalOpen}
-          >
-            Read more
-          </Button>
+          <Link href={`/casino/${name}`} style={{ width: '100%' }}>
+            <Button
+              type={TYPE_SECONDARY}
+              style={{ marginTop: '10px' }}
+            >
+              Read more
+            </Button>
+          </Link>
         </Column>
       ) : null}
     </Box>

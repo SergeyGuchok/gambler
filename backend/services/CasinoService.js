@@ -55,7 +55,7 @@ class CasinoService {
     try {
       const collection = await this.getCasinoCollection();
       const casinos = await collection
-        .find({ page_category: category })
+        .find({ pageCategory: category })
         .sort({ ranking: 1 })
         .toArray();
 
@@ -74,16 +74,36 @@ class CasinoService {
     }
   }
 
-  async getTopCasinos() {
+  async updateCasino(data) {
+    try {
+      const { _id, ...rest } = data;
+      const collection = await this.getCasinoCollection();
+      const query = { name: data.name };
+      const update = { $set: { ...rest } };
+      const options = { upsert: true };
+
+      await collection.updateOne(query, update, options);
+
+      return this.createResponse(responseStatusType.OK, 'Casino added/updated');
+    } catch (e) {
+      return this.createResponse(
+        responseStatusType.FAIL,
+        'Something went wrong',
+        [e],
+      );
+    }
+  }
+
+  async getCasinoByName(name) {
     try {
       const collection = await this.getCasinoCollection();
-      const casinos = await collection.find().sort({ ranking: 1 }).toArray();
+      const casino = await collection.find({ name }).toArray();
 
       return this.createResponse(
         responseStatusType.OK,
-        'Casinos retrieved',
+        'Casino retrieved',
         [],
-        casinos.slice(0, 3),
+        casino,
       );
     } catch (e) {
       return this.createResponse(
@@ -94,7 +114,7 @@ class CasinoService {
     }
   }
 
-  async getCasinosList() {
+  async getAllCasinos() {
     try {
       const collection = await this.getCasinoCollection();
       const casinos = await collection.find().sort({ ranking: 1 }).toArray();
@@ -103,7 +123,7 @@ class CasinoService {
         responseStatusType.OK,
         'Casinos retrieved',
         [],
-        casinos.slice(3),
+        casinos,
       );
     } catch (e) {
       return this.createResponse(

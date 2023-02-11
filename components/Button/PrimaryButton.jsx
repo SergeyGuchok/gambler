@@ -15,7 +15,7 @@ const sx = {
   border: 'none',
   overflow: 'hidden',
   fontWeight: 600,
-  padding: '15px 0',
+  padding: '10px 0',
   lineHeight: '30px',
   fontSize: '25px',
   textTransform: 'none',
@@ -66,10 +66,13 @@ const sx = {
 };
 
 function PrimaryButton({ children, ...props }) {
+  const { hideArrow, extraSx = {}, ...rest } = props;
   return (
-    <Button {...props} sx={sx} variant="contained">
+    <Button {...rest} sx={{ ...sx, ...extraSx }} variant="contained">
       {children}
-      <ArrowRightAltIcon fontSize="large" className="right-arrow" />
+      {!hideArrow && (
+        <ArrowRightAltIcon fontSize="large" className="right-arrow" />
+      )}
     </Button>
   );
 }

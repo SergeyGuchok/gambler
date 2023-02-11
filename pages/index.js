@@ -5,9 +5,7 @@ import axios from 'axios';
 import { API_URL } from 'constants/index';
 
 import Column from 'components/Column';
-import CasinoModal from 'components/CasinoModal';
 
-import Dialog from '@mui/material/Dialog';
 import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
@@ -51,18 +49,6 @@ const sx = (theme) => {
 };
 
 export default function Home({ listCasinos, topCasinos }) {
-  const [modalData, setModalData] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClose = useCallback(() => {
-    setModalData(null);
-    setIsOpen(false);
-  }, [setModalData, setIsOpen]);
-
-  const openModal = useCallback(() => {
-    setIsOpen(true);
-  }, [setIsOpen]);
-
   const theme = useTheme();
   const fullscreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -80,25 +66,13 @@ export default function Home({ listCasinos, topCasinos }) {
         <Title content="online gambling" />
         <Subtitle content={subtitle} />
         <TopCasinos
-          openModal={openModal}
-          setModalData={setModalData}
           casinos={topCasinos}
         />
         <Disclaimer />
         <CasinoList
-          openModal={openModal}
-          setModalData={setModalData}
           isHomePage
           casinos={listCasinos}
         />
-        <Dialog
-          open={isOpen}
-          onClose={handleClose}
-          sx={sx}
-          fullScreen={fullscreen}
-        >
-          <CasinoModal data={modalData} onClose={handleClose} />
-        </Dialog>
       </Column>
     </>
   );
@@ -109,15 +83,13 @@ export async function getStaticProps() {
     process.env.ENVIRONMENT === 'production'
       ? API_URL
       : 'http://localhost:3000/api';
-  const resultTop = await axios.get(`${url}/casinos`);
-  const resultList = await axios.get(`${url}/casinos/list`);
-  const { data: topData } = resultTop.data;
-  const { data: listData } = resultList.data;
+  const result = await axios.get(`${url}/casinos`);
+  const { data } = result.data;
 
   return {
     props: {
-      listCasinos: listData,
-      topCasinos: topData,
+      listCasinos: data.slice(3),
+      topCasinos: data.slice(0, 3),
     },
   };
 }

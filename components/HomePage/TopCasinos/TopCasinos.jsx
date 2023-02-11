@@ -27,7 +27,7 @@ const isHorizontal = (index, isMd, isXs) => {
   if (index > 1 && isMd && !isXs) return true;
 };
 
-const TopCasinos = ({ openModal, setModalData, casinos }) => {
+const TopCasinos = ({ casinos }) => {
   const isMd = useMediaQuery((theme) => theme.breakpoints.down('lg'));
   const isXs = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
@@ -41,8 +41,6 @@ const TopCasinos = ({ openModal, setModalData, casinos }) => {
               <Box>
                 <CasinoCard
                   index={index + 1}
-                  openModal={openModal}
-                  setModalData={() => setModalData({ ...casino })}
                   {...casino}
                 />
               </Box>
@@ -53,8 +51,6 @@ const TopCasinos = ({ openModal, setModalData, casinos }) => {
                 <CasinoCard
                   type="horizontal"
                   index={index + 1}
-                  openModal={openModal}
-                  setModalData={() => setModalData({ ...casino })}
                   {...casino}
                 />
               </Box>

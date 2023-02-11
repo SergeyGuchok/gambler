@@ -1,4 +1,4 @@
-import CasinoService from 'backend/services/CasinoService';
+import DescriptionsService from 'backend/services/DescriptionService';
 import responseResult from 'backend/common/responseResult';
 import nc from 'next-connect';
 
@@ -9,13 +9,9 @@ const handler = nc({
 });
 
 handler.get(async (req, res) => {
-  const result = await CasinoService.getAllCasinos();
+  const { name } = req.query;
 
-  responseResult(result, res);
-});
-
-handler.post(async (req, res) => {
-  const result = await CasinoService.updateCasino(req.body);
+  const result = await DescriptionsService.getDescriptionByName(name);
 
   responseResult(result, res);
 });

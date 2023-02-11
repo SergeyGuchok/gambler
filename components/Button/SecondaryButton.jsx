@@ -11,7 +11,7 @@ const sx = {
   color: primaryGrey,
   border: `1px solid ${primaryGrey}`,
   borderRadius: '10px',
-  padding: '15px 0',
+  padding: '10px 0',
   textTransform: 'none',
   fontSize: '25px',
   lineHeight: '30px',

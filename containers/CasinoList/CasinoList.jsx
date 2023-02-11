@@ -9,7 +9,7 @@ const wrapperStyles = {
 
 // eslint-disable-next-line react/display-name
 const CasinoList = memo(
-  ({ category, openModal, setModalData, isHomePage, casinos }) => {
+  ({ category, isHomePage, casinos }) => {
     const isXs = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
     return (

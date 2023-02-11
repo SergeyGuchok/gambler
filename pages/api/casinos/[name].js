@@ -9,13 +9,9 @@ const handler = nc({
 });
 
 handler.get(async (req, res) => {
-  const result = await CasinoService.getAllCasinos();
+  const { name } = req.query;
 
-  responseResult(result, res);
-});
-
-handler.post(async (req, res) => {
-  const result = await CasinoService.updateCasino(req.body);
+  const result = await CasinoService.getCasinoByName(name);
 
   responseResult(result, res);
 });

@@ -11,10 +11,12 @@ const CasinoSchema = new Schema({
   ranking: Number,
   pros: [String],
   cons: [String],
-  about: [String],
   mainCategory: String,
   paymentOptions: [String],
   refLink: String,
+  pageCategory: [String],
+  displayName: String,
+  bonus: '',
 });
 
 CasinoSchema.pre('save', async function () {
