@@ -35,7 +35,9 @@ class AdsService {
         .sort({ ranking: 1 })
         .toArray();
 
-      const filteredCasinos = sameCasinosByCategory.filter(c => c.name !== name)
+      const filteredCasinos = sameCasinosByCategory.filter(
+        (c) => c.name !== name,
+      );
 
       return this.createResponse(
         responseStatusType.OK,

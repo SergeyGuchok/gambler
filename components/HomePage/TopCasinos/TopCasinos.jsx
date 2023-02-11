@@ -39,20 +39,13 @@ const TopCasinos = ({ casinos }) => {
           !isHorizontal(index, isMd, isXs) ? (
             <Grid item md={6} sm={6} xs={12} lg={4} key={casino.name}>
               <Box>
-                <CasinoCard
-                  index={index + 1}
-                  {...casino}
-                />
+                <CasinoCard index={index + 1} {...casino} />
               </Box>
             </Grid>
           ) : (
             <Grid item md={12} sm={12} xs={12} lg={4} key={casino.name}>
               <Box>
-                <CasinoCard
-                  type="horizontal"
-                  index={index + 1}
-                  {...casino}
-                />
+                <CasinoCard type="horizontal" index={index + 1} {...casino} />
               </Box>
             </Grid>
           ),

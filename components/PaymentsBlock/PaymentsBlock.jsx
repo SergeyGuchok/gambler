@@ -1,5 +1,5 @@
-import Grid from '@mui/material/Grid'
-import PaymentOption from 'components/PaymentOption'
+import Grid from '@mui/material/Grid';
+import PaymentOption from 'components/PaymentOption';
 
 const gridStyles = {
   gap: 2,
@@ -8,8 +8,7 @@ const gridStyles = {
   width: '100%',
 };
 
-
-export default function PaymentsBlock ({ options }) {
+export default function PaymentsBlock({ options }) {
   return (
     <Grid sx={gridStyles}>
       {options
@@ -19,5 +18,5 @@ export default function PaymentsBlock ({ options }) {
           <PaymentOption option={option} key={option} />
         ))}
     </Grid>
-  )
+  );
 }

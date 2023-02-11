@@ -2,7 +2,14 @@ import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 
 export default function CasinoDescription({ casino, onSave, description }) {
-  const { name: savedName, main, additional, metaKeywords, title, metaDescription } = description;
+  const {
+    name: savedName,
+    main,
+    additional,
+    metaKeywords,
+    title,
+    metaDescription,
+  } = description;
 
   const [state, setState] = useState({
     name: savedName || casino.name,
@@ -32,21 +39,21 @@ export default function CasinoDescription({ casino, onSave, description }) {
       ...prevState,
       title: e.target.value,
     }));
-  }
+  };
 
   const onMetaKeywordsChange = (e) => {
     setState((prevState) => ({
       ...prevState,
       metaKeywords: e.target.value,
     }));
-  }
+  };
 
   const onMetaDescriptionChange = (e) => {
     setState((prevState) => ({
       ...prevState,
       metaDescription: e.target.value,
     }));
-  }
+  };
 
   const onMainDelete = (index) => {
     setState((prevState) => ({
@@ -131,11 +138,19 @@ export default function CasinoDescription({ casino, onSave, description }) {
       </Box>
       <Box mt={2}>
         <p>MetaKeywords: </p>
-        <input type="text" value={state.metaKeywords} onChange={onMetaKeywordsChange} />
+        <input
+          type="text"
+          value={state.metaKeywords}
+          onChange={onMetaKeywordsChange}
+        />
       </Box>
       <Box mt={2}>
         <p>MetaDescription: </p>
-        <input type="text" value={state.metaDescription} onChange={onMetaDescriptionChange} />
+        <input
+          type="text"
+          value={state.metaDescription}
+          onChange={onMetaDescriptionChange}
+        />
       </Box>
 
       <Box

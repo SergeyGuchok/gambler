@@ -67,7 +67,7 @@ export default function CasinoInfo({ casino, saveCasino }) {
     ranking,
     refLink,
     bonus,
-    displayName
+    displayName,
   } = state;
 
   return (

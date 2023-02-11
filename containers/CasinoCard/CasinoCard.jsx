@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Link from 'next/Link'
+import Link from 'next/Link';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Typography from 'components/Typography';
 import CardNumber from 'components/CardNumber';
@@ -69,7 +69,7 @@ export default function CasinoCard({
   winRate,
   paymentOptions = [],
   index,
-  name
+  name,
 }) {
   const isLg = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const isMd = useMediaQuery((theme) => theme.breakpoints.down('lg'));
@@ -113,10 +113,7 @@ export default function CasinoCard({
           <Button type={TYPE_PRIMARY}>Play now</Button>
         </a>
         <Link href={`/casino/${name}`} style={{ width: '100%' }}>
-          <Button
-            type={TYPE_SECONDARY}
-            style={{ marginTop: '10px' }}
-          >
+          <Button type={TYPE_SECONDARY} style={{ marginTop: '10px' }}>
             Read more
           </Button>
         </Link>
@@ -155,10 +152,7 @@ export default function CasinoCard({
               <Button type={TYPE_PRIMARY}>Play now</Button>
             </a>
             <Link href={`/casino/${name}`} style={{ width: '100%' }}>
-              <Button
-                type={TYPE_SECONDARY}
-                style={{ marginTop: '10px' }}
-              >
+              <Button type={TYPE_SECONDARY} style={{ marginTop: '10px' }}>
                 Read more
               </Button>
             </Link>
@@ -183,10 +177,7 @@ export default function CasinoCard({
             <Button type={TYPE_PRIMARY}>Play now</Button>
           </a>
           <Link href={`/casino/${name}`} style={{ width: '100%' }}>
-            <Button
-              type={TYPE_SECONDARY}
-              style={{ marginTop: '10px' }}
-            >
+            <Button type={TYPE_SECONDARY} style={{ marginTop: '10px' }}>
               Read more
             </Button>
           </Link>

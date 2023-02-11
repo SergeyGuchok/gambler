@@ -1,1 +1,1 @@
-export { default } from './FooterDisclaimerBlock'
+export { default } from './FooterDisclaimerBlock';

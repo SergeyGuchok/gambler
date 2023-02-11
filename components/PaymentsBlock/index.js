@@ -1,1 +1,1 @@
-export { default } from './PaymentsBlock'
+export { default } from './PaymentsBlock';
