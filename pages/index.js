@@ -1,4 +1,3 @@
-import { useState, useCallback } from 'react';
 import Head from 'next/head';
 import Box from '@mui/material/Box';
 import axios from 'axios';
@@ -9,8 +8,6 @@ import Column from 'components/Column';
 import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 // page components
 import TopCasinos from 'components/HomePage/TopCasinos';
@@ -49,30 +46,24 @@ const sx = (theme) => {
 };
 
 export default function Home({ listCasinos, topCasinos }) {
-  const theme = useTheme();
-  const fullscreen = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <>
       <Head>
-        <title>TheGamblr - Best online casinos to your choice!</title>
+        <title>
+          TheGamblr - Best online casinos to your choice! 2023 Reviews
+        </title>
         <meta
           name="description"
-          content="Find the best online casinos and betting websites with our reviews and information. Play your favorite gambling games and win big!"
+          content="Find the best online casinos and betting websites with our 2023 reviews, bonuses and promotions information and free sign up money. Play your favorite gambling games and win big!"
         />
       </Head>
       <Box sx={{ height: '270px' }} />
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="online gambling" />
         <Subtitle content={subtitle} />
-        <TopCasinos
-          casinos={topCasinos}
-        />
+        <TopCasinos casinos={topCasinos} />
         <Disclaimer />
-        <CasinoList
-          isHomePage
-          casinos={listCasinos}
-        />
+        <CasinoList isHomePage casinos={listCasinos} />
       </Column>
     </>
   );

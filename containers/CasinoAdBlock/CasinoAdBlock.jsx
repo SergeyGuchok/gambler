@@ -6,6 +6,7 @@ import Button from 'components/Button';
 import React from 'react';
 import Typography from 'components/Typography';
 import { primaryBlack, primaryGrey, TYPE_PRIMARY } from 'constants/index';
+import Link from 'next/link';
 
 const wrapperStyles = {
   maxHeight: '80px',
@@ -40,7 +41,7 @@ const bonusStyles = {
 };
 
 export default function CasinoAdBlock({ casino }) {
-  const { name, imageSrc, bonus } = casino;
+  const { name, imageSrc, bonus, displayName } = casino;
 
   return (
     <Row sx={wrapperStyles}>
@@ -53,13 +54,15 @@ export default function CasinoAdBlock({ casino }) {
         />
       </Box>
       <Column sx={{ alignItems: 'center', margin: '0 5px' }}>
-        <Typography sx={casinoNameStyles}>{name}</Typography>
+        <Typography sx={casinoNameStyles}>{displayName}</Typography>
         <Typography sx={bonusStyles}>{bonus}</Typography>
       </Column>
       <Box sx={{ maxWidth: '140px', width: '100%' }}>
-        <Button type={TYPE_PRIMARY} extraSx={{ fontSize: '14px' }} hideArrow>
-          Check out
-        </Button>
+        <Link href={`/casino/${name}`}>
+          <Button type={TYPE_PRIMARY} extraSx={{ fontSize: '14px' }} hideArrow>
+            Check out
+          </Button>
+        </Link>
       </Box>
     </Row>
   );

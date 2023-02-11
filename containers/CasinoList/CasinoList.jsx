@@ -20,8 +20,6 @@ const CasinoList = memo(
               {...casino}
               index={isHomePage ? index + 4 : index + 1}
               type={isXs ? 'vertical' : 'horizontal'}
-              setModalData={() => setModalData({ ...casino })}
-              openModal={openModal}
             />
           </Box>
         ))}

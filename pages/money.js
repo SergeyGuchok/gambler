@@ -1,17 +1,12 @@
-import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 
 import Column from 'components/Column';
-import CasinoModal from 'components/CasinoModal';
 import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 import { API_URL } from 'constants/index';
-import Dialog from '@mui/material/Dialog';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const subtitle = `
 Welcome to our site! We promote only the best real money casino sites that offer the 
@@ -37,25 +32,10 @@ const sx = (theme) => {
   };
 };
 export default function Money({ listCasinos }) {
-  const [modalData, setModalData] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClose = useCallback(() => {
-    setIsOpen(false);
-    setModalData(null);
-  }, [setModalData, setIsOpen]);
-
-  const openModal = useCallback(() => {
-    setIsOpen(true);
-  }, [setIsOpen]);
-
-  const theme = useTheme();
-  const fullscreen = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <>
       <Head>
-        <title>TheGamblr - Best real money gambling casinos!</title>
+        <title>TheGamblr - Real money gambling casinos 2023 reviews</title>
         <meta
           name="description"
           content="Find the best real money gambling casinos with our reviews and information. Play your favorite games and win big!"
@@ -65,20 +45,7 @@ export default function Money({ listCasinos }) {
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="money gambling" />
         <Subtitle content={subtitle} />
-        <CasinoList
-          openModal={openModal}
-          setModalData={setModalData}
-          category="money"
-          casinos={listCasinos}
-        />
-        <Dialog
-          open={isOpen}
-          onClose={handleClose}
-          sx={sx}
-          fullScreen={fullscreen}
-        >
-          <CasinoModal data={modalData} onClose={handleClose} />
-        </Dialog>
+        <CasinoList category="money" casinos={listCasinos} />
       </Column>
     </>
   );

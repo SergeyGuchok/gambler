@@ -12,7 +12,7 @@ import Grid from '@mui/material/Grid';
 import BonusBlock from 'components/BonusBlock';
 import ProsAndCons from 'containers/ProsAndCons';
 import CasinoAdBlock from 'containers/CasinoAdBlock';
-import PaymentsBlock from 'components/PaymentsBlock'
+import PaymentsBlock from 'components/PaymentsBlock';
 
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,
@@ -42,41 +42,41 @@ const paymentsBlockWrapper = {
   position: 'relative',
   padding: '20px',
   zIndex: 0,
-}
+};
 
 const pageTitleStyles = {
   textAlign: 'center',
   fontSize: '40px',
   fontWeight: 600,
   marginBottom: '70px',
-}
+};
 
 export default function CasinoPage({ casino, description, ads }) {
   const { bonus, pros, cons, paymentOptions } = casino;
-  const { main, additional, title, metaDescription, metaKeywords } = description;
+  const { main, additional, title, metaDescription, metaKeywords } =
+    description;
 
   return (
     <>
       <Head>
         <title>{title}</title>
-        <meta
-          name="description"
-          content={metaDescription}
-        />
+        <meta name="description" content={metaDescription} />
         <meta name="keywords" content={metaKeywords} />
       </Head>
       <Box sx={{ height: '200px' }} />
-      <Typography sx={pageTitleStyles} variant="h1">{title}</Typography>
+      <Typography sx={pageTitleStyles} variant="h1">
+        {title}
+      </Typography>
       <Grid container spacing="40px">
-        <Grid item xs={3}>
+        <Grid item lg={3} md={4} xs={12}>
           <Box sx={wrapperStyles}>
             <CasinoImage imageSrc={casino.imageSrc} />
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item lg={6} md={8} xs={12}>
           <TextBlock textArray={main} variant="h3" />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item lg={3} md={4} xs={12}>
           <Column>
             <PrimaryButton>Play</PrimaryButton>
             <Box mt={4}>
@@ -87,16 +87,16 @@ export default function CasinoPage({ casino, description, ads }) {
             </Box>
           </Column>
         </Grid>
-        <Grid item container xs={8} spacing="40px">
-          <Grid item xs={12}>
+        <Grid item container lg={8} md={8} xs={12} spacing="40px">
+          <Grid item lg={12}>
             <ProsAndCons pros={pros} cons={cons} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item lg={12}>
             <TextBlock textArray={additional} variant="h3" />
           </Grid>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item lg={4} md={12} xs={12}>
           <Box sx={adsBlockWrapper}>
             {ads.map((casino) => (
               <CasinoAdBlock key={casino.name} casino={casino} />

@@ -1,18 +1,12 @@
-import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 
 import Column from 'components/Column';
-import CasinoModal from 'components/CasinoModal';
 import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
-import { disableScroll, enableScroll } from 'utils';
 import { API_URL } from 'constants/index';
-import Dialog from '@mui/material/Dialog';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const sx = (theme) => {
   return {
@@ -39,25 +33,10 @@ find anywhere else. Start your journey today and join the
 millions of satisfied players who have already won big!`;
 
 export default function Crypto({ listCasinos }) {
-  const [modalData, setModalData] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClose = useCallback(() => {
-    setIsOpen(false);
-    setModalData(null);
-  }, [setModalData, setIsOpen]);
-
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const theme = useTheme();
-  const fullscreen = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <>
       <Head>
-        <title>TheGamblr - Best cypto gamlbing sites!</title>
+        <title>TheGamblr - Crypto gambling sites reviews 2023</title>
         <meta
           name="description"
           content="Find the best online crypto gambling websites with our reviews and information. Play your favorite gambling games and win big!"
@@ -67,20 +46,7 @@ export default function Crypto({ listCasinos }) {
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="crypto gambling" />
         <Subtitle content={subtitle} />
-        <CasinoList
-          openModal={openModal}
-          setModalData={setModalData}
-          category="crypto"
-          casinos={listCasinos}
-        />
-        <Dialog
-          open={isOpen}
-          onClose={handleClose}
-          sx={sx}
-          fullScreen={fullscreen}
-        >
-          <CasinoModal data={modalData} onClose={handleClose} />
-        </Dialog>
+        <CasinoList category="crypto" casinos={listCasinos} />
       </Column>
     </>
   );

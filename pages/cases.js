@@ -1,17 +1,12 @@
-import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 
 import Column from 'components/Column';
-import CasinoModal from 'components/CasinoModal';
 import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 import { API_URL } from 'constants/index';
-import Dialog from '@mui/material/Dialog';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 const subtitle = `
 Here at Thegamblr.com, we promote the best online casinos for case opening gaming. 
@@ -37,25 +32,10 @@ const sx = (theme) => {
   };
 };
 export default function Cases({ listCasinos }) {
-  const [modalData, setModalData] = useState({});
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClose = useCallback(() => {
-    setIsOpen(false);
-    setModalData(null);
-  }, [setModalData, setIsOpen]);
-
-  const openModal = useCallback(() => {
-    setIsOpen(true);
-  }, [setIsOpen]);
-
-  const theme = useTheme();
-  const fullscreen = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <>
       <Head>
-        <title>TheGamblr - Best case opening sites!</title>
+        <title>TheGamblr - Case opening casinos reviews 2023</title>
         <meta
           name="description"
           content="Find the best case opening casinos and websites with our reviews and information. Open cases and win big!"
@@ -65,20 +45,7 @@ export default function Cases({ listCasinos }) {
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="case opening" />
         <Subtitle content={subtitle} />
-        <CasinoList
-          openModal={openModal}
-          setModalData={setModalData}
-          category="cases"
-          casinos={listCasinos}
-        />
-        <Dialog
-          open={isOpen}
-          onClose={handleClose}
-          sx={sx}
-          fullScreen={fullscreen}
-        >
-          <CasinoModal data={modalData} onClose={handleClose} />
-        </Dialog>
+        <CasinoList category="cases" casinos={listCasinos} />
       </Column>
     </>
   );
