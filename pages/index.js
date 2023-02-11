@@ -69,7 +69,7 @@ export default function Home({ listCasinos, topCasinos }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const url =
     process.env.ENVIRONMENT === 'production'
       ? API_URL
