@@ -3,10 +3,10 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 
 import Column from 'components/Column';
-import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 import { API_URL } from 'constants/index';
+import dynamic from 'next/dynamic';
 
 const subtitle = `
 Are you looking for the best skins casino sites? Look no further! Our 
@@ -14,6 +14,8 @@ site offers a comprehensive list of the highest quality skins
 casino sites on the web. We provide detailed reviews and ratings
 to help you make the best choice. With us, you can rest 
 assured that you’ll find the perfect skins casino site for you! Try us today!`;
+
+const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
 
 const sx = (theme) => {
   return {
@@ -45,7 +47,7 @@ export default function Skins({ listCasinos }) {
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="skins gambling" />
         <Subtitle content={subtitle} />
-        <CasinoList category="skins" casinos={listCasinos} />
+        <DynamicCasinoList category="skins" casinos={listCasinos} />
       </Column>
     </>
   );

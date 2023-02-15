@@ -3,10 +3,10 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 
 import Column from 'components/Column';
-import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 import { API_URL } from 'constants/index';
+import dynamic from 'next/dynamic';
 
 const sx = (theme) => {
   return {
@@ -24,6 +24,8 @@ const sx = (theme) => {
     },
   };
 };
+
+const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
 
 const subtitle = `
 Are you ready to win big? Check out crypto section and explore the best casinos around the world. 
@@ -46,7 +48,7 @@ export default function Crypto({ listCasinos }) {
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="crypto gambling" />
         <Subtitle content={subtitle} />
-        <CasinoList category="crypto" casinos={listCasinos} />
+        <DynamicCasinoList category="crypto" casinos={listCasinos} />
       </Column>
     </>
   );

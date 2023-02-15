@@ -1,17 +1,16 @@
 import Head from 'next/head';
 import Box from '@mui/material/Box';
+import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { API_URL } from 'constants/index';
 
 import Column from 'components/Column';
 
-import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 
 // page components
 import TopCasinos from 'components/HomePage/TopCasinos';
-import Disclaimer from 'components/HomePage/Disclaimer';
 
 const subtitle = `
 Thegamblr.com is a website that
@@ -45,6 +44,11 @@ const sx = (theme) => {
   };
 };
 
+const DynamicDisclaimer = dynamic(() =>
+  import('components/HomePage/Disclaimer'),
+);
+const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
+
 export default function Home({ listCasinos, topCasinos }) {
   return (
     <>
@@ -62,8 +66,8 @@ export default function Home({ listCasinos, topCasinos }) {
         <Title content="online gambling" />
         <Subtitle content={subtitle} />
         <TopCasinos casinos={topCasinos} />
-        <Disclaimer />
-        <CasinoList isHomePage casinos={listCasinos} />
+        <DynamicDisclaimer />
+        <DynamicCasinoList isHomePage casinos={listCasinos} />
       </Column>
     </>
   );

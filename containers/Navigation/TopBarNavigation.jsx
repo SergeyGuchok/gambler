@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Row from 'components/Row';
 import Icon from 'components/Icon';
 import Typography from 'components/Typography';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Dialog from '@mui/material/Dialog';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -76,11 +75,13 @@ export default function TopBarNavigation() {
   }, []);
 
   const sx = isApply ? sxFixed : {};
-  const isMd = useMediaQuery('(max-width: 1200px');
 
   return (
-    <Row
-      sx={{
+    <Box
+      sx={(theme) => ({
+        display: 'flex',
+        flexDirection: 'row',
+        width: '100%',
         height: '120px',
         position: 'fixed',
         top: 0,
@@ -88,11 +89,11 @@ export default function TopBarNavigation() {
         zIndex: 2,
         backgroundColor: navBarBackgroundColor,
         ...sx,
-      }}
+      })}
     >
       <Container sx={{ height: '100%', width: '100%' }} maxWidth="xl">
         <Row sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link href="/">
+          <Link href="/" aria-label="link">
             <Typography sx={logoStyles}>
               <Icon
                 name="logo"
@@ -104,38 +105,54 @@ export default function TopBarNavigation() {
               />
             </Typography>
           </Link>
-          {!isMd ? (
-            <>
-              <Link href="/crypto">
-                <Typography sx={linkStyles}>Crypto gambling</Typography>
-              </Link>
-              <Link href="/money">
-                <Typography sx={linkStyles}>Real money gambling</Typography>
-              </Link>
-              <Link href="/skins">
-                <Typography sx={linkStyles}>Skins gambling</Typography>
-              </Link>
-              <Link href="/cases">
-                <Typography sx={linkStyles}>Case openings</Typography>
-              </Link>
-              <Link href="/">
-                <Typography sx={linkStyles}>Reviews</Typography>
-              </Link>
-              <Link href="/">
-                <Typography sx={linkStyles}>Guides</Typography>
-              </Link>
-              <Link href="/">
-                <Typography sx={linkStyles}>Feedback</Typography>
-              </Link>
-            </>
-          ) : (
+          <Box
+            sx={(theme) => ({
+              display: 'flex',
+              width: '100%',
+              justifyContent: 'space-between',
+              marginLeft: '75px',
+              [theme.breakpoints.down('lg')]: {
+                display: 'none',
+              },
+            })}
+          >
+            <Link href="/crypto">
+              <Typography sx={linkStyles}>Crypto gambling</Typography>
+            </Link>
+            <Link href="/money">
+              <Typography sx={linkStyles}>Real money gambling</Typography>
+            </Link>
+            <Link href="/skins">
+              <Typography sx={linkStyles}>Skins gambling</Typography>
+            </Link>
+            <Link href="/cases">
+              <Typography sx={linkStyles}>Case openings</Typography>
+            </Link>
+            <Link href="/">
+              <Typography sx={linkStyles}>Reviews</Typography>
+            </Link>
+            <Link href="/">
+              <Typography sx={linkStyles}>Guides</Typography>
+            </Link>
+            <Link href="/">
+              <Typography sx={linkStyles}>Feedback</Typography>
+            </Link>
+          </Box>
+          <Box
+            sx={(theme) => ({
+              display: 'none',
+              [theme.breakpoints.down('lg')]: {
+                display: 'block',
+              },
+            })}
+          >
             <MenuIcon onClick={onOpen} />
-          )}
+          </Box>
         </Row>
       </Container>
       <Dialog onClose={onClose} open={isOpen} sx={sxModalWrapper}>
         <MobileMenu onClose={onClose} />
       </Dialog>
-    </Row>
+    </Box>
   );
 }

@@ -3,10 +3,10 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 
 import Column from 'components/Column';
-import CasinoList from 'containers/CasinoList';
 import Title from 'components/Title';
 import Subtitle from 'components/Subtitle';
 import { API_URL } from 'constants/index';
+import dynamic from 'next/dynamic';
 
 const subtitle = `
 Here at Thegamblr.com, we promote the best online casinos for case opening gaming. 
@@ -14,6 +14,8 @@ With our selection of the most trusted and reliable casinos, you can get
 the best experience for your case opening entertainment. 
 Get ready for great bonuses, exciting games, and more! 
 Come and join us now and experience the thrill of case opening gaming!`;
+
+const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
 
 const sx = (theme) => {
   return {
@@ -45,7 +47,7 @@ export default function Cases({ listCasinos }) {
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="case opening" />
         <Subtitle content={subtitle} />
-        <CasinoList category="cases" casinos={listCasinos} />
+        <DynamicCasinoList category="cases" casinos={listCasinos} />
       </Column>
     </>
   );

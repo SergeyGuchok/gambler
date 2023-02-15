@@ -36,7 +36,7 @@ const optionToTooltipMap = {
 function PaymentOption({ option }) {
   return (
     <Box sx={boxStyles}>
-      <Tooltip title={optionToTooltipMap[option]}>
+      <Tooltip title={optionToTooltipMap[option]} aria-label="tooltip">
         <Box sx={{ display: 'flex', flex: '1' }}>
           <Icon name={option} sx={{ width: '100%' }} />
         </Box>
