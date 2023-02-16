@@ -38,6 +38,7 @@ function generateSiteMap(casinos) {
     </url>
      ${casinos
        .map(({ name }) => {
+         if (!name) return null;
          return `
        <url>
            <loc>${`${EXTERNAL_DATA_URL}/casino/${name}`}</loc>

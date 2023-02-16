@@ -68,13 +68,12 @@ export default function Admin() {
       <button onClick={addNewCasino}>Add new casino</button>
 
       <Box mt={2}>
-        <p>Info:</p>
         {selectedCasino ? (
           <Box>
             <CasinoInfo casino={selectedCasino} saveCasino={handleCasinoSave} />
             <hr />
             <Box mt={2}>
-              <p>Описание казино</p>
+              <h2>Описание</h2>
               <CasinoDescription
                 description={selectedDescription}
                 casino={selectedCasino}

@@ -13,6 +13,7 @@ import BonusBlock from 'components/BonusBlock';
 import ProsAndCons from 'containers/ProsAndCons';
 import CasinoAdBlock from 'containers/CasinoAdBlock';
 import PaymentsBlock from 'components/PaymentsBlock';
+import ContentBlock from 'components/ContentBlock';
 
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,
@@ -53,7 +54,7 @@ const pageTitleStyles = {
 
 export default function CasinoPage({ casino, description, ads }) {
   const { bonus, pros, cons, paymentOptions } = casino;
-  const { main, additional, title, metaDescription, metaKeywords } =
+  const { main, additional, title, metaDescription, metaKeywords, content } =
     description;
 
   return (
@@ -103,6 +104,14 @@ export default function CasinoPage({ casino, description, ads }) {
             ))}
           </Box>
         </Grid>
+      </Grid>
+
+      <Grid container spacing="40px" mt="40px">
+        {content?.map((element, index) => (
+          <Grid item xs={12} key={index}>
+            <ContentBlock element={element} />
+          </Grid>
+        ))}
       </Grid>
     </>
   );

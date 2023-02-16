@@ -1,5 +1,14 @@
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
+import Row from 'components/Row';
+
+const rowSx = {
+  margin: '10px',
+  width: '100%',
+  '& > input': {
+    width: '100%',
+  },
+};
 
 export default function CasinoDescription({ casino, onSave, description }) {
   const {
@@ -9,6 +18,7 @@ export default function CasinoDescription({ casino, onSave, description }) {
     metaKeywords,
     title,
     metaDescription,
+    content,
   } = description;
 
   const [state, setState] = useState({
@@ -18,7 +28,9 @@ export default function CasinoDescription({ casino, onSave, description }) {
     title: title || '',
     metaKeywords: metaKeywords || '',
     metaDescription: metaDescription || '',
+    content: content || [],
   });
+  const [contentItem, setContentItem] = useState({});
 
   useEffect(() => {
     setState((prevState) => ({
@@ -31,6 +43,70 @@ export default function CasinoDescription({ casino, onSave, description }) {
     setState((prevState) => ({
       ...prevState,
       name: e.target.value,
+    }));
+  };
+
+  const onAddContentItem = () => {
+    setState((prevState) => ({
+      ...prevState,
+      content: [...prevState.content, []],
+    }));
+  };
+
+  const onContentItemDelete = (i1, i2) => {
+    const newContent = [...state.content];
+    const contentItem = state.content[i1];
+    const filteredItem = contentItem.filter((c, i) => i !== i2);
+    newContent[i1] = filteredItem;
+
+    setState((prevState) => ({
+      ...prevState,
+      content: newContent,
+    }));
+  };
+
+  const onContentItemAdd = (i1) => {
+    const newContent = [...state.content];
+    const contentItem = newContent[i1];
+    const newContentItem = [...contentItem, {}];
+    newContent[i1] = newContentItem;
+
+    setState((prevState) => ({
+      ...prevState,
+      content: newContent,
+    }));
+  };
+
+  const onContentItemContentChange = (i1, i2, value) => {
+    const newContent = [...state.content];
+    const contentItem = state.content[i1][i2];
+    contentItem.content = value;
+    newContent[i1][i2] = contentItem;
+
+    setState((prevState) => ({
+      ...prevState,
+      content: newContent,
+    }));
+  };
+
+  const onContentItemTypeChange = (i1, i2, value) => {
+    console.log(i1, i2, value);
+    const newContent = [...state.content];
+    const contentItem = state.content[i1][i2];
+    contentItem.type = value;
+    newContent[i1][i2] = contentItem;
+
+    setState((prevState) => ({
+      ...prevState,
+      content: newContent,
+    }));
+  };
+
+  const onDeleteWholeItem = (i1) => {
+    const newContent = [...state.content].filter((c, i) => i !== i1);
+    setState((prevState) => ({
+      ...prevState,
+      content: newContent,
     }));
   };
 
@@ -127,31 +203,34 @@ export default function CasinoDescription({ casino, onSave, description }) {
     );
   };
 
+  console.log(state.content);
+
   return (
     <Box>
-      <p>Имя:</p>
-      <input type="text" value={state.name} onChange={onNameChange} />
-
-      <Box mt={2}>
-        <p>Title: </p>
+      <Row sx={rowSx}>
+        <input type="text" value={state.name} onChange={onNameChange} />
+        <p>name</p>
+      </Row>
+      <Row sx={rowSx}>
         <input type="text" value={state.title} onChange={onTitleChange} />
-      </Box>
-      <Box mt={2}>
-        <p>MetaKeywords: </p>
+        <p>title</p>
+      </Row>
+      <Row sx={rowSx}>
         <input
           type="text"
           value={state.metaKeywords}
           onChange={onMetaKeywordsChange}
         />
-      </Box>
-      <Box mt={2}>
-        <p>MetaDescription: </p>
+        <p>MetaKeywords</p>
+      </Row>
+      <Row sx={rowSx}>
         <input
           type="text"
           value={state.metaDescription}
           onChange={onMetaDescriptionChange}
         />
-      </Box>
+        <p>MetaDescription</p>
+      </Row>
 
       <Box
         display="flex"
@@ -188,6 +267,50 @@ export default function CasinoDescription({ casino, onSave, description }) {
             <button onClick={onAddToAdditional}>Добавить в основное</button>
           </Box>
         </Box>
+      </Box>
+
+      <Box sx={{ marginTop: '40px', marginBottom: '40px' }}>
+        <b>Content:</b>
+        <button onClick={onAddContentItem}>Add content item</button>
+        {state.content.map((el, index) => {
+          return (
+            <Box key={el + index}>
+              <button onClick={() => onDeleteWholeItem(index)}>
+                Delete whole item
+              </button>
+              <b>Content item {index + 1}</b>
+              {el.map((c, i) => (
+                <Box key={i + c}>
+                  <Row sx={rowSx}>
+                    <input
+                      type="text"
+                      value={c.type}
+                      onChange={(e) =>
+                        onContentItemTypeChange(index, i, e.target.value)
+                      }
+                    />
+                    <p>type</p>
+                  </Row>
+                  <Row sx={rowSx}>
+                    <input
+                      type="text"
+                      value={c.content}
+                      onChange={(e) =>
+                        onContentItemContentChange(index, i, e.target.value)
+                      }
+                    />
+                    <p>content</p>
+                  </Row>
+                  <button onClick={() => onContentItemDelete(index, i)}>
+                    Delete item
+                  </button>
+                </Box>
+              ))}
+              <button onClick={() => onContentItemAdd(index)}>Add item</button>
+              <hr />
+            </Box>
+          );
+        })}
       </Box>
 
       <Box mt={2}>

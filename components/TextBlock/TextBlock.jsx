@@ -17,6 +17,9 @@ const sxText = {
   lineHeight: '25px',
   color: primaryBlack,
   marginBottom: '20px',
+  '&:last-of-type': {
+    marginBottom: '0',
+  },
 };
 
 export default function TextBlock({ textArray, variant = 'body2' }) {

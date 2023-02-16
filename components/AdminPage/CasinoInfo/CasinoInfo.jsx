@@ -1,5 +1,14 @@
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
+import Row from 'components/Row';
+
+const rowSx = {
+  margin: '10px',
+  width: '100%',
+  '& > input': {
+    width: '100%',
+  },
+};
 
 export default function CasinoInfo({ casino, saveCasino }) {
   const [state, setState] = useState({
@@ -74,81 +83,97 @@ export default function CasinoInfo({ casino, saveCasino }) {
     <Box>
       <p>Данные казино</p>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        imageSrc
-        <input
-          name="imageSrc"
-          type="text"
-          placeholder="imageSrc"
-          onChange={onChange}
-          value={imageSrc}
-        />
-        Bonus
-        <input
-          name="bonus"
-          type="text"
-          placeholder="bonus"
-          onChange={onChange}
-          value={bonus}
-        />
-        name
-        <input
-          name="name"
-          type="text"
-          placeholder="name"
-          onChange={onChange}
-          value={name}
-        />
-        dispalyName
-        <input
-          name="displayName"
-          type="text"
-          placeholder="displayName"
-          onChange={onChange}
-          value={displayName}
-        />
-        mainCategory
-        <input
-          name="mainCategory"
-          type="text"
-          placeholder="mainCategory"
-          value={mainCategory}
-          onChange={onChange}
-        />
-        winRate
-        <input
-          name="winRate"
-          type="number"
-          placeholder="winRate"
-          value={winRate}
-          onChange={onChange}
-        />
-        refLink
-        <input
-          name="refLink"
-          type="string"
-          placeholder="winRate"
-          value={refLink}
-          onChange={onChange}
-        />
-        ranking
-        <input
-          name="ranking"
-          type="number"
-          placeholder="ranking"
-          value={ranking}
-          onChange={onChange}
-        />
-        categories
-        <Box>
+        <Row sx={rowSx}>
+          <input
+            name="imageSrc"
+            type="text"
+            placeholder="imageSrc"
+            onChange={onChange}
+            value={imageSrc}
+          />
+          imageSrc
+        </Row>
+        <Row sx={rowSx}>
+          <input
+            name="bonus"
+            type="text"
+            placeholder="bonus"
+            onChange={onChange}
+            value={bonus}
+          />
+          bonus
+        </Row>
+        <Row sx={rowSx}>
+          <input
+            name="name"
+            type="text"
+            placeholder="name"
+            onChange={onChange}
+            value={name}
+          />
+          name
+        </Row>
+        <Row sx={rowSx}>
+          <input
+            name="displayName"
+            type="text"
+            placeholder="displayName"
+            onChange={onChange}
+            value={displayName}
+          />
+          displayName
+        </Row>
+        <Row sx={rowSx}>
+          <input
+            name="mainCategory"
+            type="text"
+            placeholder="mainCategory"
+            value={mainCategory}
+            onChange={onChange}
+          />
+          mainCategory
+        </Row>
+        <Row sx={rowSx}>
+          <input
+            name="winRate"
+            type="number"
+            placeholder="winRate"
+            value={winRate}
+            onChange={onChange}
+          />
+          winRate
+        </Row>
+        <Row sx={rowSx}>
+          <input
+            name="refLink"
+            type="string"
+            placeholder="winRate"
+            value={refLink}
+            onChange={onChange}
+          />
+          refLink
+        </Row>
+        <Row sx={rowSx}>
+          <input
+            name="ranking"
+            type="number"
+            placeholder="ranking"
+            value={ranking}
+            onChange={onChange}
+          />
+          ranking
+        </Row>
+        <b>categories</b>
+        <Row sx={rowSx}>
           {categories.map((c) => (
             <>
               <p>{c}</p>
               <button onClick={() => onArrayRemove('categories', c)}>
-                Удалить категорию
+                delete
               </button>
             </>
           ))}
-        </Box>
+        </Row>
         <input
           type="text"
           value={inputValue}
@@ -160,17 +185,15 @@ export default function CasinoInfo({ casino, saveCasino }) {
         >
           add
         </button>
-        pros
-        <Box>
+        <b>pros</b>
+        <Row sx={rowSx}>
           {pros.map((c) => (
             <>
               <p>{c}</p>
-              <button onClick={() => onArrayRemove('pros', c)}>
-                Удалить pros
-              </button>
+              <button onClick={() => onArrayRemove('pros', c)}>delete</button>
             </>
           ))}
-        </Box>
+        </Row>
         <input
           type="text"
           value={inputValue}
@@ -179,17 +202,15 @@ export default function CasinoInfo({ casino, saveCasino }) {
         <button type="button" onClick={() => onArrayChange('pros', inputValue)}>
           add
         </button>
-        cons
-        <Box>
+        <b>cons</b>
+        <Row sx={rowSx}>
           {cons.map((c) => (
             <>
               <p>{c}</p>
-              <button onClick={() => onArrayRemove('cons', c)}>
-                Удалить cons
-              </button>
+              <button onClick={() => onArrayRemove('cons', c)}>delete</button>
             </>
           ))}
-        </Box>
+        </Row>
         <input
           type="text"
           value={inputValue}
@@ -198,17 +219,17 @@ export default function CasinoInfo({ casino, saveCasino }) {
         <button type="button" onClick={() => onArrayChange('cons', inputValue)}>
           add
         </button>
-        paymentOptions
-        <Box>
+        <b>paymentOptions</b>
+        <Row sx={rowSx}>
           {paymentOptions.map((c) => (
             <>
               <p>{c}</p>
               <button onClick={() => onArrayRemove('paymentOptions', c)}>
-                Удалить paymentOptions
+                delete
               </button>
             </>
           ))}
-        </Box>
+        </Row>
         <input
           type="text"
           value={inputValue}
@@ -220,17 +241,17 @@ export default function CasinoInfo({ casino, saveCasino }) {
         >
           add
         </button>
-        pageCategory
-        <Box>
+        <b>pageCategory</b>
+        <Row sx={rowSx}>
           {pageCategory.map((c) => (
             <>
               <p>{c}</p>
               <button onClick={() => onArrayRemove('pageCategory', c)}>
-                Удалить pageCategory
+                delete
               </button>
             </>
           ))}
-        </Box>
+        </Row>
         <input
           type="text"
           value={inputValue}
@@ -243,7 +264,7 @@ export default function CasinoInfo({ casino, saveCasino }) {
           add
         </button>
         <hr />
-        {JSON.stringify(state)}
+        {JSON.stringify(state, null, 4)}
         <button onClick={() => onSend()}>send</button>
       </Box>
     </Box>
