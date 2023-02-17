@@ -56,6 +56,7 @@ export default function Home({ listCasinos, topCasinos }) {
         <title>
           TheGamblr - Best online casinos to your choice! 2023 Reviews
         </title>
+        {/*<link rel="canonical" href="https://thegamblr.com" />*/}
         <meta
           name="description"
           content="Find the best online casinos and betting websites with our 2023 reviews, bonuses and promotions information and free sign up money. Play your favorite gambling games and win big!"

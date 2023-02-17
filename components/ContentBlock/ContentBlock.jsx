@@ -46,7 +46,7 @@ const typeToSxMapper = {
 
 const typeToVariantMapper = {
   title: 'h2',
-  text: 'span',
+  text: 'body1',
   subtitle: 'h3',
 };
 export default function ContentBlock({ element }) {

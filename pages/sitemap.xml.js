@@ -9,7 +9,7 @@ function generateSiteMap(casinos) {
      <url>
         <loc>https://thegamblr.com</loc>
         <changefreq>daily</changefreq>
-        <priority>1</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://thegamblr.com/crypto</loc>
