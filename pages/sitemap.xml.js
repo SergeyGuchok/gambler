@@ -48,8 +48,6 @@ function generateSiteMap(casinos) {
      `;
        })
        .join('')}
-   </urlset>
-   
     <url>
         <loc>https://thegamblr.com/crypto/sports-betting/</loc>
         <changefreq>daily</changefreq>
@@ -75,6 +73,7 @@ function generateSiteMap(casinos) {
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
+    </urlset>
  `;
 }
 
