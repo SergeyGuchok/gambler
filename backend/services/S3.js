@@ -12,15 +12,15 @@ const s3Client = new S3({
   },
 });
 
-const upload = multer({
-  storage: multers3({
-    s3: s3Client,
-    bucket: process.env.CLOUD_SPACE_BUCKET_NAME,
-    acl: 'public-read',
-    key(request, file, cb) {
-      cb(null, file.originalname);
-    },
-  }),
-});
+// const upload = multer({
+//   storage: multers3({
+//     s3: s3Client,
+//     bucket: process.env.CLOUD_SPACE_BUCKET_NAME,
+//     acl: 'public-read',
+//     key(request, file, cb) {
+//       cb(null, file.originalname);
+//     },
+//   }),
+// });
 
-module.exports = upload;
+module.exports = s3Client;

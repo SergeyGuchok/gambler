@@ -1,5 +1,5 @@
 import Box from '@mui/material/Box';
-import { primaryWhite } from '../../constants';
+import { primaryWhite } from '../../../constants';
 
 const wrapperStylesBig = (theme) => ({
   backgroundColor: primaryWhite,

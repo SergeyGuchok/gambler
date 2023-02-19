@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 import { primaryBlack, primaryWhite } from 'constants/index';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,

@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 
 const titleStyles = (theme) => ({
   textAlign: 'center',
@@ -29,8 +29,8 @@ const gradientTextStyles = (theme) => ({
 export default function Title({ content }) {
   return (
     <Typography variant="h1" sx={titleStyles}>
-      The best <Typography sx={gradientTextStyles}>{content}</Typography> sites
-      for 2023
+      The best <Typography sx={gradientTextStyles}>{content}</Typography>{' '}
+      casinos for 2023
     </Typography>
   );
 }

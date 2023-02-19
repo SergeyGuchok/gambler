@@ -2,9 +2,9 @@ import Head from 'next/head';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 
-import Column from 'components/Column';
-import Title from 'components/Title';
-import Subtitle from 'components/Subtitle';
+import Column from 'components/common/Column';
+import Title from 'components/common/Title';
+import Subtitle from 'components/common/Subtitle';
 import { API_URL } from 'constants/index';
 import dynamic from 'next/dynamic';
 

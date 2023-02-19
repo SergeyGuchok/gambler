@@ -2,12 +2,12 @@ import React from 'react';
 import { Box, Grid } from '@mui/material';
 import ReactCardFlip from 'react-card-flip';
 import ProsOrConsLine from 'components/ProsOrConsLine';
-import Row from 'components/Row';
-import Column from 'components/Column';
+import Row from 'components/common/Row';
+import Column from 'components/common/Column';
 import TitleSubtitle from 'components/TitleSubtitle';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 import { primaryGrey } from 'constants/index';
-import PaymentOption from 'components/PaymentOption';
+import PaymentOption from 'components/PaymentsBlock/PaymentOption';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const depositOptionsStyles = {

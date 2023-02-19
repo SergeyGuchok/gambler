@@ -1,10 +1,10 @@
 import Box from '@mui/material/Box';
 import Image from 'next/image';
-import Row from 'components/Row';
-import Column from 'components/Column';
-import Button from 'components/Button';
+import Row from 'components/common/Row';
+import Column from 'components/common/Column';
+import Button from 'components/common/Button';
 import React from 'react';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 import { primaryBlack, primaryGrey, TYPE_PRIMARY } from 'constants/index';
 import Link from 'next/link';
 

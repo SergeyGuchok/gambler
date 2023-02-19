@@ -1,5 +1,5 @@
 import Grid from '@mui/material/Grid';
-import PaymentOption from 'components/PaymentOption';
+import PaymentOption from 'components/PaymentsBlock/PaymentOption';
 
 const gridStyles = {
   gap: 2,

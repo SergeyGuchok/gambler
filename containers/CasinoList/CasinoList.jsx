@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import Box from '@mui/material/Box';
-import CasinoCard from 'containers/CasinoCard';
+import CasinoCard from 'components/common/CasinoCard';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const wrapperStyles = {

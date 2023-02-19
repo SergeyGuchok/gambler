@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
-import Column from 'components/Column';
+import Column from 'components/common/Column';
 import { primaryBlack, primaryGrey, secondaryGrey } from 'constants/index';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 
 const titleStyles = {
   fontSize: '25px',

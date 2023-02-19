@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
 import ProsOrConsLine from 'components/ProsOrConsLine';
-import Row from '../../components/Row';
-import Column from '../../components/Column';
-import Typography from '../../components/Typography/Typography';
+import Row from 'components/common/Row';
+import Column from 'components/common/Column';
+import Typography from 'components/common/Typography/Typography';
 import React from 'react';
-import { primaryGrey } from '../../constants';
-import Paper from 'components/Paper';
+import { primaryGrey } from 'constants/index';
+import Paper from 'components/common/Paper';
 
 const optionsStyles = {
   width: '100%',

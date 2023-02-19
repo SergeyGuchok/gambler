@@ -1,27 +1,11 @@
-import React, { useEffect, useState, memo } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from 'components/Typography';
-import { API_URL, navMenuItemActive } from 'constants/index';
-import CasinoCard from 'containers/CasinoCard';
+import Typography from 'components/common/Typography';
+import CasinoCard from 'components/common/CasinoCard';
 import { useMediaQuery } from '@mui/material';
 
-const topCasinosBlockStyles = {
-  marginTop: '200px',
-};
-
-const titleStyles = (theme) => ({
-  fontSize: '40px',
-  fontWeight: 700,
-  color: navMenuItemActive,
-  textAlign: 'center',
-  marginBottom: '70px',
-
-  [theme.breakpoints.down('md')]: {
-    fontSize: '30px',
-    marginBottom: '50px',
-  },
-});
+import { wrapperStyles, titleStyles } from './styles';
 
 const isHorizontal = (index, isMd, isXs) => {
   if (index > 1 && isMd && !isXs) return true;
@@ -32,7 +16,7 @@ const TopCasinos = ({ casinos }) => {
   const isXs = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   return (
-    <Box sx={topCasinosBlockStyles}>
+    <Box sx={wrapperStyles}>
       <Typography sx={titleStyles}>Top casinos</Typography>
       <Grid container spacing={3}>
         {casinos.map((casino, index) =>

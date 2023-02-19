@@ -1,6 +1,6 @@
 import React from 'react';
-import Typography from 'components/Typography';
-import Column from 'components/Column';
+import Typography from 'components/common/Typography';
+import Column from 'components/common/Column';
 import { primaryGrey, primaryBlack } from 'constants/index';
 
 const titleSx = (theme) => ({

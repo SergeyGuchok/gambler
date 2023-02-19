@@ -2,18 +2,23 @@ import Box from '@mui/material/Box';
 import Head from 'next/head';
 import { API_URL, primaryWhite } from 'constants/index';
 import axios from 'axios';
-import CasinoImage from 'components/CasinoImage';
-import Row from 'components/Row';
-import Column from 'components/Column';
-import Typography from 'components/Typography';
+import CasinoImage from 'components/common/CasinoImage';
+import Row from 'components/common/Row';
+import Column from 'components/common/Column';
+import Typography from 'components/common/Typography';
 import TextBlock from 'components/TextBlock';
-import PrimaryButton from 'components/Button/PrimaryButton';
+import PrimaryButton from 'components/common/Button/PrimaryButton';
 import Grid from '@mui/material/Grid';
 import BonusBlock from 'components/BonusBlock';
 import ProsAndCons from 'containers/ProsAndCons';
 import CasinoAdBlock from 'containers/CasinoAdBlock';
 import PaymentsBlock from 'components/PaymentsBlock';
-import ContentBlock from 'components/ContentBlock';
+import ContentBlock from 'containers/ContentBlock';
+import path from 'path';
+import fs from 'fs';
+import { GetObjectCommand } from '@aws-sdk/client-s3';
+import s3Client from 'backend/services/S3';
+import matter from 'gray-matter';
 
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,
@@ -52,9 +57,9 @@ const pageTitleStyles = {
   marginBottom: '70px',
 };
 
-export default function CasinoPage({ casino, description, ads }) {
+export default function CasinoPage({ casino, description, ads, content }) {
   const { bonus, pros, cons, paymentOptions } = casino;
-  const { main, additional, title, metaDescription, metaKeywords, content } =
+  const { main, additional, title, metaDescription, metaKeywords } =
     description;
 
   return (
@@ -107,36 +112,50 @@ export default function CasinoPage({ casino, description, ads }) {
       </Grid>
 
       <Grid container spacing="40px" mt="40px">
-        {content?.map((element, index) => (
-          <Grid item xs={12} key={index}>
-            <ContentBlock element={element} />
-          </Grid>
-        ))}
+        <Grid item xs={12}>
+          <ContentBlock content={content} />
+        </Grid>
       </Grid>
     </>
   );
 }
 
+const file = () => {
+  const dir = path.join(process.cwd(), 'public/post.md');
+  const a = fs.readFileSync(dir, 'utf-8');
+  return a;
+};
+
 export async function getServerSideProps(context) {
   const { query } = context;
   const { name } = query;
+  const reviewData = file();
 
   const url =
     process.env.ENVIRONMENT === 'production'
       ? API_URL
       : 'http://localhost:3000/api';
+  const resultReview = await axios.get(`${url}/reviews/${name}`);
   const resultCasino = await axios.get(`${url}/casinos/${name}`);
   const resultDescription = await axios.get(`${url}/descriptions/${name}`);
   const resultAds = await axios.get(`${url}/ads/${name}`);
+
+  // const { data: reviewData } = resultReview.data;
   const { data: casinoData } = resultCasino.data;
   const { data: descriptionData } = resultDescription.data;
   const { data: adsData } = resultAds.data;
+
+  const matterResult = matter(reviewData);
+  const postMetadata = matterResult.data;
+  const postContent = matterResult.content;
 
   return {
     props: {
       casino: casinoData[0],
       description: descriptionData[0],
       ads: adsData,
+      content: postContent,
+      postMeatadata: postMetadata,
     },
   };
 }

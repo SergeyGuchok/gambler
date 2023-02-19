@@ -4,10 +4,10 @@ import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { API_URL } from 'constants/index';
 
-import Column from 'components/Column';
+import Column from 'components/common/Column';
 
-import Title from 'components/Title';
-import Subtitle from 'components/Subtitle';
+import Title from 'components/common/Title';
+import Subtitle from 'components/common/Subtitle';
 
 // page components
 import TopCasinos from 'components/HomePage/TopCasinos';
@@ -26,23 +26,6 @@ best casino for them and enjoy secure, real money gambling
 at expert-approved sites offering big bonuses,
 hundreds of games and mobile compatibility.
 `;
-
-const sx = (theme) => {
-  return {
-    '.MuiDialog-paper': {
-      borderRadius: '30px',
-      maxWidth: '80%',
-      boxShadow: '0px 50px 120px rgba(0, 0, 0, 0.1)',
-
-      [theme.breakpoints.down('md')]: {
-        boxShadow: 'none',
-        maxWidth: '100%',
-        maxHeight: '100%',
-        borderRadius: 0,
-      },
-    },
-  };
-};
 
 const DynamicDisclaimer = dynamic(() =>
   import('components/HomePage/Disclaimer'),

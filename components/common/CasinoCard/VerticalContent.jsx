@@ -2,11 +2,11 @@ import React from 'react';
 import { Box, Grid } from '@mui/material';
 import ReactCardFlip from 'react-card-flip';
 import { primaryGrey, primaryWhite } from 'constants/index';
-import Row from 'components/Row';
+import Row from 'components/common/Row';
 import TitleSubtitle from 'components/TitleSubtitle';
-import Typography from 'components/Typography';
-import PaymentOption from 'components/PaymentOption';
-import Column from 'components/Column';
+import Typography from 'components/common/Typography';
+import PaymentOption from 'components/PaymentsBlock/PaymentOption';
+import Column from 'components/common/Column';
 import ProsOrConsLine from 'components/ProsOrConsLine';
 
 const optionsStyles = {

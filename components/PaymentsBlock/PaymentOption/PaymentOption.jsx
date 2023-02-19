@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from 'components/Icon';
+import Icon from 'components/common/Icon';
 import { secondaryGrey } from 'constants/index';
 import { Box } from '@mui/material';
 import Tooltip from '@mui/material/Tooltip';

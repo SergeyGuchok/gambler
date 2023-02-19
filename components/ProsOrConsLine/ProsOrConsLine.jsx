@@ -1,7 +1,7 @@
 import React from 'react';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import DoNotDisturbAltIcon from '@mui/icons-material/DoNotDisturbAlt';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 import { primaryBlack } from 'constants/index';
 import { capitalizeFirstLetter } from 'utils/index';
 

@@ -1,10 +1,10 @@
-import Row from 'components/Row';
-import Column from 'components/Column';
+import Row from 'components/common/Row';
+import Column from 'components/common/Column';
 import Container from '@mui/material/Container';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import { navMenuItemActive, navMenuItem, primaryWhite } from 'constants/index';
-import Icon from 'components/Icon';
+import Icon from 'components/common/Icon';
 import Link from 'next/link';
 import Box from '@mui/material/Box';
 import React from 'react';

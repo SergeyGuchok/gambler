@@ -33,3 +33,5 @@ export const FOOTER_BACKGROUND = '#F5F5F5';
 
 // API
 export const API_URL = 'https://thegamblr.com/api';
+
+export const PROD_URL = 'https://thegamblr.com';

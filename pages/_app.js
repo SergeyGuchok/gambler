@@ -13,10 +13,6 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        <meta
-          name="keywords"
-          content="casinos, casino, online casinos, gambling, slots, roulette, casino bonuses, casino games, online casino, casino reviews, casino promotions, poker, crypto, betting websites, gambling games, blackjack, 2023, review, coupons, free money"
-        />
         <meta name="author" content="TheGamblr" />
         <meta name="robots" content="all" />
         <meta charSet="utf-8" />

@@ -1,29 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Link from 'next/link';
-import Row from 'components/Row';
-import Icon from 'components/Icon';
-import Typography from 'components/Typography';
+import Row from 'components/common/Row';
+import Icon from 'components/common/Icon';
+import Typography from 'components/common/Typography';
 import Dialog from '@mui/material/Dialog';
 import Box from '@mui/material/Box';
 import MenuIcon from '@mui/icons-material/Menu';
 import MobileMenu from './MobileMenu';
-import {
-  navMenuItem,
-  navMenuItemActive,
-  navBarBackgroundColor,
-} from 'constants/index';
-
-const linkStyles = {
-  display: 'flex',
-  alignItems: 'center',
-  color: navMenuItem,
-  transition: '0.2s color',
-
-  '&:hover': {
-    color: navMenuItemActive,
-  },
-};
+import LinkWithDropdown from './LinkWithDropdown';
+import { PROD_URL, navBarBackgroundColor } from 'constants/index';
 
 const logoStyles = {
   display: 'flex',
@@ -45,6 +31,9 @@ const sxModalWrapper = {
     maxWidth: '100%',
   },
 };
+
+const url =
+  process.env.ENVIRONMENT === 'production' ? PROD_URL : 'http://localhost:3000';
 
 export default function TopBarNavigation() {
   const [isApply, setIsApply] = useState(false);
@@ -116,27 +105,39 @@ export default function TopBarNavigation() {
               },
             })}
           >
-            <Link href="/crypto">
-              <Typography sx={linkStyles}>Crypto gambling</Typography>
-            </Link>
-            <Link href="/money">
-              <Typography sx={linkStyles}>Real money gambling</Typography>
-            </Link>
-            <Link href="/skins">
-              <Typography sx={linkStyles}>Skins gambling</Typography>
-            </Link>
-            <Link href="/cases">
-              <Typography sx={linkStyles}>Case openings</Typography>
-            </Link>
-            <Link href="/">
-              <Typography sx={linkStyles}>Reviews</Typography>
-            </Link>
-            <Link href="/">
-              <Typography sx={linkStyles}>Guides</Typography>
-            </Link>
-            <Link href="/">
-              <Typography sx={linkStyles}>Feedback</Typography>
-            </Link>
+            <LinkWithDropdown
+              link={`${url}/crypto`}
+              items={[
+                {
+                  title: 'Best Crypto Casinos',
+                  href: `${url}/crypto/best`,
+                },
+                {
+                  title: 'Crypto Sports Betting',
+                  href: `${url}/crypto/sports-betting`,
+                },
+                { title: 'Slots', href: `${url}/crypto/slots` },
+                {
+                  title: 'Fast Withdrawal Casinos',
+                  href: `${url}/crypto/fast`,
+                },
+                {
+                  title: 'Sign Up Bonuses',
+                  href: `${url}/crypto/bonuses`,
+                },
+                { title: 'All', href: `${url}/crypto` },
+              ]}
+            >
+              Crypto gambling
+            </LinkWithDropdown>
+            <LinkWithDropdown link="/money">
+              Real money gambling
+            </LinkWithDropdown>
+            <LinkWithDropdown link="/skins">Skins gambling</LinkWithDropdown>
+            <LinkWithDropdown link="/cases">Case openings</LinkWithDropdown>
+            <LinkWithDropdown link="/">Reviews</LinkWithDropdown>
+            <LinkWithDropdown link="/">Guides</LinkWithDropdown>
+            <LinkWithDropdown link="/">Feedback</LinkWithDropdown>
           </Box>
           <Box
             sx={(theme) => ({

@@ -7,32 +7,32 @@ function generateSiteMap(casinos) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
-        <loc>https://thegamblr.com</loc>
+        <loc>https://thegamblr.com/</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://thegamblr.com/crypto</loc>
+        <loc>https://thegamblr.com/crypto/</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://thegamblr.com/money</loc>
+        <loc>https://thegamblr.com/money/</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://thegamblr.com/cases</loc>
+        <loc>https://thegamblr.com/cases/</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://thegamblr.com/skins</loc>
+        <loc>https://thegamblr.com/skins/</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://thegamblr.com/privacy-policy</loc>
+        <loc>https://thegamblr.com/privacy-policy/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -41,7 +41,7 @@ function generateSiteMap(casinos) {
          if (!name) return null;
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/casino/${name}`}</loc>
+           <loc>${`${EXTERNAL_DATA_URL}/casino/${name}/`}</loc>
            <changefreq>daily</changefreq>
            <priority>0.9</priority>
        </url>
@@ -49,6 +49,32 @@ function generateSiteMap(casinos) {
        })
        .join('')}
    </urlset>
+   
+    <url>
+        <loc>https://thegamblr.com/crypto/sports-betting/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://thegamblr.com/crypto/slots/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://thegamblr.com/crypto/fast/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://thegamblr.com/crypto/best/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://thegamblr.com/crypto/bonuses/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
  `;
 }
 

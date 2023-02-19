@@ -1,6 +1,6 @@
 import React from 'react';
-import Column from 'components/Column';
-import Typography from 'components/Typography';
+import Column from 'components/common/Column';
+import Typography from 'components/common/Typography';
 import ErrorOutlined from '@mui/icons-material/ErrorOutline';
 import { warningBackground, warningText } from 'constants/index';
 

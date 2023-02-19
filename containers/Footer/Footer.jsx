@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
-import Row from 'components/Row';
+import Row from 'components/common/Row';
 import { FOOTER_BACKGROUND, primaryGrey } from 'constants/index';
 import Container from '@mui/material/Container';
-import Typography from 'components/Typography';
+import Typography from 'components/common/Typography';
 import FooterDisclaimerBlock from 'components/FooterDisclaimerBlock';
 import Grid from '@mui/material/Grid';
 import Link from 'next/link';

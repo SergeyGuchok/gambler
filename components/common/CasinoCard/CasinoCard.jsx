@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import Typography from 'components/Typography';
-import CardNumber from 'components/CardNumber';
-import Row from 'components/Row';
-import CasinoImage from 'components/CasinoImage';
-import Column from 'components/Column';
+import Typography from 'components/common/Typography';
+import CardNumber from 'components/common/CasinoCard/CardNumber';
+import Row from 'components/common/Row';
+import CasinoImage from 'components/common/CasinoImage';
+import Column from 'components/common/Column';
 import {
   primaryWhite,
   navMenuItem,
   TYPE_PRIMARY,
   TYPE_SECONDARY,
 } from 'constants/index';
-import Button from 'components/Button';
+import Button from 'components/common/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import VerticalContent from './VerticalContent';

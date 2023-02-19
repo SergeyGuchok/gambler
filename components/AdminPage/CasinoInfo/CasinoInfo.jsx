@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
-import Row from 'components/Row';
+import Row from 'components/common/Row';
 
 const rowSx = {
   margin: '10px',
