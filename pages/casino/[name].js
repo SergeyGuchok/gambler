@@ -120,16 +120,16 @@ export default function CasinoPage({ casino, description, ads, content }) {
   );
 }
 
-const file = () => {
-  const dir = path.join(process.cwd(), 'public/post.md');
-  const a = fs.readFileSync(dir, 'utf-8');
-  return a;
-};
+// const file = () => {
+//   const dir = path.join(process.cwd(), 'public/post.md');
+//   const a = fs.readFileSync(dir, 'utf-8');
+//   return a;
+// };
 
 export async function getServerSideProps(context) {
   const { query } = context;
   const { name } = query;
-  const reviewData = file();
+  // const reviewData = file();
 
   const url =
     process.env.ENVIRONMENT === 'production'
@@ -140,7 +140,7 @@ export async function getServerSideProps(context) {
   const resultDescription = await axios.get(`${url}/descriptions/${name}`);
   const resultAds = await axios.get(`${url}/ads/${name}`);
 
-  // const { data: reviewData } = resultReview.data;
+  const { data: reviewData } = resultReview.data;
   const { data: casinoData } = resultCasino.data;
   const { data: descriptionData } = resultDescription.data;
   const { data: adsData } = resultAds.data;
