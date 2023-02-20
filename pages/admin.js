@@ -7,7 +7,7 @@ import CasinoInfo from 'components/AdminPage/CasinoInfo';
 import CasinoDescription from 'components/AdminPage/CasinoDescription';
 
 export default function Admin() {
-  // return null;
+  return null;
   const [casinos, setCasinos] = useState([]);
   const [descriptions, setDescriptions] = useState([]);
   const [selectedDescription, setSelectedDescription] = useState(null);
