@@ -31,10 +31,10 @@ export const TYPE_SECONDARY = 'secondary';
 // footer
 export const FOOTER_BACKGROUND = '#F5F5F5';
 
-export const PROD_URL =
-  process.env.ENVIRONMENT === 'production' ? API_URL : 'http://localhost:3000';
-
 export const API_URL =
   process.env.ENVIRONMENT === 'production'
-    ? API_URL
+    ? 'https://thegamblr.com/api'
     : 'http://localhost:3000/api';
+
+export const PROD_URL =
+  process.env.ENVIRONMENT === 'production' ? API_URL : 'http://localhost:3000';
