@@ -37,4 +37,6 @@ export const API_URL =
     : 'http://localhost:3000/api';
 
 export const PROD_URL =
-  process.env.ENVIRONMENT === 'production' ? API_URL : 'http://localhost:3000';
+  process.env.ENVIRONMENT === 'production'
+    ? 'https://thegamblr.com'
+    : 'http://localhost:3000';
