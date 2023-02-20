@@ -97,12 +97,7 @@ function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-  const url =
-    process.env.ENVIRONMENT === 'production'
-      ? API_URL
-      : 'http://localhost:3000/api';
-  const result = await axios.get(`${url}/casinos`);
-  const { data } = result.data;
+  const { data } = await axios.get(`${API_URL}/casinos`);
 
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(data);

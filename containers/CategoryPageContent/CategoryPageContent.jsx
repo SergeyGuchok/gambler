@@ -67,6 +67,7 @@ export default function CategoryPageContent({ casinos, metadata }) {
                 alt={alt}
                 style={{ objectFit: 'cover' }}
                 quality="100"
+                placeholder
                 fill
               />
             </Box>

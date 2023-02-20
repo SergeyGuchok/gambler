@@ -3,14 +3,9 @@ import Box from '@mui/material/Box';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { API_URL } from 'constants/index';
-
 import Column from 'components/common/Column';
-
 import Title from 'components/common/Title';
 import Subtitle from 'components/common/Subtitle';
-
-// page components
-import TopCasinos from 'components/HomePage/TopCasinos';
 
 const subtitle = `
 Thegamblr.com is a website that
@@ -27,6 +22,9 @@ at expert-approved sites offering big bonuses,
 hundreds of games and mobile compatibility.
 `;
 
+const DynamicTopCasinos = dynamic(() =>
+  import('components/HomePage/TopCasinos'),
+);
 const DynamicDisclaimer = dynamic(() =>
   import('components/HomePage/Disclaimer'),
 );
@@ -50,7 +48,7 @@ export default function Home({ listCasinos, topCasinos }) {
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="online gambling" />
         <Subtitle content={subtitle} />
-        <TopCasinos casinos={topCasinos} />
+        <DynamicTopCasinos casinos={topCasinos} />
         <DynamicDisclaimer />
         <DynamicCasinoList isHomePage casinos={listCasinos} />
       </Column>
