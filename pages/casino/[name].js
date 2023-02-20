@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { API_URL, primaryWhite } from 'constants/index';
 import axios from 'axios';
 import CasinoImage from 'components/common/CasinoImage';
-import Row from 'components/common/Row';
 import Column from 'components/common/Column';
 import Typography from 'components/common/Typography';
 import TextBlock from 'components/TextBlock';
@@ -14,11 +13,8 @@ import ProsAndCons from 'containers/ProsAndCons';
 import CasinoAdBlock from 'containers/CasinoAdBlock';
 import PaymentsBlock from 'components/PaymentsBlock';
 import ContentBlock from 'containers/ContentBlock';
-import path from 'path';
-import fs from 'fs';
-import { GetObjectCommand } from '@aws-sdk/client-s3';
-import s3Client from 'backend/services/S3';
 import matter from 'gray-matter';
+import Link from 'next/link';
 
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,
@@ -58,9 +54,10 @@ const pageTitleStyles = {
 };
 
 export default function CasinoPage({ casino, description, ads, content }) {
-  const { bonus, pros, cons, paymentOptions } = casino;
+  const { bonus, pros, cons, paymentOptions, refLink } = casino;
   const { main, additional, title, metaDescription, metaKeywords } =
     description;
+  const link = refLink.includes('https://') ? refLink : `https://${refLink}`;
 
   return (
     <>
@@ -84,7 +81,13 @@ export default function CasinoPage({ casino, description, ads, content }) {
         </Grid>
         <Grid item lg={3} md={4} xs={12}>
           <Column>
-            <PrimaryButton>Play</PrimaryButton>
+            <Link
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer nofollowr"
+            >
+              <PrimaryButton>Play</PrimaryButton>
+            </Link>
             <Box mt={4}>
               <BonusBlock bonus={bonus} />
             </Box>
@@ -120,30 +123,16 @@ export default function CasinoPage({ casino, description, ads, content }) {
   );
 }
 
-// const file = () => {
-//   const dir = path.join(process.cwd(), 'public/post.md');
-//   const a = fs.readFileSync(dir, 'utf-8');
-//   return a;
-// };
-
 export async function getServerSideProps(context) {
   const { query } = context;
   const { name } = query;
-  // const reviewData = file();
 
-  const url =
-    process.env.ENVIRONMENT === 'production'
-      ? API_URL
-      : 'http://localhost:3000/api';
-  const resultReview = await axios.get(`${url}/reviews/${name}`);
-  const resultCasino = await axios.get(`${url}/casinos/${name}`);
-  const resultDescription = await axios.get(`${url}/descriptions/${name}`);
-  const resultAds = await axios.get(`${url}/ads/${name}`);
-
-  const { data: reviewData } = resultReview.data;
-  const { data: casinoData } = resultCasino.data;
-  const { data: descriptionData } = resultDescription.data;
-  const { data: adsData } = resultAds.data;
+  const { data: reviewData } = await axios.get(`${API_URL}/reviews/${name}`);
+  const { data: casinoData } = await axios.get(`${API_URL}/casinos/${name}`);
+  const { data: descriptionData } = await axios.get(
+    `${API_URL}/descriptions/${name}`,
+  );
+  const { data: adsData } = await axios.get(`${API_URL}/ads/${name}`);
 
   const matterResult = matter(reviewData);
   const postMetadata = matterResult.data;

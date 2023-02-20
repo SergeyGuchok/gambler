@@ -21,12 +21,12 @@ export default function Admin() {
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/casinos').then((res) => {
-      const { data } = res.data;
+      const { data } = res;
       setCasinos(data);
     });
 
     axios.get('http://localhost:3000/api/descriptions').then((res) => {
-      const { data } = res.data;
+      const { data } = res;
       console.log(data);
       setDescriptions(data);
     });

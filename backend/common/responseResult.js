@@ -4,9 +4,7 @@ const ResponseResult = (result, res) => {
     return;
   }
 
-  res
-    .status(result.status)
-    .json({ message: result.message, data: result.data });
+  res.status(result.status).json(result.data);
 };
 
 export default ResponseResult;

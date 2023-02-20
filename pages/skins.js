@@ -7,6 +7,7 @@ import Title from 'components/common/Title';
 import Subtitle from 'components/common/Subtitle';
 import { API_URL } from 'constants/index';
 import dynamic from 'next/dynamic';
+import TopTitle from 'components/common/TopTitle';
 
 const subtitle = `
 Are you looking for the best skins casino sites? Look no further! Our 
@@ -37,16 +38,21 @@ export default function Skins({ listCasinos }) {
   return (
     <>
       <Head>
-        <title>TheGamblr - Skins gambling casinos 2023 reviews</title>
+        <title>Skins Online Casinos 2023 | TheGamblr.com</title>
         <meta
           name="description"
-          content="Find the best online skins gambling casinos with our reviews and information. Play your favorite skins games and win big!"
+          content="Get ready to play your favorite online casino games with ingame skins! With a variety of games to choose from and some of the best skins available, you can have a great online gaming experience. Play for real money and win big with secure and safe payment methods. Enjoy a unique and exciting gaming experience with ingame skins and online casino games!"
+        />
+        <meta
+          name="keywords"
+          content="skins gambling, online skins gambling casinos, online skins casinos, skins gamlbing 2023"
         />
       </Head>
-      <Box sx={{ height: '270px' }} />
+      <Box sx={{ height: '200px' }} />
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="skins gambling" />
         <Subtitle content={subtitle} />
+        <TopTitle />
         <DynamicCasinoList category="skins" casinos={listCasinos} />
       </Column>
     </>
@@ -54,16 +60,11 @@ export default function Skins({ listCasinos }) {
 }
 
 export async function getServerSideProps() {
-  const url =
-    process.env.ENVIRONMENT === 'production'
-      ? API_URL
-      : 'http://localhost:3000/api';
-  const resultList = await axios.get(`${url}/casinos/list/skins`);
-  const { data: listData } = resultList.data;
+  const { data } = await axios.get(`${API_URL}/casinos/list/skins`);
 
   return {
     props: {
-      listCasinos: listData,
+      listCasinos: data,
     },
   };
 }

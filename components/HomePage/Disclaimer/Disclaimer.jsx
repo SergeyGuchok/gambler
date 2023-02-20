@@ -6,7 +6,7 @@ import { warningBackground, warningText } from 'constants/index';
 
 const disclaimerBlockStyles = {
   backgroundColor: warningBackground,
-  marginTop: '85px',
+  margin: '85px 0',
   justifyContent: 'center',
   alignItems: 'center',
   padding: '40px 0 60px',

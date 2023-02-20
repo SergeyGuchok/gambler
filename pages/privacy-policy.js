@@ -2,7 +2,6 @@ import TextBlock from 'components/TextBlock';
 import Box from '@mui/material/Box';
 import Head from 'next/head';
 import Typography from 'components/common/Typography';
-import { primaryWhite } from '../constants';
 
 const wrapperStyles = (theme) => ({
   marginTop: '40px',

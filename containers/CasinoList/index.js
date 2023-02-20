@@ -1,1 +1,1 @@
-export { default } from './CasinoList' // eslint-disable-line
+export { default } from './CasinoList';

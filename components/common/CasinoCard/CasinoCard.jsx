@@ -11,12 +11,16 @@ import {
   navMenuItem,
   TYPE_PRIMARY,
   TYPE_SECONDARY,
+  PROD_URL,
 } from 'constants/index';
 import Button from 'components/common/Button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Box from '@mui/material/Box';
 import VerticalContent from './VerticalContent';
 import HorizontalContent from './HorizontalContent';
+
+const url =
+  process.env.ENVIRONMENT === 'production' ? PROD_URL : 'http://localhost:3000';
 
 const sxColumn = {
   padding: '30px',
@@ -71,12 +75,9 @@ export default function CasinoCard({
   index,
   name,
 }) {
-  const isLg = useMediaQuery((theme) => theme.breakpoints.up('lg'));
-  const isMd = useMediaQuery((theme) => theme.breakpoints.down('lg'));
-  const isSm = useMediaQuery((theme) => theme.breakpoints.down('md'));
-
   const [flipped, setFlipped] = useState(false);
 
+  const isLg = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const link = refLink.includes('https://') ? refLink : `https://${refLink}`;
 
   if (type === 'vertical') {
@@ -108,11 +109,11 @@ export default function CasinoCard({
           style={{ width: '100%' }}
           href={link}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer nofollowr"
         >
           <Button type={TYPE_PRIMARY}>Play now</Button>
         </a>
-        <Link href={`/casino/${name}`} style={{ width: '100%' }}>
+        <Link href={`${url}/casino/${name}`} style={{ width: '100%' }}>
           <Button type={TYPE_SECONDARY} style={{ marginTop: '10px' }}>
             Read more
           </Button>
@@ -148,10 +149,10 @@ export default function CasinoCard({
               {flipped ? 'Show deposit options' : 'Show casino benefits'}
               <MoreHorizIcon className="dot-icon" />
             </Typography>
-            <a href={link} target="_blank" rel="noreferrer">
+            <a href={link} target="_blank" rel="noopener noreferrer nofollow">
               <Button type={TYPE_PRIMARY}>Play now</Button>
             </a>
-            <Link href={`/casino/${name}`} style={{ width: '100%' }}>
+            <Link href={`${url}/casino/${name}`} style={{ width: '100%' }}>
               <Button type={TYPE_SECONDARY} style={{ marginTop: '10px' }}>
                 Read more
               </Button>
@@ -173,10 +174,10 @@ export default function CasinoCard({
             {flipped ? 'Show deposit options' : 'Show casino benefits'}
             <MoreHorizIcon className="dot-icon" />
           </Typography>
-          <a href={link} target="_blank" rel="noreferrer">
+          <a href={link} target="_blank" rel="noreferrer nofollow noopener">
             <Button type={TYPE_PRIMARY}>Play now</Button>
           </a>
-          <Link href={`/casino/${name}`} style={{ width: '100%' }}>
+          <Link href={`${url}/casino/${name}`} style={{ width: '100%' }}>
             <Button type={TYPE_SECONDARY} style={{ marginTop: '10px' }}>
               Read more
             </Button>

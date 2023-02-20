@@ -54,11 +54,6 @@ function generateSiteMap(casinos) {
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://thegamblr.com/crypto/slots/</loc>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
         <loc>https://thegamblr.com/crypto/fast/</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
@@ -70,6 +65,26 @@ function generateSiteMap(casinos) {
     </url>
     <url>
         <loc>https://thegamblr.com/crypto/bonuses/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+        <url>
+        <loc>https://thegamblr.com/money/sports-betting/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://thegamblr.com/money/fast/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://thegamblr.com/money/best/</loc>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://thegamblr.com/money/bonuses/</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>

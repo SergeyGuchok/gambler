@@ -3,16 +3,12 @@ import Box from '@mui/material/Box';
 import CasinoCard from 'components/common/CasinoCard';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const wrapperStyles = {
-  marginTop: '100px',
-};
-
 // eslint-disable-next-line react/display-name
 const CasinoList = memo(({ category, isHomePage, casinos }) => {
   const isXs = useMediaQuery((theme) => theme.breakpoints.down('sm'));
 
   return (
-    <Box sx={wrapperStyles}>
+    <Box>
       {casinos.map((casino, index) => (
         <Box sx={{ marginBottom: '40px' }} key={casino.name}>
           <CasinoCard

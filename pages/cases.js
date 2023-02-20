@@ -7,6 +7,7 @@ import Title from 'components/common/Title';
 import Subtitle from 'components/common/Subtitle';
 import { API_URL } from 'constants/index';
 import dynamic from 'next/dynamic';
+import TopTitle from 'components/common/TopTitle';
 
 const subtitle = `
 Here at Thegamblr.com, we promote the best online casinos for case opening gaming. 
@@ -37,16 +38,21 @@ export default function Cases({ listCasinos }) {
   return (
     <>
       <Head>
-        <title>TheGamblr - Case opening casinos reviews 2023</title>
+        <title>Case Opening Casinos 2023 | TheGamblr.com</title>
         <meta
           name="description"
-          content="Find the best case opening casinos and websites with our reviews and information. Open cases and win big!"
+          content="Unlock the excitement with case opening casinos! Enjoy the thrill of opening cases for the chance to win big prizes. With a wide selection of cases and the best odds around, there's something for everyone. Play now and get ready to win!"
+        />
+        <meta
+          name="keywords"
+          content="case opening casinos, case opening gambling, case opening sites, case opening jackpots, case openings 2023"
         />
       </Head>
-      <Box sx={{ height: '270px' }} />
+      <Box sx={{ height: '200px' }} />
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="case opening" />
         <Subtitle content={subtitle} />
+        <TopTitle />
         <DynamicCasinoList category="cases" casinos={listCasinos} />
       </Column>
     </>
@@ -54,16 +60,11 @@ export default function Cases({ listCasinos }) {
 }
 
 export async function getServerSideProps() {
-  const url =
-    process.env.ENVIRONMENT === 'production'
-      ? API_URL
-      : 'http://localhost:3000/api';
-  const resultList = await axios.get(`${url}/casinos/list/cases`);
-  const { data: listData } = resultList.data;
+  const { data } = await axios.get(`${API_URL}/casinos/list/cases`);
 
   return {
     props: {
-      listCasinos: listData,
+      listCasinos: data,
     },
   };
 }

@@ -109,14 +109,13 @@ export default function TopBarNavigation() {
               link={`${url}/crypto`}
               items={[
                 {
-                  title: 'Best Crypto Casinos',
+                  title: 'Best Casinos',
                   href: `${url}/crypto/best`,
                 },
                 {
-                  title: 'Crypto Sports Betting',
+                  title: 'Sports Betting',
                   href: `${url}/crypto/sports-betting`,
                 },
-                { title: 'Slots', href: `${url}/crypto/slots` },
                 {
                   title: 'Fast Withdrawal Casinos',
                   href: `${url}/crypto/fast`,
@@ -130,7 +129,28 @@ export default function TopBarNavigation() {
             >
               Crypto gambling
             </LinkWithDropdown>
-            <LinkWithDropdown link="/money">
+            <LinkWithDropdown
+              link="/money"
+              items={[
+                {
+                  title: 'Best Casinos',
+                  href: `${url}/money/best`,
+                },
+                {
+                  title: 'Sports Betting',
+                  href: `${url}/money/sports-betting`,
+                },
+                {
+                  title: 'Fast Withdrawal Casinos',
+                  href: `${url}/money/fast`,
+                },
+                {
+                  title: 'Sign Up Bonuses',
+                  href: `${url}/money/bonuses`,
+                },
+                { title: 'All', href: `${url}/money` },
+              ]}
+            >
               Real money gambling
             </LinkWithDropdown>
             <LinkWithDropdown link="/skins">Skins gambling</LinkWithDropdown>

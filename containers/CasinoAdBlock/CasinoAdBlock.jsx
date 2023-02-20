@@ -5,7 +5,12 @@ import Column from 'components/common/Column';
 import Button from 'components/common/Button';
 import React from 'react';
 import Typography from 'components/common/Typography';
-import { primaryBlack, primaryGrey, TYPE_PRIMARY } from 'constants/index';
+import {
+  primaryBlack,
+  primaryGrey,
+  PROD_URL,
+  TYPE_PRIMARY,
+} from 'constants/index';
 import Link from 'next/link';
 
 const wrapperStyles = {
@@ -40,6 +45,9 @@ const bonusStyles = {
   textAlign: 'center',
 };
 
+const url =
+  process.env.ENVIRONMENT === 'production' ? PROD_URL : 'http://localhost:3000';
+
 export default function CasinoAdBlock({ casino }) {
   const { name, imageSrc, bonus, displayName } = casino;
 
@@ -58,7 +66,7 @@ export default function CasinoAdBlock({ casino }) {
         <Typography sx={bonusStyles}>{bonus}</Typography>
       </Column>
       <Box sx={{ maxWidth: '140px', width: '100%' }}>
-        <Link href={`/casino/${name}`}>
+        <Link href={`${url}/casino/${name}`}>
           <Button type={TYPE_PRIMARY} extraSx={{ fontSize: '14px' }} hideArrow>
             Check out
           </Button>

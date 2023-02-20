@@ -1,11 +1,11 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from 'components/common/Typography';
 import CasinoCard from 'components/common/CasinoCard';
 import { useMediaQuery } from '@mui/material';
+import TopTitle from 'components/common/TopTitle';
 
-import { wrapperStyles, titleStyles } from './styles';
+import { wrapperStyles } from './styles';
 
 const isHorizontal = (index, isMd, isXs) => {
   if (index > 1 && isMd && !isXs) return true;
@@ -17,7 +17,7 @@ const TopCasinos = ({ casinos }) => {
 
   return (
     <Box sx={wrapperStyles}>
-      <Typography sx={titleStyles}>Top casinos</Typography>
+      <TopTitle />
       <Grid container spacing={3}>
         {casinos.map((casino, index) =>
           !isHorizontal(index, isMd, isXs) ? (

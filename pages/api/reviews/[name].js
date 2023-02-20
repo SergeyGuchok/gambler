@@ -1,5 +1,4 @@
 import s3Client from 'backend/services/S3';
-import responseResult from 'backend/common/responseResult';
 import nc from 'next-connect';
 import { GetObjectCommand } from '@aws-sdk/client-s3';
 
@@ -31,6 +30,6 @@ handler.get(async (req, res) => {
   );
   const review = await streamToString(result.Body);
 
-  res.json({ data: review });
+  res.json(review);
 });
 export default handler;

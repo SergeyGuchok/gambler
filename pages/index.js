@@ -36,16 +36,17 @@ export default function Home({ listCasinos, topCasinos }) {
   return (
     <>
       <Head>
-        <title>
-          TheGamblr - Best online casinos to your choice! 2023 Reviews
-        </title>
-        {/*<link rel="canonical" href="https://thegamblr.com" />*/}
+        <title>Best Online Casinos 2023 Reviews | TheGamblr.com</title>
         <meta
           name="description"
           content="Find the best online casinos and betting websites with our 2023 reviews, bonuses and promotions information and free sign up money. Play your favorite gambling games and win big!"
         />
+        <meta
+          name="keywords"
+          content="Online Casino, Gambling, Casino Games, Slots, Roulette, Blackjack, Poker, Baccarat, Craps, Video Poker, Live Casino, Online Gambling, Betting, Sports Betting, Online Sports Betting, Casino Bonuses, Promotions, Casino Reviews, Casino Strategy, Real Money Casino, Mobile Casino"
+        />
       </Head>
-      <Box sx={{ height: '270px' }} />
+      <Box sx={{ height: '200px' }} />
       <Column sx={{ justifyContent: 'center' }}>
         <Title content="online gambling" />
         <Subtitle content={subtitle} />
@@ -58,12 +59,7 @@ export default function Home({ listCasinos, topCasinos }) {
 }
 
 export async function getServerSideProps() {
-  const url =
-    process.env.ENVIRONMENT === 'production'
-      ? API_URL
-      : 'http://localhost:3000/api';
-  const result = await axios.get(`${url}/casinos`);
-  const { data } = result.data;
+  const { data } = await axios.get(`${API_URL}/casinos`);
 
   return {
     props: {
