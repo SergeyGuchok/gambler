@@ -7,6 +7,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import TopTitle from 'components/common/TopTitle';
+import ImagePaper from 'components/common/ImagePaper';
 
 const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
 
@@ -51,26 +52,7 @@ export default function CategoryPageContent({ casinos, metadata }) {
             </Grid>
           </Grid>
           <Grid item xs={12} md={4} lg={3}>
-            <Box
-              sx={{
-                borderRadius: '20px',
-                overflow: 'hidden',
-                position: 'relative',
-                height: '100%',
-                minHeight: '250px',
-                maxWidth: '400px',
-                maxHeight: '400px',
-              }}
-            >
-              <Image
-                src={image}
-                alt={alt}
-                style={{ objectFit: 'cover' }}
-                quality="100"
-                placeholder
-                fill
-              />
-            </Box>
+            <ImagePaper image={image} alt={alt} />
           </Grid>
           <Grid item xs={12} md={8} sx={lgDownShowSx}>
             <TextBlock textArray={textArray} />

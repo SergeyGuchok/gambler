@@ -17,7 +17,8 @@ const logoStyles = {
 };
 
 const sxFixed = {
-  boxShadow: '0 0 1px black',
+  boxShadow:
+    '0px 2px 2px -1px rgb(0 0 0 / 15%), 0px 2px 3px 0px rgb(0 0 0 / 10%), 0px 1px 4px 0px rgb(0 0 0 / 8%)',
 };
 
 const sxModalWrapper = {
@@ -82,7 +83,7 @@ export default function TopBarNavigation() {
     >
       <Container sx={{ height: '100%', width: '100%' }} maxWidth="xl">
         <Row sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-          <Link href="/" aria-label="link">
+          <Link href={`${url}/`} aria-label="link">
             <Typography sx={logoStyles}>
               <Icon
                 name="logo"
@@ -106,58 +107,85 @@ export default function TopBarNavigation() {
             })}
           >
             <LinkWithDropdown
-              link={`${url}/crypto`}
+              link={`${url}/`}
               items={[
                 {
                   title: 'Best Casinos',
-                  href: `${url}/crypto/best`,
-                },
-                {
-                  title: 'Sports Betting',
-                  href: `${url}/crypto/sports-betting`,
+                  href: `${url}/casinos/best`,
                 },
                 {
                   title: 'Fast Withdrawal Casinos',
-                  href: `${url}/crypto/fast`,
+                  href: `${url}/casinos/fast`,
+                },
+                {
+                  title: 'Sports Betting',
+                  href: `${url}/casinos/sports-betting`,
                 },
                 {
                   title: 'Sign Up Bonuses',
-                  href: `${url}/crypto/bonuses`,
+                  href: `${url}/casinos/bonuses`,
                 },
-                { title: 'All', href: `${url}/crypto` },
+                {
+                  title: 'Crypto Casinos',
+                  href: `${url}/crypto`,
+                },
+                {
+                  title: 'Real Money Casinos',
+                  href: `${url}/money`,
+                },
+                {
+                  title: 'Case Openings',
+                  href: `${url}/cases`,
+                },
+                {
+                  title: 'Skins Casinos',
+                  href: `${url}/skins`,
+                },
+                { title: 'All Casinos', href: `${url}/` },
               ]}
             >
-              Crypto gambling
+              Casinos
             </LinkWithDropdown>
             <LinkWithDropdown
-              link="/money"
+              link={`${url}/`}
               items={[
                 {
-                  title: 'Best Casinos',
-                  href: `${url}/money/best`,
+                  title: 'All Slot Reviews',
+                  href: `${url}/slots/reviews`,
                 },
                 {
-                  title: 'Sports Betting',
-                  href: `${url}/money/sports-betting`,
+                  title: 'Upcoming Slots',
+                  href: `${url}/slots/coming-soon`,
                 },
                 {
-                  title: 'Fast Withdrawal Casinos',
-                  href: `${url}/money/fast`,
+                  title: 'New Slots',
+                  href: `${url}/slots/new`,
                 },
                 {
-                  title: 'Sign Up Bonuses',
-                  href: `${url}/money/bonuses`,
+                  title: 'Bonus Buy Slots',
+                  href: `${url}/slots/bonus-buy`,
                 },
-                { title: 'All', href: `${url}/money` },
+                {
+                  title: 'Best RTP Slots',
+                  href: `${url}/slots/best-rtp`,
+                },
+                {
+                  title: 'Unique Features Slots',
+                  href: `${url}/slots/unique-features`,
+                },
               ]}
             >
-              Real money gambling
+              Slots
             </LinkWithDropdown>
-            <LinkWithDropdown link="/skins">Skins gambling</LinkWithDropdown>
-            <LinkWithDropdown link="/cases">Case openings</LinkWithDropdown>
-            <LinkWithDropdown link="/">Reviews</LinkWithDropdown>
-            <LinkWithDropdown link="/">Guides</LinkWithDropdown>
-            <LinkWithDropdown link="/">Feedback</LinkWithDropdown>
+            <LinkWithDropdown link={`${url}/skins`}>
+              Skins gambling
+            </LinkWithDropdown>
+            <LinkWithDropdown link={`${url}/cases`}>
+              Case openings
+            </LinkWithDropdown>
+            <LinkWithDropdown link={`${url}/`}>Reviews</LinkWithDropdown>
+            <LinkWithDropdown link={`${url}/`}>Guides</LinkWithDropdown>
+            <LinkWithDropdown link={`${url}/`}>Feedback</LinkWithDropdown>
           </Box>
           <Box
             sx={(theme) => ({

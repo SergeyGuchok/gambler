@@ -15,6 +15,7 @@ import PaymentsBlock from 'components/PaymentsBlock';
 import ContentBlock from 'containers/ContentBlock';
 import matter from 'gray-matter';
 import Link from 'next/link';
+import CasinoAdsPanel from '../../components/common/CasinoAdsPanel';
 
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,
@@ -106,11 +107,7 @@ export default function CasinoPage({ casino, description, ads, content }) {
         </Grid>
 
         <Grid item lg={4} md={12} xs={12}>
-          <Box sx={adsBlockWrapper}>
-            {ads.map((casino) => (
-              <CasinoAdBlock key={casino.name} casino={casino} />
-            ))}
-          </Box>
+          <CasinoAdsPanel ads={ads} />
         </Grid>
       </Grid>
 

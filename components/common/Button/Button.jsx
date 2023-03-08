@@ -1,7 +1,8 @@
 import React from 'react';
-import { TYPE_PRIMARY, TYPE_SECONDARY } from 'constants/index';
+import { TYPE_PRIMARY, TYPE_SECONDARY, TYPE_AD } from 'constants/index';
 import PrimaryButton from './PrimaryButton';
 import SecondaryButton from './SecondaryButton';
+import AdButton from './AdButton';
 
 function Button({ type, children, ...props }) {
   switch (type) {
@@ -10,6 +11,9 @@ function Button({ type, children, ...props }) {
 
     case TYPE_SECONDARY:
       return <SecondaryButton {...props}>{children}</SecondaryButton>;
+
+    case TYPE_AD:
+      return <AdButton {...props}>{children}</AdButton>;
 
     default:
       return null;

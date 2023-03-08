@@ -71,7 +71,9 @@ export default function Footer() {
         <Row sx={rowStyles}>
           <Typography sx={textStyles}>
             Copyright ©2023 Thegamblr.com | All Rights Reserved |{' '}
-            <Link href="/privacy-policy">Privacy policy</Link>
+            <Link href="https://www.thegamblr.com/privacy-policy">
+              Privacy policy
+            </Link>
           </Typography>
         </Row>
       </Container>

@@ -68,7 +68,7 @@ export default function CasinoAdBlock({ casino }) {
       <Box sx={{ maxWidth: '140px', width: '100%' }}>
         <Link href={`${url}/casino/${name}`}>
           <Button type={TYPE_PRIMARY} extraSx={{ fontSize: '14px' }} hideArrow>
-            Check out
+            Read Review
           </Button>
         </Link>
       </Box>

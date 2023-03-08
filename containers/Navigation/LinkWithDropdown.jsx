@@ -45,7 +45,8 @@ const menuStyles = {
   backgroundColor: navBarBackgroundColor,
   zIndex: -100,
   opacity: 0,
-  boxShadow: '0px 10px 25px rgba(0, 0, 0, 0.05)',
+  boxShadow:
+    '0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)',
   borderRadius: '20px',
   padding: '20px 20px 16px 20px',
   transition: '0.5s opacity',

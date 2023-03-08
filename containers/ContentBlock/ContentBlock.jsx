@@ -42,16 +42,12 @@ const pProps = {
   }),
 };
 
-const aStyles = {
-  color: 'lightblue',
-  textDecoration: 'underline',
-};
-
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,
   height: '100%',
-  boxShadow: '0px 25px 100px rgba(0, 0, 0, 0.1)',
-  borderRadius: '30px',
+  boxShadow:
+    '0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)',
+  borderRadius: '20px',
   position: 'relative',
   padding: '30px',
   zIndex: 0,
@@ -101,12 +97,23 @@ const overrides = {
   img: {
     component: 'img',
     props: {
-      style: { margin: '0 auto' },
+      style: { margin: '0 auto', borderRadius: '15px' },
+    },
+  },
+  em: {
+    component: 'em',
+    props: {
+      style: {
+        margin: '10px 0',
+        textAlign: 'center',
+        display: 'inline-block',
+        width: '100%',
+      },
     },
   },
 };
 
-export default function ContentBlock({ content, title }) {
+export default function ContentBlock({ content }) {
   return (
     <Box sx={wrapperStyles}>
       <MuiMarkdown overrides={overrides}>{content}</MuiMarkdown>
