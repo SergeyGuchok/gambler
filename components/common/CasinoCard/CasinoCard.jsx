@@ -20,7 +20,9 @@ import VerticalContent from './VerticalContent';
 import HorizontalContent from './HorizontalContent';
 
 const url =
-  process.env.ENVIRONMENT === 'production' ? PROD_URL : 'http://localhost:3000';
+  process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
+    ? PROD_URL
+    : 'http://localhost:3000';
 
 const sxColumn = {
   padding: '30px',

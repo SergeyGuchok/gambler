@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/logo192.png" />
-        {process.env.ENVIRONMENT === 'production' && (
+        {process.env.NEXT_PUBLIC_ENVIRONMENT === 'production' && (
           <Script
             id="Analytics"
             lazyOnload

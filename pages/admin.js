@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import SlotsInfo from '../components/AdminPage/SlotsInfo';
 import CasinoSection from 'components/AdminPage/CasinoSection';

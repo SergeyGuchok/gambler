@@ -34,7 +34,9 @@ const sxModalWrapper = {
 };
 
 const url =
-  process.env.ENVIRONMENT === 'production' ? PROD_URL : 'http://localhost:3000';
+  process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
+    ? PROD_URL
+    : 'http://localhost:3000';
 
 export default function TopBarNavigation() {
   const [isApply, setIsApply] = useState(false);

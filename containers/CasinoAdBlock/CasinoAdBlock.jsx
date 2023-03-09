@@ -46,7 +46,9 @@ const bonusStyles = {
 };
 
 const url =
-  process.env.ENVIRONMENT === 'production' ? PROD_URL : 'http://localhost:3000';
+  process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
+    ? PROD_URL
+    : 'http://localhost:3000';
 
 export default function CasinoAdBlock({ casino }) {
   const { name, imageSrc, bonus, displayName } = casino;

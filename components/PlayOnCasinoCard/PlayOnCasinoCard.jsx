@@ -13,7 +13,9 @@ import {
 import Link from 'next/link';
 
 const url =
-  process.env.ENVIRONMENT === 'production' ? PROD_URL : 'http://localhost:3000';
+  process.env.NEXT_PUBLIC_ENVIRONMENT === 'production'
+    ? PROD_URL
+    : 'http://localhost:3000';
 
 const wrapperSx = {
   backgroundColor: primaryWhite,

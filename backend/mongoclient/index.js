@@ -14,7 +14,7 @@ if (!process.env.MONGODB_URI) {
   throw new Error('Please add your Mongo URI to .env.local');
 }
 
-if (process.env.ENVIRONMENT === 'development') {
+if (process.env.NEXT_PUBLIC_ENVIRONMENT === 'development') {
   // In development mode, use a global variable so that the value
   // is preserved across module reloads caused by HMR (Hot Module Replacement).
   if (!global._mongoClientPromise) {
