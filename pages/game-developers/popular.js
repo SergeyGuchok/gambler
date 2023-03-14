@@ -27,20 +27,15 @@ export default function PopularGameDevelopers({
   metadata,
   developers,
 }) {
-  const { title, pageTitle, metaKeywords, metaDescription } = metadata
+  const { title, pageTitle, metaKeywords, metaDescription } = metadata;
 
   const adsTitle = 'Check out this developers on the best casinos';
   return (
     <>
       <Head>
-        <title>
-          {pageTitle}
-        </title>
+        <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta
-          name="keywords"
-          content={metaKeywords}
-        />
+        <meta name="keywords" content={metaKeywords} />
       </Head>
       <Box sx={{ height: '200px' }} />
       <Typography sx={titleSx} variant="h1">
@@ -72,10 +67,14 @@ export default function PopularGameDevelopers({
 }
 
 export async function getServerSideProps() {
-  const { data: developersData } = await axios.get(`${API_URL}/developers/tags/popular`);
+  const { data: developersData } = await axios.get(
+    `${API_URL}/developers/tags/popular`,
+  );
   const { data: casinoAdsData } = await axios.get(`${API_URL}/ads/best`);
 
-  const headerMarkdown = readMarkdown('texts/game-developers/developers-popular-page.md');
+  const headerMarkdown = readMarkdown(
+    'texts/game-developers/developers-popular-page.md',
+  );
 
   const matterResult = matter(headerMarkdown);
   const metadata = matterResult.data;

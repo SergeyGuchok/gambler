@@ -83,7 +83,7 @@ export default function Pagination({
     }
   };
 
-  if (!pagesToShow.length) return null
+  if (!pagesToShow.length) return null;
 
   return (
     <Row sx={{ alignItems: 'center' }}>

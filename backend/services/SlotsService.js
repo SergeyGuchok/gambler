@@ -64,22 +64,17 @@ class DescriptionService {
   async getSlots(page) {
     try {
       const collection = await this.getCasinoCollection();
-      const slotsCount = await collection.count()
+      const slotsCount = await collection.count();
       const slots = await collection
         .find()
         .sort({ _id: -1 })
         .skip((page - 1) * 9)
         .toArray();
 
-      return this.createResponse(
-        responseStatusType.OK,
-        'Slot retrieved',
-        [],
-        {
-          slots: slots.slice(0, 9),
-          count: slotsCount
-        }
-      );
+      return this.createResponse(responseStatusType.OK, 'Slot retrieved', [], {
+        slots: slots.slice(0, 9),
+        count: slotsCount,
+      });
     } catch (e) {
       return this.createResponse(
         responseStatusType.FAIL,

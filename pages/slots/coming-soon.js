@@ -25,7 +25,14 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
   const [slotsCount, setSlotsCount] = useState(0);
   const [page, setPage] = useState(1);
 
-  const { metaKeywords, metaDescription, title, pageTitle, imageSrc, imageAlt } = metadata
+  const {
+    metaKeywords,
+    metaDescription,
+    title,
+    pageTitle,
+    imageSrc,
+    imageAlt,
+  } = metadata;
   const onPageChange = (newPage) => {
     setPage(newPage);
   };
@@ -38,7 +45,7 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
     fetchSlots()
       .then(({ data: { count, slots } }) => {
         setSlots(slots);
-        setSlotsCount(count)
+        setSlotsCount(count);
       })
       .catch((e) => {
         setSlots([]);
@@ -59,10 +66,7 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
       <Grid container spacing="40px" mb={4}>
         {imageSrc ? (
           <Grid item xs={3}>
-            <ImagePaper
-              image={imageSrc}
-              alt={imageAlt}
-            />
+            <ImagePaper image={imageSrc} alt={imageAlt} />
           </Grid>
         ) : null}
         <Grid item xs={imageSrc ? 9 : 12}>

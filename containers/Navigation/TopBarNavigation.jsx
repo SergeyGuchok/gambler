@@ -157,7 +157,7 @@ export default function TopBarNavigation() {
                 },
                 {
                   title: 'Most Popular Slot Reviews',
-                  href: `${url}/slots/most-popular`
+                  href: `${url}/slots/most-popular`,
                 },
                 {
                   title: 'Upcoming Slots',

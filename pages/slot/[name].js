@@ -21,11 +21,7 @@ const titleSx = {
   letterSpacing: '-0.5px',
 };
 
-export default function SlotReviewPage({
-  slot,
-  content,
-  casinosAds,
-}) {
+export default function SlotReviewPage({ slot, content, casinosAds }) {
   const { displayName, provider, metaKeywords, metaDescription } = slot;
   const titleConcat = `${displayName} slot review 2023 | TheGamblr.com`;
   const adsTitleConcat = `Play ${displayName} on`;
@@ -43,10 +39,15 @@ export default function SlotReviewPage({
             {displayName} Slot Review
           </Typography>
           <Box mt={2} mb={2}>
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/0dDMwNoVUKA" title={`${displayName} review youtube video`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen />
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/0dDMwNoVUKA"
+              title={`${displayName} review youtube video`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
           </Box>
           <PlayOnCasinoList casinos={casinosAds} title={adsTitleConcat} />
           <Box mt={4}>

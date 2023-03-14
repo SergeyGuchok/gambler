@@ -1,17 +1,14 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CasinoAdsPanel from 'components/common/CasinoAdsPanel';
 import axios from 'axios';
 import { API_URL } from 'constants/index';
-import SlotsReviewCard from 'components/common/SlotsReviewCard';
-import Pagination from 'containers/Pagination';
 import Typography from 'components/common/Typography';
-import { readMarkdown } from 'utils/index';
 import matter from 'gray-matter';
 import DescriptionBlock from 'containers/DescriptionBlock';
 import Head from 'next/head';
-import ImagePaper from 'components/common/ImagePaper'
+import ImagePaper from 'components/common/ImagePaper';
 
 const titleSx = {
   fontSize: '45px',
@@ -20,8 +17,12 @@ const titleSx = {
   letterSpacing: '-0.5px',
 };
 
-export default function GameDeveloperPage({ developer, casinoAdsPanel, metadata, content }) {
-  const { displayName, imageSrc } = developer
+export default function GameDeveloperPage({
+  developer,
+  casinoAdsPanel,
+  content,
+}) {
+  const { displayName, imageSrc } = developer;
 
   return (
     <>
@@ -50,11 +51,15 @@ export default function GameDeveloperPage({ developer, casinoAdsPanel, metadata,
 }
 
 export async function getServerSideProps(context) {
-  const { name } = context.query
-  const { data: developerData } = await axios.get(`${API_URL}/developers/${name}`);
+  const { name } = context.query;
+  const { data: developerData } = await axios.get(
+    `${API_URL}/developers/${name}`,
+  );
   const { data: casinoAdsData } = await axios.get(`${API_URL}/ads/panel`);
-  const { data: reviewData } = await axios.get(`${API_URL}/developers/review/${name}`);
-  
+  const { data: reviewData } = await axios.get(
+    `${API_URL}/developers/review/${name}`,
+  );
+
   const matterResult = matter(reviewData);
   const metadata = matterResult.data;
   const content = matterResult.content;
