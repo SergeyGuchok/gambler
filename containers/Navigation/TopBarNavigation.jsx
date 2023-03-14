@@ -109,7 +109,7 @@ export default function TopBarNavigation() {
             })}
           >
             <LinkWithDropdown
-              link={`${url}/`}
+              link={`${url}/casinos/best`}
               items={[
                 {
                   title: 'Best Casinos',
@@ -149,11 +149,15 @@ export default function TopBarNavigation() {
               Casinos
             </LinkWithDropdown>
             <LinkWithDropdown
-              link={`${url}/`}
+              link={`${url}/slots/review`}
               items={[
                 {
                   title: 'All Slot Reviews',
-                  href: `${url}/slots/reviews`,
+                  href: `${url}/slots/review`,
+                },
+                {
+                  title: 'Most Popular Slot Reviews',
+                  href: `${url}/slots/most-popular`
                 },
                 {
                   title: 'Upcoming Slots',
@@ -178,6 +182,21 @@ export default function TopBarNavigation() {
               ]}
             >
               Slots
+            </LinkWithDropdown>
+            <LinkWithDropdown
+              link={`${url}/game-developers/review`}
+              items={[
+                {
+                  title: 'All Game Developers',
+                  href: `${url}/game-developers/review`,
+                },
+                {
+                  title: 'Most Popular Game Developers',
+                  href: `${url}/game-developers/popular`,
+                },
+              ]}
+            >
+              Game Developers
             </LinkWithDropdown>
             <LinkWithDropdown link={`${url}/skins`}>
               Skins gambling

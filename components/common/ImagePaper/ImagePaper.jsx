@@ -17,6 +17,7 @@ const wrapperSx = {
 const reviewSx = {
   borderRadius: 0,
   boxShadow: 'none',
+  minHeight: '200px',
 };
 
 export default function ImagePaper({ image, alt, isReview = false }) {

@@ -7,13 +7,15 @@ import Grid from '@mui/material/Grid';
 const titleSx = {
   fontWeight: 700,
   fontSize: '40px',
-  marginBottom: '50px',
+  marginBottom: '40px',
   textAlign: 'center',
 };
 export default function PlayOnCasinoList({ title, casinos }) {
   return (
     <Column>
-      <Typography sx={titleSx} variant="h3">{`Play ${title} on`}</Typography>
+      <Typography sx={titleSx} variant="h2">
+        {title}
+      </Typography>
       <Grid container spacing="20px">
         {casinos.map((c, i) => (
           <Grid item xs={3} key={i}>

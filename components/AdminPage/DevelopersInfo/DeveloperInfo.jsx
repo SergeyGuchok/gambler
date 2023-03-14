@@ -1,0 +1,84 @@
+import Box from '@mui/material/Box';
+import { useState, useEffect } from 'react';
+import Typography from 'components/common/Typography';
+import axios from 'axios';
+import { API_URL } from 'constants/index';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+
+const initialState = {
+  name: '',
+  displayName: '',
+  imageSrc: '',
+  tags: '',
+};
+export default function DevelopersInfo() {
+  const [state, setState] = useState({});
+  const [developers, setDevelopers] = useState([]);
+
+  const onSelectDeveloper = (e) => {
+    setState(developers.find((developer) => developer.name === e.target.value));
+  };
+
+  const onAddNewDeveloper = () => {
+    setState(initialState);
+  };
+  const updateState = (e) => {
+    setState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onUpdateDeveloper = () => {
+    axios.post(`${API_URL}/developers`, state);
+  };
+
+  useEffect(() => {
+    const getDevelopers = async () => {
+      const { data } = await axios.get(`${API_URL}/developers`);
+      setDevelopers(data);
+    };
+
+    getDevelopers().catch((e) => {
+      console.log(e);
+      setDevelopers([]);
+    });
+  }, []);
+
+  return (
+    <Box>
+      <Typography mb={2}>Select provider if any:</Typography>
+      <Select value={state.name || null} onChange={onSelectDeveloper}>
+        {developers.map((c) => {
+          return (
+            <MenuItem key={c.name} value={c.name}>
+              {c.name}
+            </MenuItem>
+          );
+        })}
+      </Select>
+      <button onClick={onAddNewDeveloper}>Add new developer</button>
+      <Typography mt={2}>Provider info:</Typography>
+      <Box mt={2}>
+        {Object.keys(state).map((key, index) => {
+          return (
+            <Box mt={2} sx={{ display: 'flex' }} key={index}>
+              <input
+                value={state[key]}
+                name={key}
+                placeholder={key}
+                onChange={updateState}
+              />
+              {key}
+            </Box>
+          );
+        })}
+      </Box>
+
+      <Box mt={2} mb={2}>
+        <button onClick={onUpdateDeveloper}>Save</button>
+      </Box>
+    </Box>
+  );
+}

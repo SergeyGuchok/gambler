@@ -57,7 +57,7 @@ const PageItem = ({ page, isActive, onPageChange }) => {
 };
 
 export default function Pagination({
-  itemsPerPage = 2,
+  itemsPerPage = 9,
   itemsCount = 50,
   onPageChange,
 }) {
@@ -82,6 +82,8 @@ export default function Pagination({
       handlePageChange(activePage + 1);
     }
   };
+
+  if (!pagesToShow.length) return null
 
   return (
     <Row sx={{ alignItems: 'center' }}>

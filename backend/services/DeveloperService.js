@@ -13,22 +13,25 @@ class DescriptionService {
     };
   }
 
-  async getCasinoCollection() {
+  async getDevelopersCollection() {
     const client = await mongoClient;
     const db = await client.db('thegamblr');
-    return await db.collection('slots');
+    return await db.collection('developers');
   }
 
-  async updateSlot({ _id, ...data }) {
+  async updateDeveloper({ _id, ...data }) {
     try {
-      const collection = await this.getCasinoCollection();
+      const collection = await this.getDevelopersCollection();
       const query = { name: data.name };
       const update = { $set: { ...data } };
       const options = { upsert: true };
 
       await collection.updateOne(query, update, options);
 
-      return this.createResponse(responseStatusType.OK, 'Slot added/updated');
+      return this.createResponse(
+        responseStatusType.OK,
+        'Developer added/updated',
+      );
     } catch (e) {
       console.log(e);
       return this.createResponse(
@@ -39,9 +42,9 @@ class DescriptionService {
     }
   }
 
-  async getSlotByName(name) {
+  async getDeveloperByName(name) {
     try {
-      const collection = await this.getCasinoCollection();
+      const collection = await this.getDevelopersCollection();
       const description = await collection.findOne({ name });
 
       return this.createResponse(
@@ -59,26 +62,38 @@ class DescriptionService {
     }
   }
 
+  async getDevelopersByTag(tag) {
+    try {
+      const collection = await this.getDevelopersCollection();
+      const developers = await collection.find().toArray();
+      const result = developers.filter((d) => d.tags.includes(tag));
+      return this.createResponse(
+        responseStatusType.OK,
+        'Slot retrieved',
+        [],
+        result,
+      );
+    } catch (e) {
+      return this.createResponse(
+        responseStatusType.FAIL,
+        'Something went wrong',
+        [e],
+      );
+    }
+  }
+
   // async updateSlug({ })
 
-  async getSlots(page) {
+  async getDevelopers(page) {
     try {
-      const collection = await this.getCasinoCollection();
-      const slotsCount = await collection.count()
-      const slots = await collection
-        .find()
-        .sort({ _id: -1 })
-        .skip((page - 1) * 9)
-        .toArray();
+      const collection = await this.getDevelopersCollection();
+      const developers = await collection.find().toArray();
 
       return this.createResponse(
         responseStatusType.OK,
         'Slot retrieved',
         [],
-        {
-          slots: slots.slice(0, 9),
-          count: slotsCount
-        }
+        developers,
       );
     } catch (e) {
       return this.createResponse(

@@ -38,7 +38,7 @@ const menuStyles = {
   position: 'absolute',
   top: '20px',
   left: '-20px',
-  display: 'flex',
+  display: 'none',
   width: 'auto',
   minWidth: '100%',
   flexDirection: 'column',
@@ -67,6 +67,7 @@ export default function LinkWithDropdown({ items, link, children }) {
   const addStyles =
     !!items?.length && visible
       ? {
+          display: 'flex',
           zIndex: 100,
           opacity: 1,
         }

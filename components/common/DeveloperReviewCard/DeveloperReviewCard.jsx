@@ -18,6 +18,7 @@ const wrapperStyles = (theme) => ({
   position: 'relative',
   zIndex: 0,
   overflow: 'hidden',
+  paddingBottom: '10px',
 });
 
 const titleSx = {
@@ -35,7 +36,6 @@ const dateSx = {
   textAlign: 'center',
   color: primaryGrey,
   marginTop: '5px',
-  marginBottom: '5px',
 };
 
 const providerSx = {
@@ -53,14 +53,18 @@ const url =
     ? PROD_URL
     : 'http://localhost:3000';
 
-export default function ReviewCard({ image, title, date, provider, link }) {
+export default function DeveloperReviewCard({
+  image,
+  title,
+  date,
+  provider,
+  link,
+}) {
   return (
     <Link href={`${url}${link}`}>
       <Box sx={wrapperStyles}>
         <ImagePaper image={image} alt={`${title} logo`} isReview />
         <Typography sx={titleSx}>{title}</Typography>
-        <Typography sx={dateSx}>{date}</Typography>
-        <Typography sx={providerSx}>{provider}</Typography>
       </Box>
     </Link>
   );

@@ -142,7 +142,7 @@ export default function MobileMenu({ onClose }) {
         </Column>
         <Column>
           <Typography sx={mainCategoryStyles}>Slots</Typography>
-          <Link href={`${url}/slots/reviews`}>
+          <Link href={`${url}/slots/review`}>
             <Typography sx={subCategoryStyles}>
               All Slots Reviews <TrendingFlatIcon className="right-arrow" />
             </Typography>
@@ -170,6 +170,20 @@ export default function MobileMenu({ onClose }) {
           <Link href={`${url}/slots/unique-features`}>
             <Typography sx={subCategoryStyles}>
               Unique Features Slots <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+        </Column>
+        <Column>
+          <Typography sx={mainCategoryStyles}>Game Developers</Typography>
+          <Link href={`${url}/game-developers/review`}>
+            <Typography sx={subCategoryStyles}>
+              All Game Developers <TrendingFlatIcon className="right-arrow" />
+            </Typography>
+          </Link>
+          <Link href={`${url}/game-developers/popular`}>
+            <Typography sx={subCategoryStyles}>
+              Most Popular Game Developers{' '}
+              <TrendingFlatIcon className="right-arrow" />
             </Typography>
           </Link>
         </Column>

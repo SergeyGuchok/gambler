@@ -56,6 +56,10 @@ const wrapperStyles = (theme) => ({
   zIndex: 0,
 });
 
+const ulStyles = {
+  paddingLeft: '20px',
+};
+
 const overrides = {
   h2: {
     component: Typography,
@@ -76,6 +80,12 @@ const overrides = {
     component: 'img',
     props: {
       style: { margin: '0 auto', borderRadius: '15px' },
+    },
+  },
+  ul: {
+    component: 'ul',
+    props: {
+      style: ulStyles,
     },
   },
 };

@@ -3,86 +3,86 @@ import { API_URL } from '../constants';
 
 const EXTERNAL_DATA_URL = 'https://www.thegamblr.com';
 
-function generateSiteMap(casinos, slotsNames) {
+function generateSiteMap(casinos, slotsNames, developers) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
-        <loc>https://www.thegamblr.com/</loc>
+        <loc>https://www.thegamblr.com</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/crypto/</loc>
+        <loc>https://www.thegamblr.com/crypto</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/money/</loc>
+        <loc>https://www.thegamblr.com/money</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/cases/</loc>
+        <loc>https://www.thegamblr.com/cases</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/skins/</loc>
+        <loc>https://www.thegamblr.com/skins</loc>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/privacy-policy/</loc>
+        <loc>https://www.thegamblr.com/privacy-policy</loc>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/casinos/best/</loc>
+        <loc>https://www.thegamblr.com/casinos/best</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/casinos/fast/</loc>
+        <loc>https://www.thegamblr.com/casinos/fast</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/casinos/sports-betting/</loc>
+        <loc>https://www.thegamblr.com/casinos/sports-betting</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/casinos/bonuses/</loc>
+        <loc>https://www.thegamblr.com/casinos/bonuses</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/slots/reviews/</loc>
+        <loc>https://www.thegamblr.com/slots/reviews</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/slots/coming-soon/</loc>
+        <loc>https://www.thegamblr.com/slots/coming-soon</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/slots/new/</loc>
+        <loc>https://www.thegamblr.com/slots/new</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/slots/bonus-buy/</loc>
+        <loc>https://www.thegamblr.com/slots/bonus-buy</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/slots/bonus-buy/</loc>
+        <loc>https://www.thegamblr.com/slots/bonus-buy</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/slots/unique-features/</loc>
+        <loc>https://www.thegamblr.com/slots/unique-features</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
@@ -91,7 +91,7 @@ function generateSiteMap(casinos, slotsNames) {
          if (!name) return null;
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/casino/${name}/`}</loc>
+           <loc>${`${EXTERNAL_DATA_URL}/casino/${name}`}</loc>
            <changefreq>weekly</changefreq>
            <priority>0.8</priority>
        </url>
@@ -104,12 +104,34 @@ function generateSiteMap(casinos, slotsNames) {
 
          return `
            <url>
-             <loc>${`${EXTERNAL_DATA_URL}/slot/${name}/`}</loc>
+             <loc>${`${EXTERNAL_DATA_URL}/slot/${name}`}</loc>
              <changefreq>daily</changefreq>
              <priority>0.7</priority>
            </url>
           `;
        })}
+       
+       ${developers.map(({ name }) => {
+         if (!name) return null;
+
+         return `
+           <url>
+             <loc>${`${EXTERNAL_DATA_URL}/game-developers/${name}`}</loc>
+             <changefreq>daily</changefreq>
+             <priority>0.7</priority>
+           </url>
+          `;
+       })}
+       <url>
+         <loc>${`${EXTERNAL_DATA_URL}/game-developers/review`}</loc>
+         <changefreq>daily</changefreq>
+         <priority>0.7</priority>
+       </url>
+       <url>
+         <loc>${`${EXTERNAL_DATA_URL}/game-developers/popular`}</loc>
+         <changefreq>daily</changefreq>
+         <priority>0.7</priority>
+       </url>
     </urlset>
  `;
 }
@@ -122,10 +144,10 @@ export async function getServerSideProps({ res }) {
   const { data } = await axios.get(`${API_URL}/casinos`);
   const { data: slotsData } = await axios.get(`${API_URL}/slots`);
   const slotsNames = slotsData.map((slot) => slot.name);
-  console.log(slotsNames);
+  const { data: developersData } = await axios.get(`${API_URL}/developers`);
 
   // We generate the XML sitemap with the posts data
-  const sitemap = generateSiteMap(data, slotsNames);
+  const sitemap = generateSiteMap(data, slotsNames, developersData);
 
   res.setHeader('Content-Type', 'text/xml');
   // we send the XML to the browser

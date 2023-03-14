@@ -71,7 +71,7 @@ export default function PlayOnCasinoCard({ casino }) {
       </Link>
       <Typography sx={countryTitleSx}>Your country is accepted</Typography>
       <Typography sx={countrySubtitleSx}>
-        See all bonuses in: <Link href={`${url}/`}>Belarus</Link>
+        See all bonuses in: <Link href={`${url}/`}>Your County</Link>
       </Typography>
       <Typography sx={termsSx}>18+ | Terms Apply | Play Responsibly</Typography>
     </Column>

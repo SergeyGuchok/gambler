@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Box from '@mui/material/Box';
 import SlotsInfo from '../components/AdminPage/SlotsInfo';
 import CasinoSection from 'components/AdminPage/CasinoSection';
+import DevelopersInfo from 'components/AdminPage/DevelopersInfo';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 
@@ -29,11 +30,8 @@ function a11yProps(index) {
 }
 
 export default function Admin() {
-  return null;
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
-    console.log(newValue, event);
-    console.log(newValue, event);
     setValue(newValue);
   };
 
@@ -47,7 +45,7 @@ export default function Admin() {
         >
           <Tab label="Casinos" {...a11yProps(0)} />
           <Tab label="Slots" {...a11yProps(1)} />
-          <Tab label="Slots" {...a11yProps(2)} />
+          <Tab label="Developers" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -57,7 +55,7 @@ export default function Admin() {
         <SlotsInfo />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <DevelopersInfo />
       </TabPanel>
     </Box>
   );
