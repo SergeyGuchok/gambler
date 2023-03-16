@@ -142,7 +142,9 @@ function SiteMap() {
 
 export async function getServerSideProps({ res }) {
   const { data } = await axios.get(`${API_URL}/casinos`);
-  const { data: slotsData } = await axios.get(`${API_URL}/slots`);
+  const {
+    data: { slots: slotsData },
+  } = await axios.get(`${API_URL}/slots`);
   const slotsNames = slotsData.map((slot) => slot.name);
   const { data: developersData } = await axios.get(`${API_URL}/developers`);
 

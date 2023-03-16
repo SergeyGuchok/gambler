@@ -19,12 +19,15 @@ const initialState = {
     rtp: '',
     provider: '',
   },
+  tags: '',
   displayName: '',
   provider: '',
   imageSrc: '',
   metaKeywords: '',
   metaDescription: '',
 };
+
+const possibleTags = 'popular | new | unique | rtp | buy | upcoming';
 export default function SlotsInfo() {
   const [slots, setSlots] = useState([]);
   const [state, setState] = useState({});
@@ -61,8 +64,10 @@ export default function SlotsInfo() {
 
   useEffect(() => {
     axios.get('http://localhost:3000/api/slots').then((res) => {
-      const { data } = res;
-      setSlots(data);
+      const {
+        data: { slots },
+      } = res;
+      setSlots(slots);
     });
   }, []);
 
@@ -82,6 +87,7 @@ export default function SlotsInfo() {
       <Box mt={2} mb={2}>
         <button onClick={onAddNewSlot}>Add new slot</button>
       </Box>
+      {possibleTags}
       {state.description ? (
         <>
           <Typography>Slot plain info:</Typography>

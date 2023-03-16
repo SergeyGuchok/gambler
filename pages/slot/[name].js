@@ -38,7 +38,7 @@ export default function SlotReviewPage({ slot, content, casinosAds }) {
           <Typography sx={titleSx} variant="h1">
             {displayName} Slot Review
           </Typography>
-          <Box mt={2} mb={2}>
+          <Box mt={2} mb={2} sx={{ height: '600px' }}>
             <iframe
               width="100%"
               height="100%"

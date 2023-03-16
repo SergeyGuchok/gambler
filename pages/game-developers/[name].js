@@ -9,6 +9,7 @@ import matter from 'gray-matter';
 import DescriptionBlock from 'containers/DescriptionBlock';
 import Head from 'next/head';
 import ImagePaper from 'components/common/ImagePaper';
+import ContentBlock from 'containers/ContentBlock';
 
 const titleSx = {
   fontSize: '45px',
@@ -21,15 +22,17 @@ export default function GameDeveloperPage({
   developer,
   casinoAdsPanel,
   content,
+  metadata,
 }) {
+  const { metaKeywods, metaDescription } = metadata;
   const { displayName, imageSrc } = developer;
 
   return (
     <>
       <Head>
         <title>{`${displayName} Review 2023 | TheGamblr.com`}</title>
-        <meta name="description" content="Review of all slot ever existed" />
-        <meta name="keywords" content="slots review, slots reviews 2023" />
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={metaKeywods} />
       </Head>
       <Box sx={{ height: '200px' }} />
       <Typography sx={titleSx} variant="h1">
@@ -37,7 +40,7 @@ export default function GameDeveloperPage({
       </Typography>
       <Grid container spacing="40px">
         <Grid item xs={8}>
-          <DescriptionBlock content={content} />
+          <ContentBlock content={content} />
         </Grid>
         <Grid item xs={4} justifySelf="end">
           <ImagePaper image={imageSrc} alt={`${displayName} logo`} />

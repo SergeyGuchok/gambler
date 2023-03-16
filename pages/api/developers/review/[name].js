@@ -14,7 +14,7 @@ const streamToString = (stream) => {
 const createBucketParams = (name) => ({
   Bucket: process.env.CLOUD_SPACE_BUCKET_NAME,
   // Key: `developers-review/${name}.md`,
-  Key: `developers-review/developer-review-page-test.md`,
+  Key: `developers-review/${name}.md`,
 });
 
 const handler = nc({
@@ -24,13 +24,17 @@ const handler = nc({
 });
 
 handler.get(async (req, res) => {
-  const { name } = req.query;
+  try {
+    const { name } = req.query;
 
-  const result = await s3Client.send(
-    new GetObjectCommand(createBucketParams(name)),
-  );
-  const review = await streamToString(result.Body);
+    const result = await s3Client.send(
+      new GetObjectCommand(createBucketParams(name)),
+    );
+    const review = await streamToString(result.Body);
 
-  res.json(review);
+    res.json(review);
+  } catch (e) {
+    res.json('');
+  }
 });
 export default handler;

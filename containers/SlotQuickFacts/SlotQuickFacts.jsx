@@ -16,6 +16,7 @@ const keyToTitleMap = {
   date: 'Release Date',
   paylines: 'Paylines',
   rtp: 'RTP',
+  provider: 'Provider',
 };
 
 const wrapperStyles = (theme) => ({
