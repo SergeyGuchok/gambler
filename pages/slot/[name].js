@@ -21,8 +21,14 @@ const titleSx = {
   letterSpacing: '-0.5px',
 };
 
-export default function SlotReviewPage({ slot, content, casinosAds }) {
+export default function SlotReviewPage({
+  slot,
+  content,
+  casinosAds,
+  metadata,
+}) {
   const { displayName, provider, metaKeywords, metaDescription } = slot;
+  const { videoUrl } = metadata;
   const titleConcat = `${displayName} slot review 2023 | TheGamblr.com`;
   const adsTitleConcat = `Play ${displayName} on`;
   return (
@@ -42,7 +48,7 @@ export default function SlotReviewPage({ slot, content, casinosAds }) {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/0dDMwNoVUKA"
+              src={videoUrl}
               title={`${displayName} review youtube video`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -63,22 +69,19 @@ export default function SlotReviewPage({ slot, content, casinosAds }) {
   );
 }
 
-const file = () => {
-  const dir = path.join(process.cwd(), 'public/file.md');
-  const a = fs.readFileSync(dir, 'utf-8');
-  return a;
-};
-
-const reviewData = file();
-
 export async function getServerSideProps(context) {
   try {
     const { name } = context.query;
+
+    const resName =
+      !name.includes('dog') && !name.includes('book')
+        ? 'book-of-power-relax-gaming-slot-review'
+        : name;
     const { data: slotData } = await axios.get(`${API_URL}/slots/${name}`);
+    const { data: reviewData } = await axios.get(
+      `${API_URL}/slots/review/${resName}`,
+    );
     const { data: casinoAdsData } = await axios.get(`${API_URL}/ads/best`);
-    // const { data: reviewData } = await axios.get(
-    //   `${API_URL}/page-category/money-${category}`,
-    // );
 
     const matterResult = matter(reviewData);
     const metadata = matterResult.data;
@@ -88,6 +91,7 @@ export async function getServerSideProps(context) {
       props: {
         slot: slotData,
         content,
+        metadata,
         casinosAds: casinoAdsData,
       },
     };

@@ -100,17 +100,6 @@ const overrides = {
       style: { margin: '0 auto', borderRadius: '15px' },
     },
   },
-  em: {
-    component: 'em',
-    props: {
-      style: {
-        margin: '10px 0',
-        textAlign: 'center',
-        display: 'inline-block',
-        width: '100%',
-      },
-    },
-  },
 };
 
 export default function ContentBlock({ content }) {

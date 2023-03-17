@@ -57,6 +57,7 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={metaKeywords} />
+        <link rel="canonical" href="https://thegamblr.com/slots/bonus-buy" />
       </Head>
       <Box sx={{ height: '200px' }} />
       <Typography sx={titleSx} variant="h1">
