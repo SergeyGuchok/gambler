@@ -99,7 +99,7 @@ export default function DevelopersInfo() {
 
       <Box mt={2} mb={2}>
         {state?.facts?.map((f, i) => (
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex' }} key={i}>
             <Typography sx={{ marginTop: '10px' }}>
               {JSON.stringify(f)}
             </Typography>
