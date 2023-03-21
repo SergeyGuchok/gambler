@@ -61,7 +61,7 @@ export default function Crypto({ listCasinos }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data } = await axios.get(`${API_URL}/casinos/list/crypto`);
 
   return {

@@ -21,7 +21,7 @@ export default function FastCasinos({ casinos, metadata, content }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const { data } = await axios.get(`${API_URL}/casinos`);
     const { data: reviewData } = await axios.get(

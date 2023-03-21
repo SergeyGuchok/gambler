@@ -6,6 +6,7 @@ const DeveloperSchema = new Schema({
   name: String,
   displayName: String,
   imageSrc: String,
+  facts: [],
 });
 
 DeveloperSchema.pre('save', async function () {

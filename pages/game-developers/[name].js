@@ -6,7 +6,7 @@ import axios from 'axios';
 import { API_URL } from 'constants/index';
 import Typography from 'components/common/Typography';
 import matter from 'gray-matter';
-import DescriptionBlock from 'containers/DescriptionBlock';
+import DeveloperQuickFacts from 'containers/DeveloperQuickFacts';
 import Head from 'next/head';
 import ImagePaper from 'components/common/ImagePaper';
 import ContentBlock from 'containers/ContentBlock';
@@ -25,7 +25,7 @@ export default function GameDeveloperPage({
   metadata,
 }) {
   const { metaKeywods, metaDescription } = metadata;
-  const { displayName, imageSrc } = developer;
+  const { displayName, imageSrc, facts } = developer;
 
   return (
     <>
@@ -44,6 +44,11 @@ export default function GameDeveloperPage({
         </Grid>
         <Grid item xs={4} justifySelf="end">
           <ImagePaper image={imageSrc} alt={`${displayName} logo`} />
+          {!!facts.length ? (
+            <Box mt={4}>
+              <DeveloperQuickFacts facts={facts} />
+            </Box>
+          ) : null}
           <Box mt={4}>
             <CasinoAdsPanel ads={casinoAdsPanel} />
           </Box>
