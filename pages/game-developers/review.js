@@ -67,7 +67,7 @@ export default function GameDevelopersReview({
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data: developersData } = await axios.get(`${API_URL}/developers`);
   const { data: casinoAdsData } = await axios.get(`${API_URL}/ads/best`);
 

@@ -83,6 +83,8 @@ export default function Pagination({
     }
   };
 
+  if (itemsPerPage > itemsCount) return null;
+
   if (!pagesToShow.length) return null;
 
   return (
