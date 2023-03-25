@@ -62,11 +62,14 @@ const termsSx = {
 };
 
 export default function PlayOnCasinoCard({ casino }) {
+  const { refLink } = casino;
+  const link = refLink.includes('https://') ? refLink : `https://${refLink}`;
+
   return (
     <Column sx={wrapperSx}>
       <CasinoImage isAd imageSrc={casino.imageSrc} />
       <Typography sx={bonusSx}>{casino.bonus}</Typography>
-      <Link href={casino.refLink} target="_blank">
+      <Link href={link} target="_blank">
         <Button type="ad">Visit Casino</Button>
       </Link>
       <Typography sx={countryTitleSx}>Your country is accepted</Typography>
