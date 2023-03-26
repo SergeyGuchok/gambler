@@ -57,7 +57,7 @@ function generateSiteMap(casinos, slotsNames, developers) {
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://www.thegamblr.com/slots/reviews</loc>
+        <loc>https://www.thegamblr.com/slots/review</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
