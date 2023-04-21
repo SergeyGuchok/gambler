@@ -73,13 +73,9 @@ export async function getServerSideProps(context) {
   try {
     const { name } = context.query;
 
-    const resName =
-      !name.includes('dog') && !name.includes('book') && !name.includes('bee')
-        ? 'book-of-power-relax-gaming-slot-review'
-        : name;
     const { data: slotData } = await axios.get(`${API_URL}/slots/${name}`);
     const { data: reviewData } = await axios.get(
-      `${API_URL}/slots/review/${resName}`,
+      `${API_URL}/slots/review/${name}`,
     );
     const { data: casinoAdsData } = await axios.get(`${API_URL}/ads/best`);
 

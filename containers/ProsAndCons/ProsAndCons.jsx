@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box';
 import ProsOrConsLine from 'components/ProsOrConsLine';
 import Row from 'components/common/Row';
 import Column from 'components/common/Column';
@@ -14,7 +13,6 @@ const optionsStyles = {
   fontSize: '15px',
   marginBottom: 1,
 };
-
 export default function ProsAndCons({ pros, cons }) {
   return (
     <Paper>
