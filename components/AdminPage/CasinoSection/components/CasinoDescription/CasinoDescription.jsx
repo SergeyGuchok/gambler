@@ -1,13 +1,12 @@
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 import Row from 'components/common/Row';
+import TextField from '@mui/material/TextField';
 
 const rowSx = {
   margin: '10px',
   width: '100%',
-  '& > input': {
-    width: '100%',
-  },
+  alignItems: 'center',
 };
 
 export default function CasinoDescription({ casino, onSave, description }) {
@@ -28,13 +27,6 @@ export default function CasinoDescription({ casino, onSave, description }) {
     metaKeywords: metaKeywords || '',
     metaDescription: metaDescription || '',
   });
-
-  useEffect(() => {
-    setState((prevState) => ({
-      ...prevState,
-      ...description,
-    }));
-  }, [description]);
 
   const onNameChange = (e) => {
     setState((prevState) => ({
@@ -124,11 +116,11 @@ export default function CasinoDescription({ casino, onSave, description }) {
 
     return (
       <Box mt={1} display="flex" width="600px">
-        <input
+        <TextField
           type="text"
           onChange={onChangeInput}
           value={value}
-          style={{ width: '100%' }}
+          sx={{ width: '100%', marginRight: '20px', background: 'white' }}
         />
         <Box onClick={onDeleteItem}>Удалить</Box>
       </Box>
@@ -138,15 +130,26 @@ export default function CasinoDescription({ casino, onSave, description }) {
   return (
     <Box>
       <Row sx={rowSx}>
-        <input type="text" value={state.name} onChange={onNameChange} />
+        <TextField
+          type="text"
+          value={state.name}
+          onChange={onNameChange}
+          sx={{ width: '100%', marginRight: '20px', background: 'white' }}
+        />
         <p>name</p>
       </Row>
       <Row sx={rowSx}>
-        <input type="text" value={state.title} onChange={onTitleChange} />
+        <TextField
+          sx={{ width: '100%', marginRight: '20px', background: 'white' }}
+          type="text"
+          value={state.title}
+          onChange={onTitleChange}
+        />
         <p>title</p>
       </Row>
       <Row sx={rowSx}>
-        <input
+        <TextField
+          sx={{ width: '100%', marginRight: '20px', background: 'white' }}
           type="text"
           value={state.metaKeywords}
           onChange={onMetaKeywordsChange}
@@ -154,7 +157,8 @@ export default function CasinoDescription({ casino, onSave, description }) {
         <p>MetaKeywords</p>
       </Row>
       <Row sx={rowSx}>
-        <input
+        <TextField
+          sx={{ width: '100%', marginRight: '20px', background: 'white' }}
           type="text"
           value={state.metaDescription}
           onChange={onMetaDescriptionChange}

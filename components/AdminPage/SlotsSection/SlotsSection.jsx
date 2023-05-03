@@ -4,6 +4,10 @@ import Typography from 'components/common/Typography';
 import axios from 'axios';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import Button from 'components/common/Button';
+import { TYPE_PRIMARY, TYPE_AD } from '../../../constants';
+import Row from 'components/common/Row';
+import TextField from '@mui/material/TextField';
 
 const initialState = {
   name: '',
@@ -27,9 +31,18 @@ const initialState = {
   metaDescription: '',
 };
 
+const rowSx = {
+  margin: '10px',
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
+  color: 'black',
+  fontSize: '16',
+  fontWeight: 500,
+};
+
 const possibleTags = 'popular | new | unique | rtp | buy | upcoming';
-export default function SlotsInfo() {
-  const [slots, setSlots] = useState([]);
+export default function SlotsSection({ slots }) {
   const [state, setState] = useState({});
 
   const onAddNewSlot = () => {
@@ -62,19 +75,14 @@ export default function SlotsInfo() {
       .then((res) => console.log(res));
   };
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/api/slots').then((res) => {
-      const {
-        data: { slots },
-      } = res;
-      setSlots(slots);
-    });
-  }, []);
-
   return (
     <Box>
-      <Box mt={2} mb={2}>
-        <Select value={state.name || null} onChange={onSelectSlot}>
+      <Row sx={{ alignItems: 'center', justifyContent: 'space-evenly' }}>
+        <Select
+          value={state.name || null}
+          onChange={onSelectSlot}
+          sx={{ width: '100%', marginRight: '50px' }}
+        >
           {slots.map((c) => {
             return (
               <MenuItem key={c.name} value={c.name}>
@@ -83,50 +91,68 @@ export default function SlotsInfo() {
             );
           })}
         </Select>
-      </Box>
-      <Box mt={2} mb={2}>
-        <button onClick={onAddNewSlot}>Add new slot</button>
-      </Box>
+        <Button type={TYPE_PRIMARY} onClick={onAddNewSlot}>
+          Add new slot
+        </Button>
+      </Row>
+      <Typography mb={2} mt={2} variant="h4">
+        Tags:
+      </Typography>
       {possibleTags}
       {state.description ? (
         <>
-          <Typography>Slot plain info:</Typography>
+          <Typography variant="h4" mt={2} mb={2}>
+            Slot Plain Info
+          </Typography>
           {Object.keys(state).map((key, index) => {
             if (typeof state[key] !== 'string') return null;
             return (
-              <Box mt={2} sx={{ display: 'flex' }} key={index}>
-                <input
-                  value={state[key]}
+              <Row sx={rowSx} key={index}>
+                <TextField
+                  sx={{
+                    width: '100%',
+                    marginRight: '20px',
+                    background: 'white',
+                  }}
                   name={key}
+                  type="text"
                   placeholder={key}
+                  value={state[key]}
                   onChange={updateState}
                 />
                 {key}
-              </Box>
+              </Row>
             );
           })}
           <Box mt={2}>
-            <Typography>Slot description</Typography>
+            <Typography variant="h4">Slot description</Typography>
             {Object.keys(state.description).map((key, index) => (
-              <Box mt={2} sx={{ display: 'flex' }} key={index}>
-                <input
+              <Row sx={rowSx} key={index}>
+                <TextField
+                  sx={{
+                    width: '100%',
+                    marginRight: '20px',
+                    background: 'white',
+                  }}
                   name={key}
+                  type="text"
+                  placeholder={key}
                   value={state.description[key]}
                   onChange={updateDescriptionState}
-                  placeholder={key}
                 />
                 {key}
-              </Box>
+              </Row>
             ))}
           </Box>
+          <Box mt={2} mb={2}>
+            <Button type={TYPE_AD} onClick={onUpdateSlot}>
+              Save Slot
+            </Button>
+          </Box>
+
+          {JSON.stringify(state)}
         </>
       ) : null}
-
-      <Box mt={2} mb={2}>
-        <button onClick={onUpdateSlot}>Save</button>
-      </Box>
-
-      {JSON.stringify(state)}
     </Box>
   );
 }

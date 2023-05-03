@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import SlotsInfo from '../components/AdminPage/SlotsInfo';
+import Snackbar from '@mui/material/Snackbar';
+import SlotsSection from '../components/AdminPage/SlotsSection';
 import CasinoSection from 'components/AdminPage/CasinoSection';
-import DevelopersInfo from 'components/AdminPage/DevelopersInfo';
+import DevelopersSection from 'components/AdminPage/DevelopersSection';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
+import axios from 'axios';
+import { API_URL } from '../constants';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -29,35 +32,73 @@ function a11yProps(index) {
   };
 }
 
-export default function Admin() {
-  return null;
-  const [value, setValue] = useState(0);
+export default function Admin({ casinos, descriptions, slots }) {
+  const [tab, setTab] = useState(0);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setTab(newValue);
+  };
+
+  const handleSnackbarOpen = (message) => {
+    setSnackbarMessage(message);
+    setSnackbarOpen(true);
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
   };
 
   return (
     <Box sx={{ marginTop: '300px' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs
-          value={value}
+          value={tab}
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <Tab label="Casinos" {...a11yProps(0)} />
-          <Tab label="Slots" {...a11yProps(1)} />
-          <Tab label="Developers" {...a11yProps(2)} />
+          <Tab label="Casinos" {...a11yProps('casinos')} />
+          <Tab label="Slots" {...a11yProps('slots')} />
+          <Tab label="Developers" {...a11yProps('developers')} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        <CasinoSection />
+      <TabPanel value={tab} index={0}>
+        <CasinoSection
+          casinos={casinos}
+          descriptions={descriptions}
+          openSnack={handleSnackbarOpen}
+        />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        <SlotsInfo />
+      <TabPanel value={tab} index={1}>
+        <SlotsSection slots={slots} openSnack={handleSnackbarOpen} />
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        <DevelopersInfo />
+      <TabPanel value={tab} index={2}>
+        <DevelopersSection />
       </TabPanel>
+      <Box mb="1000px" />
+
+      <Snackbar
+        message={snackbarMessage}
+        open={snackbarOpen}
+        onClose={handleSnackbarClose}
+        autoHideDuration={3000}
+      />
     </Box>
   );
+}
+
+export async function getServerSideProps() {
+  const { data: casinos } = await axios.get(`${API_URL}/casinos`);
+  const { data: descriptions } = await axios.get(`${API_URL}/descriptions`);
+  const {
+    data: { slots },
+  } = await axios.get(`${API_URL}/slots`);
+
+  return {
+    props: {
+      casinos,
+      descriptions,
+      slots,
+    },
+  };
 }

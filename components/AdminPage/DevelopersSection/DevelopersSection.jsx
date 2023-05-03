@@ -13,7 +13,7 @@ const initialState = {
   tags: '',
   facts: [],
 };
-export default function DevelopersInfo() {
+export default function DevelopersSection() {
   const [state, setState] = useState({});
   const [developers, setDevelopers] = useState([]);
   const [factKey, setFactKey] = useState('');

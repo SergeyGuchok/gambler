@@ -1,0 +1,16 @@
+export const initialCasinoState = {
+  categories: [],
+  cons: [],
+  imageSrc: '',
+  winRate: 0,
+  name: '',
+  mainCategory: '',
+  pageCategory: [],
+  paymentOptions: [],
+  payoutTime: [{ locale: 'en', content: '~1 hour' }],
+  pros: [],
+  ranking: 0,
+  refLink: '',
+  bonus: [],
+  displayName: '',
+};
