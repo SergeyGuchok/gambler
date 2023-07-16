@@ -40,6 +40,10 @@ export async function getStaticProps() {
       },
     };
   } catch (e) {
+    if (process.env.npm_lifecycle_event === 'build')
+      return {
+        notFound: true,
+      };
     return {
       redirect: {
         permanent: false,
