@@ -68,6 +68,8 @@ export async function getServerSideProps(context) {
     `${API_URL}/developers/review/${name}`,
   );
 
+  console.log(reviewData);
+
   const matterResult = matter(reviewData);
   const metadata = matterResult.data;
   const content = matterResult.content;

@@ -27,10 +27,12 @@ handler.get(async (req, res) => {
   try {
     const { name } = req.query;
 
-    const result = await s3Client.send(
-      new GetObjectCommand(createBucketParams(name)),
-    );
+    const result = await s3Client.downloadStream(createBucketParams(name));
     const review = await streamToString(result.Body);
+    // const result = await s3Client.send(
+    //   new GetObjectCommand(createBucketParams(name)),
+    // );
+    // const review = await streamToString(result.Body);
 
     res.json(review);
   } catch (e) {
