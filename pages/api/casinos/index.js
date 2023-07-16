@@ -9,7 +9,6 @@ const handler = nc({
 });
 
 handler.get(async (req, res) => {
-  console.log(123);
   const result = await CasinoService.getAllCasinos();
 
   responseResult(result, res);

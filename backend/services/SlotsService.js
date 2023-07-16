@@ -1,9 +1,7 @@
 import mongoClient from 'backend/mongoclient';
-import SlotsModel from 'backend/schemas/slot';
 import responseStatusType from 'backend/common/responseStatusTypes';
-import { ObjectId } from 'mongodb';
 
-class DescriptionService {
+class SlotsService {
   createResponse(status, message, errors = [], data) {
     return {
       status,
@@ -59,8 +57,6 @@ class DescriptionService {
     }
   }
 
-  // async updateSlug({ })
-
   async getSlots(page) {
     try {
       const collection = await this.getCasinoCollection();
@@ -85,4 +81,4 @@ class DescriptionService {
   }
 }
 
-module.exports = new DescriptionService();
+module.exports = new SlotsService();

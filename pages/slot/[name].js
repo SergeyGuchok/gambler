@@ -21,6 +21,18 @@ const titleSx = {
   letterSpacing: '-0.5px',
 };
 
+const imageStyle = {
+  objectFit: 'cover',
+  position: 'absolute',
+  height: '100%',
+  width: '100%',
+  left: '0',
+  top: '0',
+  right: '0',
+  bottom: '0',
+  color: 'transparent',
+};
+
 export default function SlotReviewPage({
   slot,
   content,
@@ -28,7 +40,7 @@ export default function SlotReviewPage({
   metadata,
 }) {
   const { displayName, provider, metaKeywords, metaDescription } = slot;
-  const { videoUrl } = metadata;
+  const { videoUrl, imageSrc } = metadata;
   const titleConcat = `${displayName} slot review 2023 | TheGamblr.com`;
   const adsTitleConcat = `Play ${displayName} on`;
   return (
@@ -44,19 +56,38 @@ export default function SlotReviewPage({
           <Typography sx={titleSx} variant="h1">
             {displayName} Slot Review
           </Typography>
-          <Box mt={2} mb={2} sx={{ height: '600px' }}>
-            <iframe
-              width="100%"
-              height="100%"
-              src={videoUrl}
-              title={`${displayName} review youtube video`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+          <Box
+            mt={2}
+            mb={2}
+            sx={{
+              minHeight: '400px',
+              maxHeight: '600px',
+              height: '100%',
+              position: 'relative',
+            }}
+          >
+            {videoUrl ? (
+              <iframe
+                width="100%"
+                height="100%"
+                src={videoUrl}
+                title={`${displayName} review youtube video`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            ) : null}
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt="slot preview"
+                loading="lazy"
+                style={imageStyle}
+              />
+            ) : null}
           </Box>
           <PlayOnCasinoList casinos={casinosAds} title={adsTitleConcat} />
-          <Box mt={4}>
+          <Box mt={4} mb={10}>
             <ContentBlock content={content} />
           </Box>
         </Grid>

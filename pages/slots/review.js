@@ -81,8 +81,13 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
               <SlotsReviewCard
                 image={slot.imageSrc}
                 title={slot.displayName}
-                date={slot.description.date}
-                provider={slot.provider}
+                date={
+                  slot.description.date ||
+                  slot.description['Release Date'] ||
+                  slot.description['releaseDate'] ||
+                  slot.description['release Date']
+                }
+                provider={slot.description.provider || slot.provider}
                 link={`/slot/${slot.name}`}
               />
             </Grid>

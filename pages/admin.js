@@ -8,6 +8,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import axios from 'axios';
 import { API_URL } from '../constants';
+import { OpenAiSlotReview } from 'containers/OpenAiSlotReview/OpenAiSlotReview';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,6 +61,7 @@ export default function Admin({ casinos, descriptions, slots }) {
           <Tab label="Casinos" {...a11yProps('casinos')} />
           <Tab label="Slots" {...a11yProps('slots')} />
           <Tab label="Developers" {...a11yProps('developers')} />
+          <Tab label="OpenAI Casino Review" {...a11yProps('openai')} />
         </Tabs>
       </Box>
       <TabPanel value={tab} index={0}>
@@ -74,6 +76,9 @@ export default function Admin({ casinos, descriptions, slots }) {
       </TabPanel>
       <TabPanel value={tab} index={2}>
         <DevelopersSection />
+      </TabPanel>
+      <TabPanel value={tab} index={3}>
+        <OpenAiSlotReview />
       </TabPanel>
       <Box mb="1000px" />
 

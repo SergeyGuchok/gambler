@@ -126,23 +126,41 @@ export default function SlotsSection({ slots }) {
           })}
           <Box mt={2}>
             <Typography variant="h4">Slot description</Typography>
-            {Object.keys(state.description).map((key, index) => (
-              <Row sx={rowSx} key={index}>
-                <TextField
-                  sx={{
-                    width: '100%',
-                    marginRight: '20px',
-                    background: 'white',
-                  }}
-                  name={key}
-                  type="text"
-                  placeholder={key}
-                  value={state.description[key]}
-                  onChange={updateDescriptionState}
-                />
-                {key}
-              </Row>
-            ))}
+            {Object.keys(state.description).map((key, index) =>
+              key === 'date' ? (
+                <Row sx={rowSx} key={index}>
+                  <TextField
+                    sx={{
+                      width: '100%',
+                      marginRight: '20px',
+                      background: 'white',
+                    }}
+                    name={key}
+                    type="date"
+                    placeholder={key}
+                    value={state.description[key]}
+                    onChange={updateDescriptionState}
+                  />
+                  {key}
+                </Row>
+              ) : (
+                <Row sx={rowSx} key={index}>
+                  <TextField
+                    sx={{
+                      width: '100%',
+                      marginRight: '20px',
+                      background: 'white',
+                    }}
+                    name={key}
+                    type="text"
+                    placeholder={key}
+                    value={state.description[key]}
+                    onChange={updateDescriptionState}
+                  />
+                  {key}
+                </Row>
+              ),
+            )}
           </Box>
           <Box mt={2} mb={2}>
             <Button type={TYPE_AD} onClick={onUpdateSlot}>

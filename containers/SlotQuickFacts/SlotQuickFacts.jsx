@@ -60,7 +60,7 @@ export default function SlotQuickFacts({ description }) {
             <Fragment key={index}>
               <Divider />
               <FactRow
-                title={keyToTitleMap[key]}
+                title={keyToTitleMap[key] || key}
                 content={description[key]}
                 key={index}
               />
