@@ -25,9 +25,6 @@ const handler = nc({
 handler.get(async (req, res) => {
   const { name } = req.query;
 
-  // const result = await s3Client.send(
-  //   new GetObjectCommand(createBucketParams(name)),
-  // );
   const result = await s3Client.downloadStream(createBucketParams(name));
   const review = await streamToString(result.Body);
 

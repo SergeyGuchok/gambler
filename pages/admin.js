@@ -34,7 +34,7 @@ function a11yProps(index) {
 }
 
 export default function Admin({ casinos, descriptions, slots }) {
-  return null;
+  // return null;
   const [tab, setTab] = useState(0);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
@@ -62,7 +62,7 @@ export default function Admin({ casinos, descriptions, slots }) {
           <Tab label="Casinos" {...a11yProps('casinos')} />
           <Tab label="Slots" {...a11yProps('slots')} />
           <Tab label="Developers" {...a11yProps('developers')} />
-          <Tab label="OpenAI Casino Review" {...a11yProps('openai')} />
+          {/*<Tab label="OpenAI Casino Review" {...a11yProps('openai')} />*/}
         </Tabs>
       </Box>
       <TabPanel value={tab} index={0}>
@@ -78,9 +78,9 @@ export default function Admin({ casinos, descriptions, slots }) {
       <TabPanel value={tab} index={2}>
         <DevelopersSection />
       </TabPanel>
-      <TabPanel value={tab} index={3}>
-        <OpenAiSlotReview />
-      </TabPanel>
+      {/*<TabPanel value={tab} index={3}>*/}
+      {/*  <OpenAiSlotReview />*/}
+      {/*</TabPanel>*/}
       <Box mb="1000px" />
 
       <Snackbar

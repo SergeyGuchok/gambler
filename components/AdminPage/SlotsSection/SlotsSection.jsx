@@ -26,7 +26,8 @@ const initialState = {
   tags: '',
   displayName: '',
   provider: '',
-  imageSrc: '',
+  imageSrc:
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/slots-images/',
   metaKeywords: '',
   metaDescription: '',
 };
@@ -44,7 +45,6 @@ const rowSx = {
 const possibleTags = 'popular | new | unique | rtp | buy | upcoming';
 export default function SlotsSection({ slots }) {
   const [state, setState] = useState({});
-
   const onAddNewSlot = () => {
     setState(initialState);
   };

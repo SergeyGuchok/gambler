@@ -51,20 +51,10 @@ class CasinoService {
     }
   }
 
-  async getCasinosByCategory(category) {
+  async getCasinosList() {
     try {
       const collection = await this.getCasinoCollection();
-      const casinos = await collection
-        .find({ pageCategory: category })
-        .sort({ ranking: 1 })
-        .toArray();
-
-      return this.createResponse(
-        responseStatusType.OK,
-        'Casinos retrieved',
-        [],
-        casinos,
-      );
+      return await collection.find().sort({ ranking: 1 }).toArray();
     } catch (e) {
       return this.createResponse(
         responseStatusType.FAIL,

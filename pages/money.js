@@ -61,7 +61,7 @@ export default function Money({ listCasinos }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await axios.get(`${API_URL}/casinos/list/money`);
+  const { data } = await axios.get(`${API_URL}/casinos/list`);
 
   return {
     props: {
