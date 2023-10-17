@@ -66,7 +66,7 @@ export default function PopularGameDevelopers({
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data: developersData } = await axios.get(
     `${API_URL}/developers/tags/popular`,
   );

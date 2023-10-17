@@ -51,19 +51,6 @@ class CasinoService {
     }
   }
 
-  async getCasinosList() {
-    try {
-      const collection = await this.getCasinoCollection();
-      return await collection.find().sort({ ranking: 1 }).toArray();
-    } catch (e) {
-      return this.createResponse(
-        responseStatusType.FAIL,
-        'Something went wrong',
-        [e],
-      );
-    }
-  }
-
   async updateCasino(data) {
     try {
       const { _id, ...rest } = data;

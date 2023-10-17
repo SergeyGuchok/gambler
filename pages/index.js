@@ -56,7 +56,7 @@ export default function Home({ listCasinos, topCasinos }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data } = await axios.get(`${API_URL}/casinos`);
 
   return {
