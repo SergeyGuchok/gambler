@@ -101,7 +101,7 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
 
 export async function getServerSideProps() {
   const { data: casinoAdsPanelData } = await axios.get(`${API_URL}/ads/panel`);
-  const markdown = readMarkdown('texts/slots/new-slots.md');
+  const markdown = readMarkdown('texts/slot/new-slots.md');
 
   const matterResult = matter(markdown);
   const metadata = matterResult.data;

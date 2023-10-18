@@ -61,18 +61,9 @@ class AdsService {
   async getCasinoPageAds(name) {
     try {
       const collection = await this.getCasinoCollection();
-      const selectedCasinoData = await collection.findOne({ name });
-      const { pageCategory } = selectedCasinoData;
-      const sameCasinosByCategory = await collection
-        .find({
-          pageCategory: { $in: pageCategory },
-        })
-        .sort({ ranking: 1 })
-        .toArray();
+      const casinos = await collection.find().sort({ ranking: 1 }).toArray();
 
-      const filteredCasinos = sameCasinosByCategory.filter(
-        (c) => c.name !== name,
-      );
+      const filteredCasinos = casinos.filter((c) => c.name !== name);
 
       return this.createResponse(
         responseStatusType.OK,

@@ -1,6 +1,5 @@
 import s3Client from 'backend/services/S3';
 import nc from 'next-connect';
-import { GetObjectCommand } from '@aws-sdk/client-s3';
 
 const streamToString = (stream) => {
   const chunks = [];
@@ -13,8 +12,7 @@ const streamToString = (stream) => {
 
 const createBucketParams = (name) => ({
   Bucket: process.env.CLOUD_SPACE_BUCKET_NAME,
-  // Key: `developers-review/${name}.md`,
-  Key: `developers-review/${name}.md`,
+  Key: `developer/developer-review/${name}/review.md`,
 });
 
 const handler = nc({

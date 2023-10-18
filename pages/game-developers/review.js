@@ -71,9 +71,7 @@ export async function getServerSideProps() {
   const { data: developersData } = await axios.get(`${API_URL}/developers`);
   const { data: casinoAdsData } = await axios.get(`${API_URL}/ads/best`);
 
-  const markdown = readMarkdown(
-    'texts/game-developers/developers-review-page.md',
-  );
+  const markdown = readMarkdown('texts/developer/developers-review-page.md');
 
   const matterResult = matter(markdown);
   const metadata = matterResult.data;

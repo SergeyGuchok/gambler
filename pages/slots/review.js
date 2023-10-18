@@ -52,6 +52,8 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
       });
   }, [page]);
 
+  console.log(slots);
+
   return (
     <>
       <Head>
@@ -81,12 +83,7 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
               <SlotsReviewCard
                 image={slot.imageSrc}
                 title={slot.displayName}
-                date={
-                  slot.description.date ||
-                  slot.description['Release Date'] ||
-                  slot.description['releaseDate'] ||
-                  slot.description['release Date']
-                }
+                date={slot.description.date}
                 provider={slot.description.provider || slot.provider}
                 link={`/slot/${slot.name}`}
               />
@@ -106,7 +103,7 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
 
 export async function getServerSideProps() {
   const { data: casinoAdsPanelData } = await axios.get(`${API_URL}/ads/panel`);
-  const markdown = readMarkdown('texts/slots/all-slots-review.md');
+  const markdown = readMarkdown('texts/slot/all-slots-review.md');
 
   const matterResult = matter(markdown);
   const metadata = matterResult.data;

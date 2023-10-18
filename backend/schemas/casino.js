@@ -16,7 +16,7 @@ const CasinoSchema = new Schema({
   refLink: String,
   pageCategory: [String],
   displayName: String,
-  bonus: '',
+  bonus: String,
 });
 
 CasinoSchema.pre('save', async function () {

@@ -13,7 +13,7 @@ const streamToString = (stream) => {
 
 const createBucketParams = (name) => ({
   Bucket: process.env.CLOUD_SPACE_BUCKET_NAME,
-  Key: `casino-reviews/${name}.md`,
+  Key: `casino/casino-review/${name}/review.md`,
 });
 
 const handler = nc({

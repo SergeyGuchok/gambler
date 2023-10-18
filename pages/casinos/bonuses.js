@@ -4,6 +4,7 @@ import { API_URL } from 'constants/index';
 import matter from 'gray-matter';
 import CategoryPageContent from 'containers/CategoryPageContent';
 import React from 'react';
+import { readMarkdown } from '../../utils';
 
 export default function BestCasinos({ casinos, metadata, content }) {
   const { description, keywords, title } = metadata;
@@ -24,11 +25,9 @@ export default function BestCasinos({ casinos, metadata, content }) {
 export async function getServerSideProps() {
   try {
     const { data } = await axios.get(`${API_URL}/casinos`);
-    const { data: reviewData } = await axios.get(
-      `${API_URL}/page-category/casinos-bonuses`,
-    );
+    const markdown = readMarkdown('texts/page/casinos-bonuses.md');
 
-    const matterResult = matter(reviewData);
+    const matterResult = matter(markdown);
     const metadata = matterResult.data;
     const content = matterResult.content;
 
