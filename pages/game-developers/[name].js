@@ -10,6 +10,7 @@ import DeveloperQuickFacts from 'containers/DeveloperQuickFacts';
 import Head from 'next/head';
 import ImagePaper from 'components/common/ImagePaper';
 import ContentBlock from 'containers/ContentBlock';
+import { createDynamicMetatags } from '../../utils/metatags';
 
 const titleSx = {
   fontSize: '45px',
@@ -25,14 +26,25 @@ export default function GameDeveloperPage({
   metadata,
 }) {
   const { metaKeywods, metaDescription } = metadata;
-  const { displayName, imageSrc, facts } = developer;
+  const { displayName, imageSrc, facts, name } = developer;
+
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = `https://thegamblr.com/game-delopers/${name}`;
+  const title = `${displayName} Review 2023 | TheGamblr.com`;
 
   return (
     <>
       <Head>
-        <title>{`${displayName} Review 2023 | TheGamblr.com`}</title>
+        <title>{title}</title>
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={metaKeywods} />
+        {createDynamicMetatags({
+          title,
+          description: metaDescription,
+          logoUrl: imageSrc || logoUrl,
+          pageUrl,
+        })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Typography sx={titleSx} variant="h1">

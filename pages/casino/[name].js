@@ -16,6 +16,7 @@ import ContentBlock from 'containers/ContentBlock';
 import matter from 'gray-matter';
 import Link from 'next/link';
 import CasinoAdsPanel from '../../components/common/CasinoAdsPanel';
+import { createDynamicMetatags } from '../../utils/metatags';
 
 const wrapperStyles = (theme) => ({
   backgroundColor: primaryWhite,
@@ -58,10 +59,14 @@ const pageTitleStyles = {
 };
 
 export default function CasinoPage({ casino, description, ads, content }) {
-  const { bonus, pros, cons, paymentOptions, refLink } = casino;
+  const { bonus, pros, cons, paymentOptions, refLink, name, imageSrc } = casino;
   const { main, additional, title, metaDescription, metaKeywords } =
     description;
   const link = refLink.includes('https://') ? refLink : `https://${refLink}`;
+
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = `https://thegamblr.com/casino/${name}`;
 
   return (
     <>
@@ -69,6 +74,12 @@ export default function CasinoPage({ casino, description, ads, content }) {
         <title>{title}</title>
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={metaKeywords} />
+        {createDynamicMetatags({
+          title: title,
+          description: metaDescription,
+          logoUrl: imageSrc || logoUrl,
+          pageUrl,
+        })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Typography sx={pageTitleStyles} variant="h1">

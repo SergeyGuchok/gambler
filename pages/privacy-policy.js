@@ -2,6 +2,7 @@ import TextBlock from 'components/TextBlock';
 import Box from '@mui/material/Box';
 import Head from 'next/head';
 import Typography from 'components/common/Typography';
+import { createDynamicMetatags } from 'utils/metatags';
 
 const wrapperStyles = (theme) => ({
   marginTop: '40px',
@@ -35,16 +36,20 @@ const sixthBlock = [
   'By using our website, you consent to our Privacy Policy.',
 ];
 export default function PrivacyPolicy() {
+  const title =
+    'TheGamblr - Best online casinos to your choice! | Privacy Policy';
+  const description =
+    'Your privacy is important to thegamblr.com so we have created a Privacy Policy that shows how we handle your personal information.';
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = 'https://www.thegamblr.com/privacy-policy';
+
   return (
     <>
       <Head>
-        <title>
-          TheGamblr - Best online casinos to your choice! | Privacy Policy
-        </title>
-        <meta
-          name="description"
-          content="Your privacy is important to thegamblr.com so we have created a Privacy Policy that shows how we handle your personal information."
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {createDynamicMetatags({ title, description, logoUrl, pageUrl })}
       </Head>
       <Box sx={{ height: '270px' }} />
       <Typography sx={titleStyles} variant="h1">

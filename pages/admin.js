@@ -33,7 +33,7 @@ function a11yProps(index) {
 }
 
 export default function Admin({ casinos, descriptions, slots }) {
-  // return null;
+  return null;
   const [tab, setTab] = useState(0);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');

@@ -12,6 +12,7 @@ import matter from 'gray-matter';
 import DescriptionBlock from 'containers/DescriptionBlock';
 import Head from 'next/head';
 import ImagePaper from '../../components/common/ImagePaper';
+import { createDynamicMetatags } from '../../utils/metatags';
 
 const titleSx = {
   fontSize: '45px',
@@ -51,13 +52,23 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
         setSlots([]);
       });
   }, [page]);
+
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = 'https://thegamblr.com/slots/bonus-buy';
+
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={metaKeywords} />
-        <link rel="canonical" href="https://thegamblr.com/slots/bonus-buy" />
+        {createDynamicMetatags({
+          title: pageTitle,
+          description: metaDescription,
+          logoUrl: imageSrc || logoUrl,
+          pageUrl,
+        })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Typography sx={titleSx} variant="h1">

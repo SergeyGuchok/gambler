@@ -8,6 +8,7 @@ import Subtitle from 'components/common/Subtitle';
 import { API_URL } from 'constants/index';
 import dynamic from 'next/dynamic';
 import TopTitle from 'components/common/TopTitle';
+import { createDynamicMetatags } from 'utils/metatags';
 
 const subtitle = `
 Here at Thegamblr.com, we promote the best online casinos for case opening gaming. 
@@ -18,35 +19,24 @@ Come and join us now and experience the thrill of case opening gaming!`;
 
 const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
 
-const sx = (theme) => {
-  return {
-    '.MuiDialog-paper': {
-      borderRadius: '30px',
-      maxWidth: '80%',
-      boxShadow: '0px 50px 120px rgba(0, 0, 0, 0.1)',
-
-      [theme.breakpoints.down('md')]: {
-        boxShadow: 'none',
-        maxWidth: '100%',
-        maxHeight: '100%',
-        borderRadius: 0,
-      },
-    },
-  };
-};
 export default function Cases({ listCasinos }) {
+  const title = 'Case Opening Casinos 2023 | TheGamblr.com';
+  const description =
+    "Unlock the excitement with case opening casinos! Enjoy the thrill of opening cases for the chance to win big prizes. With a wide selection of cases and the best odds around, there's something for everyone. Play now and get ready to win!";
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = 'https://www.thegamblr.com/cases';
+
   return (
     <>
       <Head>
-        <title>Case Opening Casinos 2023 | TheGamblr.com</title>
-        <meta
-          name="description"
-          content="Unlock the excitement with case opening casinos! Enjoy the thrill of opening cases for the chance to win big prizes. With a wide selection of cases and the best odds around, there's something for everyone. Play now and get ready to win!"
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <meta
           name="keywords"
           content="case opening casinos, case opening gambling, case opening sites, case opening jackpots, case openings 2023"
         />
+        {createDynamicMetatags({ title, description, logoUrl, pageUrl })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Column sx={{ justifyContent: 'center' }}>

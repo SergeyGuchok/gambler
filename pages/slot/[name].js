@@ -8,11 +8,10 @@ import Typography from 'components/common/Typography';
 import ImagePaper from 'components/common/ImagePaper';
 import SlotQuickFacts from 'containers/SlotQuickFacts';
 import ContentBlock from 'containers/ContentBlock';
-import path from 'path';
-import fs from 'fs';
 import Head from 'next/head';
 import PlayOnCasinoList from 'containers/PlayOnCasinoList';
 import CasinoAdsPanel from 'components/common/CasinoAdsPanel';
+import { createDynamicMetatags } from '../../utils/metatags';
 
 const titleSx = {
   fontSize: '45px',
@@ -39,16 +38,27 @@ export default function SlotReviewPage({
   casinosAds,
   metadata,
 }) {
-  const { displayName, provider, metaKeywords, metaDescription } = slot;
+  const { displayName, provider, metaKeywords, metaDescription, name } = slot;
   const { videoUrl, imageSrc } = metadata;
   const titleConcat = `${displayName} slot review 2023 | TheGamblr.com`;
   const adsTitleConcat = `Play ${displayName} on`;
+
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = `https://thegamblr.com/slot/${name}`;
+
   return (
     <>
       <Head>
         <title>{titleConcat}</title>
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={metaKeywords} />
+        {createDynamicMetatags({
+          title: titleConcat,
+          description: metaDescription,
+          logoUrl: imageSrc || logoUrl,
+          pageUrl,
+        })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Grid container spacing="40px">

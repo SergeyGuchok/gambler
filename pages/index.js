@@ -6,6 +6,7 @@ import { API_URL } from 'constants/index';
 import Column from 'components/common/Column';
 import Title from 'components/common/Title';
 import Subtitle from 'components/common/Subtitle';
+import { createDynamicMetatags } from 'utils/metatags';
 
 const subtitle = `
 Thegamblr.com is a website that
@@ -31,18 +32,23 @@ const DynamicDisclaimer = dynamic(() =>
 const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
 
 export default function Home({ listCasinos, topCasinos }) {
+  const title = 'Best Online Casinos 2023 Reviews | TheGamblr.com';
+  const description =
+    'Find the best online casinos and betting websites with our 2023 reviews, bonuses and promotions information and free sign up money. Play your favorite gambling games and win big!';
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = 'https://www.thegamblr.com/';
+
   return (
     <>
       <Head>
-        <title>Best Online Casinos 2023 Reviews | TheGamblr.com</title>
-        <meta
-          name="description"
-          content="Find the best online casinos and betting websites with our 2023 reviews, bonuses and promotions information and free sign up money. Play your favorite gambling games and win big!"
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <meta
           name="keywords"
           content="Online Casino, Gambling, Casino Games, Slots, Roulette, Blackjack, Poker, Baccarat, Craps, Video Poker, Live Casino, Online Gambling, Betting, Sports Betting, Online Sports Betting, Casino Bonuses, Promotions, Casino Reviews, Casino Strategy, Real Money Casino, Mobile Casino"
         />
+        {createDynamicMetatags({ title, description, logoUrl, pageUrl })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Column sx={{ justifyContent: 'center' }}>

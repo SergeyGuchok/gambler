@@ -13,6 +13,7 @@ import ImagePaper from 'components/common/ImagePaper';
 import Head from 'next/head';
 import DeveloperReviewCard from 'components/common/DeveloperReviewCard';
 import PlayOnCasinoList from '../../containers/PlayOnCasinoList';
+import { createDynamicMetatags } from '../../utils/metatags';
 
 const titleSx = {
   fontSize: '45px',
@@ -31,12 +32,22 @@ export default function GameDevelopersReview({
 
   const adsTitle = 'All Game Developers on the Best Casinos';
 
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = 'https://thegamblr.com/game-delopers/review';
+
   return (
     <>
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
         <meta name="keywords" content={metaKeywords} />
+        {createDynamicMetatags({
+          title: pageTitle,
+          description: metaDescription,
+          logoUrl: logoUrl,
+          pageUrl,
+        })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Typography sx={titleSx} variant="h1">

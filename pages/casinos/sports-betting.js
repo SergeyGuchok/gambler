@@ -5,10 +5,15 @@ import matter from 'gray-matter';
 import CategoryPageContent from 'containers/CategoryPageContent';
 import React from 'react';
 import { readMarkdown } from '../../utils';
+import { createDynamicMetatags } from '../../utils/metatags';
 
 export default function BestCasinos({ casinos, metadata, content }) {
   const { description, keywords, title } = metadata;
   const titleConcat = `${title} | TheGamblr.com`;
+
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = `https://thegamblr.com/casinos/sports-betting`;
 
   return (
     <>
@@ -16,6 +21,12 @@ export default function BestCasinos({ casinos, metadata, content }) {
         <title>{titleConcat}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
+        {createDynamicMetatags({
+          title: titleConcat,
+          description: description,
+          logoUrl: logoUrl,
+          pageUrl,
+        })}
       </Head>
       <CategoryPageContent casinos={casinos} metadata={metadata} />
     </>

@@ -8,23 +8,7 @@ import Subtitle from 'components/common/Subtitle';
 import { API_URL } from 'constants/index';
 import dynamic from 'next/dynamic';
 import TopTitle from 'components/common/TopTitle';
-
-const sx = (theme) => {
-  return {
-    '.MuiDialog-paper': {
-      borderRadius: '30px',
-      maxWidth: '80%',
-      boxShadow: '0px 50px 120px rgba(0, 0, 0, 0.1)',
-
-      [theme.breakpoints.down('md')]: {
-        boxShadow: 'none',
-        maxWidth: '100%',
-        maxHeight: '100%',
-        borderRadius: 0,
-      },
-    },
-  };
-};
+import { createDynamicMetatags } from 'utils/metatags';
 
 const DynamicCasinoList = dynamic(() => import('containers/CasinoList'));
 
@@ -37,18 +21,23 @@ playing with confidence. Whether you’re looking for slots, table games or live
  we have the perfect crypto casino for your needs!`;
 
 export default function Crypto({ listCasinos }) {
+  const title = 'Crypto Online Casinos 2023 | TheGamblr.com';
+  const description =
+    'Betting on online casinos is now more convenient and secure with cryptocurrency. Enjoy the ultimate gaming experience with fast, secure and anonymous transactions at our online casinos that accept cryptocurrency.';
+  const logoUrl =
+    'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
+  const pageUrl = 'https://www.thegamblr.com/crypto';
+
   return (
     <>
       <Head>
-        <title>Crypto Online Casinos 2023 | TheGamblr.com</title>
-        <meta
-          name="description"
-          content="Betting on online casinos is now more convenient and secure with cryptocurrency. Enjoy the ultimate gaming experience with fast, secure and anonymous transactions at our online casinos that accept cryptocurrency."
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <meta
           name="keywords"
           content="online casino, cryptocurrency casino, crypto casino, Bitcoin casino, Ethereum casino, Litecoin casino, Dogecoin casino, accepting crypto, Bitcoin gambling, Ethereum gambling, crypto gambling, cryptocurrency gambling, crypto gaming"
         />
+        {createDynamicMetatags({ title, description, logoUrl, pageUrl })}
       </Head>
       <Box sx={{ height: '200px' }} />
       <Column sx={{ justifyContent: 'center' }}>

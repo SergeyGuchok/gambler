@@ -1,27 +1,24 @@
-import Box from '@mui/material/Box';
+import Row from 'components/common/Row';
 import Column from 'components/common/Column';
-import { primaryBlack, primaryGrey, secondaryGrey } from 'constants/index';
 import Typography from 'components/common/Typography';
+import { titleStyles, subTitleStyles } from './FooterDisclaimerBlock.styles';
 
-const titleStyles = {
-  fontSize: '25px',
-  color: primaryBlack,
-  textAlign: 'center',
-  marginBottom: '20px',
-  fontWeight: 600,
-};
-
-const subTitleStyles = {
-  fontSize: '20px',
-  color: primaryGrey,
-  textAlign: 'center',
-};
-
-export default function FooterDisclaimerBlock({ title, content }) {
+export default function FooterDisclaimerBlock({ title, content, links }) {
   return (
     <Column>
       <Typography sx={titleStyles}>{title}</Typography>
-      <Typography sx={subTitleStyles}>{content}</Typography>
+      {content ? <Typography sx={subTitleStyles}>{content}</Typography> : null}
+      {links ? (
+        <Row
+          sx={{
+            gap: '10px',
+            width: '100%',
+            justifyContent: 'center',
+          }}
+        >
+          {links}
+        </Row>
+      ) : null}
     </Column>
   );
 }
