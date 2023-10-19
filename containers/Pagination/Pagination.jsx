@@ -63,7 +63,7 @@ export default function Pagination({
 }) {
   const [activePage, setActivePage] = useState(1);
 
-  const pagesCount = Math.round(itemsCount / itemsPerPage);
+  const pagesCount = Math.ceil(itemsCount / itemsPerPage);
   const pagesArray = [...Array(pagesCount)].map((k, i) => i + 1);
 
   const pagesToShow = calculatePagesToShow(activePage, pagesArray, pagesCount);

@@ -1,58 +1,56 @@
 ---
-imageSrc: https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/ugliest-catch-nolimit-city-slot-review/preview.webp
+imageSrc: https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/blood-shadow-nolimit-city-review/preview.webp
 
 ---
 
-## Ugliest Catch: Slot Overview
-Embark on a whimsical and peculiar fishing expedition with the noteworthy "**Ugliest Catch**" slot game created by the reputable [**Nolimit City**](https://thegamblr.com/game-developers/nolimit-city).  
-Unveiled to the gaming community on **17/10/2023**, this captivating slot game transports players to a murky and enigmatic lake, narrating a humorous tale on the grim realities of illegal dumping in a light-hearted manner.  
-Boasting a **5x5 reel setup**, high **volatility**, and an admirable **RTP** of **96.11%** (escalating to a commendable **96.44% with Bonus Buy**), it's an exhilarating high stakes game tailored for those audacious enough to fish in these murky waters, promising an adventure laden with unexpected treasures.
+![Blood Shadow Feature](https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/blood-shadow-nolimit-city-review/game-feature.webp)
 
-## Ugliest Catch: Slot Theme
+## Blood Shadow: Slot Overview
+Engage in a dark and eerie ritual with "**Blood Shadow**" slot game, a sinister creation from the imaginative developers at [**Nolimit City**](https://thegamblr.com/game-developers/nolimit-city).  
+Unveiled to the eager players on **07/03/2023**, Blood Shadow transports you to an abandoned cathedral, shrouded in dark mist, where the underworld roams free, and immortality beckons through a horrific ritual.  
+A **5-reel, 4-row** setup with **1,024 to 3,125 winning ways** invites the brave to delve into the shadows, promising a chilling yet thrilling gameplay experience with a decent **RTP of 96.13%** and high **volatility**.
 
-![Ugliest Catch Free Spins](https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/ugliest-catch-nolimit-city-slot-review/win.webp)
+## Blood Shadow: Slot Theme
+Blood Shadow immerses players in a dreary ritualistic world filled with unimaginable horrors as Shadow Girl and her satanic cathedral lay shrouded in mist, forgotten or perhaps avoided by civilization.  
+The game's darker, occult-themed visuals are accentuated by esoteric markings, dripping waxy candles, and lashings of skulls.  
+Though sinister, Blood Shadow maintains a lighter tone compared to other horror-themed slots, offering a unique blend of horror and intrigue for those daring to step into the shadows.
 
-The theme of Ugliest Catch veers off the tranquil and sunny fishing scenarios typical in other slots.  
-Here, you're plunged into gloomy depths filled with bizarre and ugly fish, offering a twisted yet amusing take on fishing expeditions.  
-The eerie backdrop coupled with the quirky fish characters brings a unique blend of humor and horror, making it a memorable underwater adventure. 
+## Blood Shadow: Slot Features
 
-## Ugliest Catch: Slot Features
+### Ritual Bar
+The Ritual Bar is a unique feature sitting next to the reels, progressing with each winning combination of medium or high paying symbols.  
+Scatter symbols add **10 points**, medium symbols **1 point**, and high symbols **2 points** to the Ritual Bar, which has **5 progression levels**.  
+Upon reaching a new level, players are awarded Candle Spins, and advancing to the final level triggers the Cursed Spins feature.
 
-### Enhancer Cells
-The enhancer cells feature is a remarkable aspect of this game, locked positions on the top and bottom of each reel can reveal Fisherman Wilds, Big Bertas, xWays, or regular pay symbols when unlocked by a scatter.  
-xWays transform into multiple instances of the same pay symbol, ingeniously creating more opportunities for a winning combination. 
+![Blood Shadow Feature](https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/blood-shadow-nolimit-city-review/game-feature.webp)
 
-### Fish Trophy & Big Berta
-These symbols carry random multiplier values that significantly contribute to the Kill N' Grill Wild Fishing feature.  
-Fish Trophy values oscillate between **2x to a whopping 5,000x**, and Big Berta has the potential to reach up to **5,000x**, adding a layer of anticipation and excitement to every spin. 
+### Candle Spins
+On reaching a new level on the Ritual Bar, **2 Candle Spins** are awarded until reaching level 4. Players win **6 free spins** when they advance to Cursed Spins, the final level on the bar.
 
-### Kill N' Grill Wild Fishing
-The Kill N' Grill Wild Fishing feature is a fish collection adventure triggered by Fisherman Wilds, allowing players to collect multipliers from Fish Trophy symbols.  
-This innovative feature can lead to substantial winnings, making the gameplay experience highly rewarding and engaging. 
+### Sticky Wilds
+Sticky Wilds can land on reels **2 to 5** during Candle Spins, dropping to the bottom of the reels, where they become sticky until they are part of a winning combination or a new bet is made.
 
-### Free Spins
+### xSplits
+Activated during Cursed Spins, the xSplit symbol, when landed, can either split the row or the reel, multiplying the symbol size by **2**, thereby creating more winning opportunities.
 
-![Ugliest Catch Free Spins](https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/ugliest-catch-nolimit-city-slot-review/free-spins.webp)
+### Baphomet Rite
+By buying this rite, players can instantly progress the Ritual Bar to the **3rd level**, awarding **+6 spins**. Three of the low and mid-win symbols will transform into their high-ranking versions.
 
-The Free Spins feature, subdivided into Lunker Spins, Hawg Spins, and Honey Hole Spins, is triggered by landing **3, 4, or 5 scatters**, offering various enhancements and the chance to collect Fisherman Wilds for bonus multipliers.  
-Each type of spin unveils new dimensions of gameplay, keeping the players riveted to their screens.
+### Cursed Spins
+Receiving **+6 Blood & Shadow bonus spins** at the start of this feature, the progression bar disappears, and the matrix becomes **5x5**, enhancing the winning ways to **3,125**.
 
-### Bonus Buys
+![Blood Shadow Free Spins](https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/blood-shadow-nolimit-city-review/free-spins.webp)
 
-![Ugliest Catch Bonus](https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/ugliest-catch-nolimit-city-slot-review/feature.webp)
+## Blood Shadow: Slot Mechanics
+With a bet range of **€0.20 to €100**, Blood Shadow is a journey for both the cautious and the daring.  
+The game offers a dynamic gameplay experience with its unique reel setup and varying winning ways.  
+High volatility and an **RTP of 96.13%** ensure that while the stakes are high, the rewards could be monumental, especially with a max win of **6,666x** the bet, playing on the horror themes of the slot.
 
-The Bonus Buys feature is a noteworthy addition, allowing players to buy different types of spins, each with its own price and RTP, for those seeking a heightened level of excitement.  
-This feature caters to players with different risk appetites, making the game appealing to a wide audience.
+## Blood Shadow: Slot Paytable
+The paytable is filled with spooky-looking characters and occult symbols.  
+A five-of-a-kind win awards **0.15-0.6x for the lows**, **0.9-1.5x for the mids**, and **3-8x the bet for the highs**. Wild symbols play a crucial role by substituting for any regular pay symbol, enhancing the win potential.
 
-## Ugliest Catch: Slot Mechanics
-With a bet range of **€0.20 to €100**, Ugliest Catch caters to both cautious and daring gamblers.  
-The game features a unique reel setup with locked positions that can be unlocked by landing scatter symbols, expanding the ways to win to a minimum of **243**, offering a dynamic gameplay experience. [Image here]
-
-## Ugliest Catch: Slot Paytable
-The payouts are enticing, ranging from **0.5 to 5 times the bet** for low-value symbols and increasing to **1.8 to 5 times the bet** for premium symbols.  
-Wilds play a pivotal role by substituting for all symbols except the scatter, thus enhancing the possibility of striking a winning combination. [Image here]
-
-## Ugliest Catch: Slot Verdict
-Ugliest Catch is a breath of fresh, murky air in the slot world, with its audacious theme, high **volatility**, and innovative features.  
-The humor and the promise of hefty wins make this game a must-try for those who appreciate a fishing trip like no other.  
-With a max win of up to **10,000x** your bet, it's a game that’s bound to reel in players for a thrilling gaming experience, making Ugliest Catch a standout title in the crowded sea of online slots. [Image here]
+## Blood Shadow: Slot Verdict
+Blood Shadow is a haunting yet exhilarating dive into a dark, ritualistic world, offering a blend of horror and excitement.  
+The innovative features like the Ritual Bar and Candle Spins, along with the chilling theme, make this slot a captivating adventure for those who dare to venture into the shadows.  
+With a max win of **6,666x** the bet, Blood Shadow stands as a testament to [**Nolimit City's**](https://thegamblr.com/game-developers/nolimit-city) creativity in crafting thrilling gaming experiences amidst eerie, atmospheric settings.

@@ -21,7 +21,7 @@ const titleSx = {
 };
 
 const imageStyle = {
-  objectFit: 'cover',
+  objectFit: 'fill',
   position: 'absolute',
   height: '100%',
   width: '100%',
