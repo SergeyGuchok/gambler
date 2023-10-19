@@ -52,8 +52,6 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
       });
   }, [page]);
 
-  console.log(slots);
-
   return (
     <>
       <Head>
