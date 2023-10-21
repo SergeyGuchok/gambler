@@ -31,7 +31,7 @@ export const createDynamicMetatags = ({
 
       <link
         rel="alternate"
-        href="https://thegamblr.com/slot/ugliest-catch-nolimit-city-review"
+        href="https://www.thegamblr.com/slot/ugliest-catch-nolimit-city-review"
         hrefLang="en-us"
       />
     </>

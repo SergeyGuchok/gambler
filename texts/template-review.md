@@ -6,7 +6,7 @@ imageSrc: https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images
 ![Blood Shadow Feature](https://ams3.digitaloceanspaces.com/thegamblr-storage/slot/slot-images/blood-shadow-nolimit-city-review/game-feature.webp)
 
 ## Blood Shadow: Slot Overview
-Engage in a dark and eerie ritual with "**Blood Shadow**" slot game, a sinister creation from the imaginative developers at [**Nolimit City**](https://thegamblr.com/game-developers/nolimit-city).  
+Engage in a dark and eerie ritual with "**Blood Shadow**" slot game, a sinister creation from the imaginative developers at [**Nolimit City**](https://www.thegamblr.com/game-developers/nolimit-city).  
 Unveiled to the eager players on **07/03/2023**, Blood Shadow transports you to an abandoned cathedral, shrouded in dark mist, where the underworld roams free, and immortality beckons through a horrific ritual.  
 A **5-reel, 4-row** setup with **1,024 to 3,125 winning ways** invites the brave to delve into the shadows, promising a chilling yet thrilling gameplay experience with a decent **RTP of 96.13%** and high **volatility**.
 
@@ -53,4 +53,4 @@ A five-of-a-kind win awards **0.15-0.6x for the lows**, **0.9-1.5x for the mids*
 ## Blood Shadow: Slot Verdict
 Blood Shadow is a haunting yet exhilarating dive into a dark, ritualistic world, offering a blend of horror and excitement.  
 The innovative features like the Ritual Bar and Candle Spins, along with the chilling theme, make this slot a captivating adventure for those who dare to venture into the shadows.  
-With a max win of **6,666x** the bet, Blood Shadow stands as a testament to [**Nolimit City's**](https://thegamblr.com/game-developers/nolimit-city) creativity in crafting thrilling gaming experiences amidst eerie, atmospheric settings.
+With a max win of **6,666x** the bet, Blood Shadow stands as a testament to [**Nolimit City's**](https://www.thegamblr.com/game-developers/nolimit-city) creativity in crafting thrilling gaming experiences amidst eerie, atmospheric settings.

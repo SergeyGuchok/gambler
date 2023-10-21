@@ -30,7 +30,7 @@ export default function GameDeveloperPage({
 
   const logoUrl =
     'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
-  const pageUrl = `https://thegamblr.com/game-delopers/${name}`;
+  const pageUrl = `https://www.thegamblr.com/game-delopers/${name}`;
   const title = `${displayName} Review 2023 | TheGamblr.com`;
 
   return (

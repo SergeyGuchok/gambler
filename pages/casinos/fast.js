@@ -13,7 +13,7 @@ export default function FastCasinos({ casinos, metadata, content }) {
 
   const logoUrl =
     'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
-  const pageUrl = `https://thegamblr.com/casinos/bonuses`;
+  const pageUrl = `https://www.thegamblr.com/casinos/bonuses`;
 
   return (
     <>

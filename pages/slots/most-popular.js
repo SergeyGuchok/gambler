@@ -55,7 +55,7 @@ export default function SlotsReviewPage({ casinoAdsPanel, content, metadata }) {
 
   const logoUrl =
     'https://ams3.digitaloceanspaces.com/thegamblr-storage/seo-content/images/logo.webp';
-  const pageUrl = 'https://thegamblr.com/slots/most-popular';
+  const pageUrl = 'https://www.thegamblr.com/slots/most-popular';
 
   return (
     <>
