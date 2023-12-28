@@ -29,11 +29,7 @@ export const createDynamicMetatags = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
 
-      <link
-        rel="alternate"
-        href="https://www.thegamblr.com/slot/ugliest-catch-nolimit-city-review"
-        hrefLang="en-us"
-      />
+      <link rel="alternate" href={pageUrl} hrefLang="en-us" />
     </>
   );
 };
