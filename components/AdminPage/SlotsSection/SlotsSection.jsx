@@ -72,7 +72,6 @@ export default function SlotsSection({ slots }) {
   const onUpdateSlot = () => {
     axios
       .post('http://localhost:3000/api/slots', state)
-      .then((res) => console.log(res));
   };
 
   return (
