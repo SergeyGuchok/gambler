@@ -57,6 +57,25 @@ class SlotsService {
     }
   }
 
+  async getAllSlots() {
+    try {
+      const collection = await this.getCasinoCollection();
+      const slotsCount = await collection.count();
+      const slots = await collection.find().sort({ _id: -1 }).toArray();
+
+      return this.createResponse(responseStatusType.OK, 'Slot retrieved', [], {
+        slots,
+        count: slotsCount,
+      });
+    } catch (e) {
+      return this.createResponse(
+        responseStatusType.FAIL,
+        'Something went wrong',
+        [e],
+      );
+    }
+  }
+
   async getSlots(page) {
     try {
       const collection = await this.getCasinoCollection();
